@@ -124,7 +124,7 @@ INSERT INTO Vehicule (ModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,Interi
 VALUES (1,"New","Car",2015,true,"Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true);
 
 INSERT INTO Vehicule (ModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
-VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9000,"its a car....",true,true);
+VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
 
 INSERT INTO Vehicule (ModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
 VALUES (1,"New","Car",2015,true,"Black","Black",0,"VIN3",10000,9000,"its a car....",false,true);
