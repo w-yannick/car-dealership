@@ -45,6 +45,16 @@ public class VehiculeDBDao implements VehiculeDao{
     }
 
     @Override
+    public List<Vehicule> getFeaturedVehicules(){
+        final String SELECT_ALL_VEHICULES = "SELECT * FROM Vehicule WHERE Featured = true";
+        List<Vehicule> vehicules = jdbcTemplate.query(SELECT_ALL_VEHICULES, new VehiculeMapper());
+        for(Vehicule v: vehicules){
+            associateModelAndMake(v);
+        }
+        return vehicules;
+    }
+    
+    @Override
     public Vehicule findVehiculeById(int vehiculeId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

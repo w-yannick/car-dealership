@@ -19,6 +19,7 @@ public interface VehiculeDao {
     
     //Read: get all locations
     List<Vehicule> getAllVehicules();
+    List<Vehicule> getFeaturedVehicules();
     Vehicule findVehiculeById(int vehiculeId);
 
     //Update: Update a location

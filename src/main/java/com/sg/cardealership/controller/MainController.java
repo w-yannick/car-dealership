@@ -45,7 +45,7 @@ public class MainController {
     
     @GetMapping("index")
     public String displayIndexPage(Model model) {
-        List<Vehicule> vehicules = vehiculeDao.getAllVehicules();
+        List<Vehicule> vehicules = vehiculeDao.getFeaturedVehicules();
         for(Vehicule v : vehicules){
 //            Make make = makeDao.
         }

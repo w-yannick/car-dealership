@@ -115,13 +115,19 @@ VALUES ("Alex", "manu", "alex@gmail.com", "Admin", "password");
 
 
 INSERT INTO Make (Name,DateAdded,AddedByUserId)
-VALUES ("Ford","2022-07-22", 1);
+VALUES ("Audi","2022-07-22", 1);
 
 INSERT INTO Model (MakeId,Name,DateAdded,AddedByUserId)
 VALUES (1, "A8","2022-07-22", 1);
 
 INSERT INTO Vehicule (ModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
 VALUES (1,"New","Car",2015,true,"Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true);
+
+INSERT INTO Vehicule (ModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
+VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9000,"its a car....",true,true);
+
+INSERT INTO Vehicule (ModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
+VALUES (1,"New","Car",2015,true,"Black","Black",0,"VIN3",10000,9000,"its a car....",false,true);
 
 INSERT INTO Sale (Name,Phone,Email,Street1,Street2,City,State, Zipcode,VehiculeId,PurchasePrice,PurchaseType,UserId)
 VALUES ("Bob","1-111-111-1111","bob@gmail.com","123 street","apt 2","Montreal","QC", "12345",1,9000,"Bank Finance",1);
