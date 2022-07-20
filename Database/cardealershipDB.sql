@@ -81,10 +81,13 @@ create table Sale(
     City VARCHAR(50),
     State VARCHAR(50),
     Zipcode VARCHAR(50),
+    VehiculeId INT,
     PurchasePrice DECIMAL(10,2),
     PurchaseType VARCHAR(50),
     UserId int,
-    foreign key(UserId)
+    foreign key(VehiculeId)
+		references Vehicule(VehiculeId),
+	foreign key(UserId)
 		references User(UserId)
 );
 
@@ -123,8 +126,8 @@ VALUES (1,"New","Car",2015,true,"Black","Black",0,"4Y1SL65848Z411439",10000,9000
 INSERT INTO Vehicule (ModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
 VALUES (1,"New","Car",2015,true,"Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true);
 
-INSERT INTO Sale (Name,Phone,Email,Street1,Street2,City,State, Zipcode,PurchasePrice,PurchaseType,UserId)
-VALUES ("Bob","1-111-111-1111","bob@gmail.com","123 street","apt 2","Montreal","QC", "H3V1A5",9000,"Bank Finance",1);
+INSERT INTO Sale (Name,Phone,Email,Street1,Street2,City,State, Zipcode,VehiculeId,PurchasePrice,PurchaseType,UserId)
+VALUES ("Bob","1-111-111-1111","bob@gmail.com","123 street","apt 2","Montreal","QC", "H3V1A5",1,9000,"Bank Finance",1);
 
 INSERT INTO Special (Description)
 VALUES ("Special1 description bla bla bla");
