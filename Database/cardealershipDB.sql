@@ -80,7 +80,7 @@ create table Sale(
     Street2 VARCHAR(50),
     City VARCHAR(50),
     State VARCHAR(50),
-    Zipcode VARCHAR(50),
+    Zipcode CHAR(5),
     VehiculeId INT,
     PurchasePrice DECIMAL(10,2),
     PurchaseType VARCHAR(50),
@@ -123,11 +123,8 @@ VALUES (1, "A8","2022-07-22", 1);
 INSERT INTO Vehicule (ModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
 VALUES (1,"New","Car",2015,true,"Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true);
 
-INSERT INTO Vehicule (ModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
-VALUES (1,"New","Car",2015,true,"Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true);
-
 INSERT INTO Sale (Name,Phone,Email,Street1,Street2,City,State, Zipcode,VehiculeId,PurchasePrice,PurchaseType,UserId)
-VALUES ("Bob","1-111-111-1111","bob@gmail.com","123 street","apt 2","Montreal","QC", "H3V1A5",1,9000,"Bank Finance",1);
+VALUES ("Bob","1-111-111-1111","bob@gmail.com","123 street","apt 2","Montreal","QC", "12345",1,9000,"Bank Finance",1);
 
 INSERT INTO Special (Description)
 VALUES ("Special1 description bla bla bla");
