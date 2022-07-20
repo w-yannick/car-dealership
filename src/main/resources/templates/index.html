@@ -49,17 +49,24 @@
             </div>  
             <div class="row m-4">
                 <div class="col text-center m-3">
+                    
+                    
+                    
                     <table class="table table-striped border-dark">
                         <thead>
                             <tr>
-                                <th>Brand</th>
+                                <th>VIN #</th>
                                 <th>Price</th>
+                                <th>Model</th>
+                                <th>Make</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="car : ${cars}">
-                                <td th:text="${car.brand}">brand</td>
-                                <td th:text="${car.price}">price</td>
+                            <tr th:each="vehicule : ${vehicules}">
+                                <td th:text="${vehicule.VINNumber}">VIN #</td>
+                                <td th:text="${vehicule.salePrice}">Sale Price</td>
+                                <td th:text="${vehicule.model.name}">Model</td>
+                                <td th:text="${vehicule.model.make.name}">Make</td>
                             </tr>
                         </tbody>
                     </table>

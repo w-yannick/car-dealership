@@ -6,7 +6,11 @@
 package com.sg.cardealership.controller;
 
 import com.sg.cardealership.dao.CarDao;
+import com.sg.cardealership.dao.MakeDao;
+import com.sg.cardealership.dao.ModelDao;
+import com.sg.cardealership.dao.VehiculeDao;
 import com.sg.cardealership.entity.Car;
+import com.sg.cardealership.entity.Vehicule;
 import com.sg.cardealership.view.CarDealershipView;
 import java.util.HashSet;
 import java.util.List;
@@ -26,18 +30,27 @@ public class MainController {
     
     @Autowired
     CarDao carDao;
+    @Autowired
+    VehiculeDao vehiculeDao;
+    @Autowired
+    ModelDao modelDao;
+    @Autowired
+    MakeDao makeDao;
     
     @Autowired
     CarDealershipView carDealershipView;
     
-    Set<ConstraintViolation<Car>> carViolations = new HashSet<>();
+    Set<ConstraintViolation<Car>> vehiculeViolations = new HashSet<>();
 
     
     @GetMapping("index")
     public String displayIndexPage(Model model) {
-        List<Car> cars = carDao.getAllCars();
-        model.addAttribute("cars", cars);
-        model.addAttribute("errors", carViolations);
+        List<Vehicule> vehicules = vehiculeDao.getAllVehicules();
+        for(Vehicule v : vehicules){
+//            Make make = makeDao.
+        }
+        model.addAttribute("vehicules", vehicules);
+        model.addAttribute("errors", vehiculeViolations);
         
         return carDealershipView.displayIndexPage();
     }
