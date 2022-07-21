@@ -17,6 +17,18 @@ img {
   border-radius: 10%;
 }
 
+ hr{
+    border: 0;
+    border-top: 5px solid #999999;
+    border-radius: 10px;
+    margin: 20px;
+    text-align: left;
+ }
+ 
+ a{
+     color: blue;
+ }
+ 
 .container {
     background-color: #FFFF;
     box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
@@ -32,12 +44,7 @@ img {
 }
 
 
-.table-striped>tbody>tr:nth-child(odd)>td, 
-.table-striped>tbody>tr:nth-child(odd)>th {
-    color:white;
-    background-color: #7F8C8D;
-    
- }
+
 
  .container{
     background-color: #ffFFFf;
@@ -57,21 +64,28 @@ img {
         color: white;
          
  }
- a{
-     color: blue;
- }
+
  .vehicule{
      width: 300px;
      padding: 20px;
+    border-radius: 20px;
+
      box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
      display: inline-block;
      margin : 1em
  }
  
- hr{
-    border: 0;
-    border-top: 5px solid #999999;
-    border-radius: 10px;
-    margin: 20px;
-    text-align: left;
+
+ 
+ .featured-title{
+     margin: 3em;
+         text-align: left;
+
+ }
+ 
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+    color:white;
+    background-color: #7F8C8D;
+    
  }
