@@ -61,7 +61,6 @@ public class VehiculeController {
 
     @GetMapping("index")
     public String displayIndexPage(Model model) {
-        List<Vehicule> vehicules = vehiculeRepository.findAll();
         List<Contact> contacts = contactRepository.findAll();
         List<Make> makes = makeRepository.findAll();
         List<CarModel> carModels = carModelRepository.findAll();
@@ -69,9 +68,10 @@ public class VehiculeController {
         List<Special> specials = specialRepository.findAll();
         List<User> users = userRepository.findAll();
 
+//        List<Vehicule> vehicules = vehiculeRepository.findAll();
+        List<Vehicule> vehicules = vehiculeRepository.findByFeatured(true);
         
         model.addAttribute("vehicules", vehicules);
-        model.addAttribute("errors", vehiculeViolations);
         return carDealershipView.displayIndexPage();
     }
     
