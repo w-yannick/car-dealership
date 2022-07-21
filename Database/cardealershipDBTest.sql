@@ -1,6 +1,6 @@
-drop database if exists cardealershipDB;
-create database cardealershipDB;
-use cardealershipDB;
+drop database if exists cardealershipDBTest;
+create database cardealershipDBTest;
+use cardealershipDBTest;
 
 -- Superpower
 create table cars(

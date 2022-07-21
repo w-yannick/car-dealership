@@ -7,33 +7,52 @@ package com.sg.cardealership.entity;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author w-yan
  */
+
+@Entity
 public class Make {
-    int id;
+    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    int makeId;
+    
+    @Column
     String name;
+    
+    @Column
     LocalDate dateAdded;
+                
+    @ManyToOne
+    @JoinColumn(name = "AddedByUserId", nullable = false)
     User user;
 
     public Make() {
     }
 
     public Make(int id, String name, LocalDate dateAdded, User user) {
-        this.id = id;
+        this.makeId = id;
         this.name = name;
         this.dateAdded = dateAdded;
         this.user = user;
     }
 
-    public int getId() {
-        return id;
+    public int getMakeId() {
+        return makeId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setMakeId(int makeId) {
+        this.makeId = makeId;
     }
 
     public String getName() {
@@ -63,7 +82,7 @@ public class Make {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + this.id;
+        hash = 29 * hash + this.makeId;
         hash = 29 * hash + Objects.hashCode(this.name);
         hash = 29 * hash + Objects.hashCode(this.dateAdded);
         hash = 29 * hash + Objects.hashCode(this.user);
@@ -82,7 +101,7 @@ public class Make {
             return false;
         }
         final Make other = (Make) obj;
-        if (this.id != other.id) {
+        if (this.makeId != other.makeId) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
