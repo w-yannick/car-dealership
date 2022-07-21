@@ -72,6 +72,7 @@ public class VehiculeController {
         List<Vehicule> vehicules = vehiculeRepository.findByFeatured(true);
         
         model.addAttribute("vehicules", vehicules);
+        model.addAttribute("specials", specials);
         return carDealershipView.displayIndexPage();
     }
     

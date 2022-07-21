@@ -14,17 +14,36 @@
         <!-- Main Body of Page -->
 
         <div class="container">
-            <div class="jumbotron">
-                <a href="index" style="color:white"><h1 class="display-4">Car Dealership</h1></a>
-                <p class="lead">TO DO: rotate thru specials</p>
+            <div class="jumbotron" id="jumboron">
+                <h1 class="display-4" id="jumbotron-text" th:text="${specials[0].description}"></h1>
+                 <script th:inline="javascript">
+                    /*<![CDATA[*/
+                    var specials = /*[[${specials}]]*/ "specials";
+                    console.log(specials);
+                    /*]]>*/
+//                    header.textContent = specials[0].description;
+                    var timeout;
+                    var index = 1;
+                    function changeText(){
+                        $('#jumbotron-text').html(specials[index].description);
+                        if(index < ( specials.length - 1 ) ){
+                          index++;
+                        }else{
+                          index = 0;
+                        }
+                    };
+                    setInterval(changeText, 2000);
+                    changeText();
+                </script>
             </div>
             
             <hr/>
             
             <div class="container">
-
                 
-            
+               
+                
+                
                 <div class="featured-title">
                     <span ><h1> Featured vehicules</h1></span>
                 </div>
@@ -33,7 +52,7 @@
                     <div class="vehicule" th:each="vehicule : ${vehicules}">
                         <a href="#" th:href="@{/inventory(id=${vehicule.vehiculeId})}" style="color:#000000;">
                             <div class=" col text-center ">
-                                <img th:src="${'/images/' + vehicule.vehiculeId +'.jpg' }" width="200" height="200" />                
+                                <img th:src="${'/images/' + vehicule.vehiculeId +'.jpg' }" width="200" height="200" onerror="this.src='/images/placeholder.jpg';"/>                
                             </div>
                         <strong>
 

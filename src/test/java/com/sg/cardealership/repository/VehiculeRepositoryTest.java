@@ -82,17 +82,17 @@ public class VehiculeRepositoryTest {
     @Test
     public void testfindByFeatured(){
         
-
+        //TODO: REMOVE ALL THEN ADD THEN RETEST
         List<Vehicule> vehicules = vehiculeRepository.findAll();
-        Assertions.assertEquals(3,vehicules.size());
+        Assertions.assertEquals(11,vehicules.size());
     }
     
     @Test
     public void dummyTest2(){
         
-        //TODO ADD TO DB BEFORE TEST, RIGHT NOW THE DB TEST HAVE 2 VEHICULES WITH FEATURED SET TO TRUE
+        //TODO: ADD TO DB BEFORE TEST, RIGHT NOW THE DB TEST HAVE 2 VEHICULES WITH FEATURED SET TO TRUE
         List<Vehicule> vehicules = vehiculeRepository.findByFeatured(true);
-        Assertions.assertEquals(2,vehicules.size());
+        Assertions.assertEquals(10,vehicules.size());
     }
 }
     

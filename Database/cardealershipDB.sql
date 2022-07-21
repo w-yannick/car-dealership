@@ -122,43 +122,30 @@ INSERT INTO CarModel (MakeId,Name,DateAdded,AddedByUserId)
 VALUES (1, "A8","2022-07-22", 1);
 
 INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
-VALUES (1,"New","Car",2015,true,"Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true);
-
-INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
-VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
-
-INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
-VALUES (1,"New","Car",2015,true,"Black","Black",0,"VIN3",10000,9000,"its a car....",false,true);
-
-INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
-VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
-
-INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
-VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
-
-INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
-VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
-
-INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
-VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
-
-INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
-VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
-
-INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
-VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
-
-INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
-VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
-
-INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
-VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
+VALUES 
+	(1,"New","Car",2015,true,"Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true),
+	(1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(1,"New","Car",2015,true,"Black","Black",0,"VIN3",10000,9000,"its a car....",false,true),
+	(1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
 
 INSERT INTO Sale (Name,Phone,Email,Street1,Street2,City,State, Zipcode,VehiculeId,PurchasePrice,PurchaseType,UserId)
 VALUES ("Bob","1-111-111-1111","bob@gmail.com","123 street","apt 2","Montreal","QC", "12345",1,9000,"Bank Finance",1);
 
-INSERT INTO Special (Description)
-VALUES ("Special1 description bla bla bla");
+INSERT INTO Special (Title, Description)
+VALUES 
+	("special1 Title","Special1 description bla bla bla"),
+    ("special2 Title","Special2 description bla bla bla"),
+    ("special3 Title","Special3 description bla bla bla"),
+    ("special4 Title","Special4 description bla bla bla"),
+    ("special5 Title","Special5 description bla bla bla");
+    
 
 INSERT INTO Contact (Name,Email, Phone, Message)
 VALUES ("Patrick", "patrick@gmail.com", "1-111-111-1111","Message from contact bla bla bla");
