@@ -8,7 +8,7 @@ function changeText(){
         $('#jumbotron-text').fadeIn();
     })
 };
-setInterval(changeText, 5000);
+setInterval(changeText, 3000);
 
 const userAction = async () => {
     const response = await fetch('http://localhost:8080/api/specials');

@@ -28,6 +28,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.sg.cardealership.repository.CarModelRepository;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -59,26 +62,13 @@ public class VehiculeController {
     
     Set<ConstraintViolation<Vehicule>> vehiculeViolations = new HashSet<>();
 
-    @GetMapping("index")
+    @RequestMapping(value = {"/","/index","/home","/home/index"}, method = RequestMethod.GET)
     public String displayIndexPage(Model model) {
-        List<Contact> contacts = contactRepository.findAll();
-        List<Make> makes = makeRepository.findAll();
-        List<CarModel> carModels = carModelRepository.findAll();
-        List<Sale> sales = saleRepository.findAll();
-        List<Special> specials = specialRepository.findAll();
-        List<User> users = userRepository.findAll();
 
-//        List<Vehicule> vehicules = vehiculeRepository.findAll();
         List<Vehicule> vehicules = vehiculeRepository.findByFeatured(true);
         
         model.addAttribute("vehicules", vehicules);
-        model.addAttribute("specials", specials);
         return carDealershipView.displayIndexPage();
     }
-    
-    //map the home to the index page
-    @GetMapping("/")
-    public String displayHomePage(Model model) {
-        return displayIndexPage(model);
-    }
+
 }
