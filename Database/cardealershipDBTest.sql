@@ -130,6 +130,30 @@ VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car..
 INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
 VALUES (1,"New","Car",2015,true,"Black","Black",0,"VIN3",10000,9000,"its a car....",false,true);
 
+INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
+VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
+
+INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
+VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
+
+INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
+VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
+
+INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
+VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
+
+INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
+VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
+
+INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
+VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
+INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
+VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
+
+INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
+VALUES (1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
+
+
 INSERT INTO Sale (Name,Phone,Email,Street1,Street2,City,State, Zipcode,VehiculeId,PurchasePrice,PurchaseType,UserId)
 VALUES ("Bob","1-111-111-1111","bob@gmail.com","123 street","apt 2","Montreal","QC", "12345",1,9000,"Bank Finance",1);
 

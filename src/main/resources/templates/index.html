@@ -21,38 +21,54 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script type="text/javascript" th:src="@{/js/index.js}"></script>
+        
 
         
         <div class="container">
             <div class="jumbotron">
                 <a href="index" style="color:white"><h1 class="display-4">Car Dealership</h1></a>
-                    <p class="lead">Driving safer(or not)</p>
-            </div>
-            <div class="row m-4 ">
-                <div class="col text-center m-3">
-                    <a  class="btn btn-outline-primary btn-lg">Cars</a>
-                </div>
+                    <p class="lead">TO DO: rotate thru specials</p>
             </div>
             
+            <hr/>
+            <div class="container">
             
-            <div class="row m-4">
                 
-                <div class="col-12 text-center m-5">
-                    <p>Welcome to the Sueprhero/Supervillain sighting web application </p>
-                    <p>You can also navigate through the menu bar located at the top of the screen. <br>
-                    You can find information about every superheroes/villains, superpowers, organizations, locations and sightings
-                    </p>
-                    <p>You can find below the latest sighting of superheroes/supervillains</p>
-                    
-                </div>
-                
+                <script>
+                    $(document).ready(function(){
+                        var element = '${vehicules}';
+                        console.log(element);
+                        
+                    });
+                    var modelAttributeValue = JSON.parse('${vehicules}');
+                    console.log(element);
+                </script>
                 
             </div>  
-            <div class="row m-4">
-                <div class="col text-center m-3">
+            
+            <div class="title">
+                <span ><h1> Featured vehicules</h1></span>
+            </div>
+            <div class="vehicule-container">
+                
                     
+                    <div class="vehicule" th:each="vehicule : ${vehicules}">
+                            <div class=" col text-center">
+                                <img th:src="${'/images/' + vehicule.vehiculeId +'.jpg' }" width="200" height="200" />                
+                            </div>
+                            <div class=" col-12 text-center">
+                                <span th:text="${vehicule.year}"/>                
+                            
+                                <span th:text="${vehicule.carModel.name}"/>                
+                            
+                                <span th:text="${vehicule.carModel.make.name}"/>                
+                            </div>
+                            <div class=" col-12 text-center">
+                                $<span th:text="${vehicule.salePrice}"/>                
+                            </div>
+                    </div>
                     
-                    
+<!--                Keep it to  reutilise in other page    
                     <table class="table table-striped border-dark">
                         <thead>
                             <tr>
@@ -70,8 +86,8 @@
                                 <td th:text="${vehicule.carModel.make.name}">Make</td>
                             </tr>
                         </tbody>
-                    </table>
-                </div>
+                    </table>-->
+                
             </div>
     </body>
 </html>
