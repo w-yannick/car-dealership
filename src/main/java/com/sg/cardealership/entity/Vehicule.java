@@ -7,27 +7,66 @@ package com.sg.cardealership.entity;
 
 import java.math.BigDecimal;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author w-yan
  */
+@Entity
 public class Vehicule {
     
-    int id;
-    Model model;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    int vehiculeId;
+    
+    @ManyToOne
+    @JoinColumn(name = "CarModelid", nullable = false)
+    CarModel carModel;
+    
+    @Column
     String type;
+    
+    @Column
     String BodyStyle;
+    
+    @Column
     int year;
+    
+    @Column
     boolean automatic;
+    
+    @Column
     String exteriorColor;
+    
+    @Column
     String interiorColor;
+    
+    @Column
     int mileage;
+    
+    @Column
     String VINNumber;
+    
+    @Column
     BigDecimal MSRP;
+    
+    @Column
     BigDecimal salePrice;
+    
+    @Column
     String description;
+    
+    @Column
     boolean featured;
+    
+    @Column
     boolean available;
 
     
@@ -36,7 +75,7 @@ public class Vehicule {
 
     
     public Vehicule(int id, String type, String BodyStyle, int year, boolean isAutomatic, String exteriorColor, String interiorColor, int mileage, String VINNumber, BigDecimal MSRP, BigDecimal salePrice, String description, boolean isFeatured, boolean isAvailable) {
-        this.id = id;
+        this.vehiculeId = id;
         this.type = type;
         this.BodyStyle = BodyStyle;
         this.year = year;
@@ -52,20 +91,20 @@ public class Vehicule {
         this.available = isAvailable;
     }
 
-    public int getId() {
-        return id;
+    public int getVehiculeId() {
+        return vehiculeId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setVehiculeId(int vehiculeId) {
+        this.vehiculeId = vehiculeId;
     }
 
-    public Model getModel() {
-        return model;
+    public CarModel getModel() {
+        return carModel;
     }
 
-    public void setModel(Model model) {
-        this.model = model;
+    public void setModel(CarModel model) {
+        this.carModel = model;
     }
 
     
@@ -173,10 +212,19 @@ public class Vehicule {
         this.available = available;
     }
 
+    public CarModel getCarModel() {
+        return carModel;
+    }
+
+    public void setCarModel(CarModel carModel) {
+        this.carModel = carModel;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + this.id;
+        int hash = 7;
+        hash = 97 * hash + this.vehiculeId;
+        hash = 97 * hash + Objects.hashCode(this.carModel);
         hash = 97 * hash + Objects.hashCode(this.type);
         hash = 97 * hash + Objects.hashCode(this.BodyStyle);
         hash = 97 * hash + this.year;
@@ -205,7 +253,7 @@ public class Vehicule {
             return false;
         }
         final Vehicule other = (Vehicule) obj;
-        if (this.id != other.id) {
+        if (this.vehiculeId != other.vehiculeId) {
             return false;
         }
         if (this.year != other.year) {
@@ -241,19 +289,23 @@ public class Vehicule {
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        //just compare the value
-        if (!(this.MSRP.compareTo(other.getMSRP()) == 0)) {
+        if (!Objects.equals(this.carModel, other.carModel)) {
             return false;
         }
-        if (!(this.salePrice.compareTo(other.getSalePrice()) == 0)) {
+        if (!Objects.equals(this.MSRP, other.MSRP)) {
+            return false;
+        }
+        if (!Objects.equals(this.salePrice, other.salePrice)) {
             return false;
         }
         return true;
     }
 
+    
+
     @Override
     public String toString() {
-        return "Vehicule{" + "id=" + id + ", type=" + type + ", BodyStyle=" + BodyStyle + ", year=" + year + ", automatic=" + automatic + ", exteriorColor=" + exteriorColor + ", interiorColor=" + interiorColor + ", mileage=" + mileage + ", VINNumber=" + VINNumber + ", MSRP=" + MSRP + ", salePrice=" + salePrice + ", description=" + description + ", featured=" + featured + ", available=" + available + '}';
+        return "Vehicule{" + "id=" + vehiculeId + ", type=" + type + ", BodyStyle=" + BodyStyle + ", year=" + year + ", automatic=" + automatic + ", exteriorColor=" + exteriorColor + ", interiorColor=" + interiorColor + ", mileage=" + mileage + ", VINNumber=" + VINNumber + ", MSRP=" + MSRP + ", salePrice=" + salePrice + ", description=" + description + ", featured=" + featured + ", available=" + available + '}';
     }
     
     
