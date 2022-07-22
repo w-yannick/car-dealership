@@ -70,7 +70,7 @@ public class RetailController {
         List<Vehicule> vehicules = vehiculeRepository.findByFeatured(true);
 //        List<Vehicule> vehicules = vehiculeRepository.findAll();
 //        List<Vehicule> vehicules = vehiculeRepository.findByPriceAndYear("Used",0,999999,0,9999);
-        
+//        carModelRepository.deleteById(1);
         model.addAttribute("vehicules", vehicules);
         return carDealershipView.displayIndexPage();
     }

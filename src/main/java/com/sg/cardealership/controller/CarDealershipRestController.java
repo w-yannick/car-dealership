@@ -67,5 +67,18 @@ public class CarDealershipRestController {
         return specialRepository.findAll();
         
     }
+    
+    @GetMapping("/newInventory")
+    public List<Vehicule> getNewInventory() {
+       
+        return vehiculeRepository.findByType("New");
+        
+    }
+    @GetMapping("/usedInventory")
+    public List<Vehicule> getUsedInventory() {
+       
+        return vehiculeRepository.findByType("Used");
+        
+    }
 
 }

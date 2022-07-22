@@ -29,12 +29,12 @@ img {
  
 
 
-.row{
+/*.row{
     background-color: #FFFFF;
     
     box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
-/*    border-radius: 10px;*/
-}
+    border-radius: 10px;
+}*/
 
 
 
@@ -72,6 +72,13 @@ img {
     margin: 3em;
         text-align: left;
 
+ }
+ .content-title{
+     text-align: left;
+ }
+ 
+ .search-box{
+     box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
  }
  
 .table-striped>tbody>tr:nth-child(odd)>td, 

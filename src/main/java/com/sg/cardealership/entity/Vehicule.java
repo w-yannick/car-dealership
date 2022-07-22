@@ -27,7 +27,7 @@ public class Vehicule {
     @Id
     int vehiculeId;
     
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "CarModelid", nullable = false)
     CarModel carModel;
     
