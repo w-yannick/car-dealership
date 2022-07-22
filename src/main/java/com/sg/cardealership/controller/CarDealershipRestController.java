@@ -85,7 +85,7 @@ public class CarDealershipRestController {
     
     
     @GetMapping("/inventory")
-    public List<Vehicule> displaySearcVehicule(String type,String quickSearch, Integer minPrice, Integer maxPrice, Integer minYear,Integer maxYear, Model model) {
+    public List<Vehicule> displaySearchVehicule(String type,String quickSearch, Integer minPrice, Integer maxPrice, Integer minYear,Integer maxYear) {
         
         quickSearch = (quickSearch != null) ? '%'+quickSearch+'%' : "%%";
         minPrice = (minPrice != null) ? minPrice : 0;
@@ -96,16 +96,23 @@ public class CarDealershipRestController {
         return queryHelper(type, quickSearch, minPrice,maxPrice,minYear,maxYear);
 
     }
-//    @GetMapping("/inventory")
-//    public List<Vehicule> displayDetailedVehicule(String type,String quickSearch, Integer minPrice, Integer maxPrice, Integer minYear,Integer maxYear, Model model) {
-//        minPrice = (minPrice != null) ? minPrice : 0;
-//        minYear = (minYear != null) ? minYear : 0;
-//        
-//        maxPrice = (maxPrice != null) ? maxPrice : vehiculeRepository.findMaxPrice();
-//        maxYear = (maxYear != null) ? maxYear : vehiculeRepository.findMaxYear();
-//       
-//        return queryHelper(type, quickSearch, minPrice,maxPrice,minYear,maxYear);
-//    }
+    
+    @GetMapping("/availableInventory")
+    public List<Vehicule> searchAvailableVehicule(String quickSearch, Integer minPrice, Integer maxPrice, Integer minYear,Integer maxYear) {
+        
+        quickSearch = (quickSearch != null) ? '%'+quickSearch+'%' : "%%";
+        minPrice = (minPrice != null) ? minPrice : 0;
+        maxPrice = (maxPrice != null) ? maxPrice : vehiculeRepository.findMaxPrice();
+        minYear = (minYear != null) ? minYear : 0;
+        maxYear = (maxYear != null) ? maxYear : vehiculeRepository.findMaxYear();
+       
+        return queryHelper(quickSearch, minPrice,maxPrice,minYear,maxYear);
+
+    }
+    
+    public List<Vehicule> queryHelper(String quickSearch,int minPrice,int maxPrice,int minYear,int maxYear){
+        return vehiculeRepository.findBySearchForSales(quickSearch, quickSearch, quickSearch, minPrice, maxPrice,minYear, maxYear);
+    }
     
     public List<Vehicule> queryHelper(String type, String quickSearch,int minPrice,int maxPrice,int minYear,int maxYear){
         return vehiculeRepository.findBySearch(type, quickSearch, quickSearch, quickSearch, minPrice, maxPrice,minYear, maxYear);
