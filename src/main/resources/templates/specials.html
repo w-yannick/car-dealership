@@ -30,7 +30,13 @@
 
             <div class="specials-container">
 
-                <h1>TO BE IMPLEMENTED</h1>
+                <div class="special" th:each="special : ${specials}">
+                     
+                        <span th:text="${special.title}"/>          <br/>      
+
+                        <span th:text="${special.description}"/>                
+             
+                </div>
                 
             </div>  
 

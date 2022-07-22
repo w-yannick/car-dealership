@@ -142,6 +142,8 @@ public class RetailController {
         return "redirect:/home/contact";
     }
     
+    
+    
     @GetMapping("/inventory/details")
     public String displayDetailedVehicule(Integer id, Model model) {
         Vehicule vehicule = vehiculeRepository.findById(id).orElse(null);
