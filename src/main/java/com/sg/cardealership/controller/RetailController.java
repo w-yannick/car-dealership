@@ -29,6 +29,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.sg.cardealership.repository.CarModelRepository;
 import java.util.Optional;
+import javax.validation.Validation;
+import javax.validation.Validator;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -63,6 +65,7 @@ public class RetailController {
     UserRepository userRepository;
     
     Set<ConstraintViolation<Vehicule>> vehiculeViolations = new HashSet<>();
+    Set<ConstraintViolation<Contact>> contactViolations = new HashSet<>();
 
     @RequestMapping(value = {"/","/index","/home","/home/index"}, method = RequestMethod.GET)
     public String displayIndexPage(Model model) {
@@ -72,6 +75,7 @@ public class RetailController {
 //        List<Vehicule> vehicules = vehiculeRepository.findByPriceAndYear("Used",0,999999,0,9999);
 //        carModelRepository.deleteById(1);
         model.addAttribute("vehicules", vehicules);
+        model.addAttribute("errors", vehiculeViolations);
         return carDealershipView.displayIndexPage();
     }
     
@@ -114,12 +118,28 @@ public class RetailController {
     @GetMapping("/home/contact")
     public String displaContact(Model model) {
 
-        List<Special> specials = specialRepository.findAll();
-        
-        model.addAttribute("specials", specials);
         model.addAttribute("activePage", "contact");
+        model.addAttribute("errors", contactViolations);
         
         return carDealershipView.displayContactPage();
+    }
+    
+    @PostMapping("/home/contact/add")
+    public String addContact(String name, String email, String phone, String message) {
+        Contact contact = new Contact();
+        contact.setName(name);
+        contact.setEmail(email);
+        contact.setPhone(phone);
+        contact.setMessage(message);
+        
+        Validator validate = Validation.buildDefaultValidatorFactory().getValidator();
+        contactViolations = validate.validate(contact);
+        
+        if(contactViolations.isEmpty()) {
+            contactRepository.save(contact);
+        }
+        
+        return "redirect:/home/contact";
     }
     
     @GetMapping("/inventory/details")

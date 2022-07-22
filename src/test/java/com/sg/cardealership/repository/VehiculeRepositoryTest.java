@@ -8,9 +8,11 @@
 
 package com.sg.cardealership.repository;
 
+import com.sg.cardealership.entity.CarModel;
 import com.sg.cardealership.entity.User;
 import com.sg.cardealership.entity.Vehicule;
 import com.sg.cardealership.view.CarDealershipView;
+import java.time.LocalDate;
 import java.util.List;
 import javax.sql.DataSource;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -41,27 +43,26 @@ public class VehiculeRepositoryTest {
     
 //    @Autowired
 //    VehiculeRepository vehiculeRepository;
-//    
-//    @Autowired
-//    CarDealershipView carDealershipView;
-//    
-//    @Autowired
-//    ContactRepository contactRepository;
-//    
-//    @Autowired
-//    MakeRepository makeRepository;
-//    
-//    @Autowired
-//    CarModelRepository carModelRepository;
-//    
-//    @Autowired
-//    SaleRepository saleRepository;
-//    
-//    @Autowired
-//    SpecialRepository specialRepository;
-//    
-//    @Autowired
-//    UserRepository userRepository;
+    
+
+    
+    @Autowired
+    ContactRepository contactRepository;
+    
+    @Autowired
+    MakeRepository makeRepository;
+    
+    @Autowired
+    CarModelRepository carModelRepository;
+    
+    @Autowired
+    SaleRepository saleRepository;
+    
+    @Autowired
+    SpecialRepository specialRepository;
+    
+    @Autowired
+    UserRepository userRepository;
 
     
      @Autowired 
@@ -108,6 +109,14 @@ public class VehiculeRepositoryTest {
         //given - precondition or setup
         Vehicule vehicule = new Vehicule();
         vehicule.setDescription("test");
+        
+        CarModel carModel = new CarModel(0, null, "A8", LocalDate.now(), null);
+        carModel =carModelRepository.save(carModel);
+        
+        CarModel testCarModel = new CarModel();
+        testCarModel.setCarModelId(carModel.getCarModelId());
+        
+        vehicule.setCarModel(carModel);
         // when - action or the behaviour that we are going test
         vehiculeRepository.save(vehicule);
         Vehicule fromRepo = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
