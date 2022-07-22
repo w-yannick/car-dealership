@@ -29,7 +29,10 @@ $(document).ready(function(){
             type: 'GET',
             url: url,
             success:function(vehiculeArray) {
-                var contactsDiv = $('#allContacts');
+                //TO DO: CLEAN THIS
+                var vehiculesDiv = $('#searchedVehicules');
+                vehiculesDiv.replaceWith('<div id="searchedVehicules"></div>');
+                vehiculesDiv = $('#searchedVehicules');
                 $.each(vehiculeArray, function(index, vehicule) {
                     var vehiculeInfo = '<p>';
                     vehiculeInfo += 'id: ' + vehicule.vehiculeId + '<br>';
@@ -52,8 +55,8 @@ $(document).ready(function(){
 
                     vehiculeInfo += '<a href="/inventory/details?id='+vehicule.vehiculeId+'"><button class="btn btn-primary" id="vehicule-details-button">Details</button></a>';
                     vehiculeInfo += '<hr>';
-            contactsDiv.append(vehiculeInfo);
-            })
+            vehiculesDiv.append(vehiculeInfo);
+            });
             },
             error: function(result) {
                 alert('error');

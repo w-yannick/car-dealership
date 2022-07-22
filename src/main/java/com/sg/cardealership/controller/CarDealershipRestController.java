@@ -108,6 +108,6 @@ public class CarDealershipRestController {
 //    }
     
     public List<Vehicule> queryHelper(String type, String quickSearch,int minPrice,int maxPrice,int minYear,int maxYear){
-        return vehiculeRepository.findBySearch(type, quickSearch, quickSearch, quickSearch,minPrice,maxPrice,minYear, maxYear);
+        return vehiculeRepository.findBySearch(type, quickSearch, quickSearch, quickSearch, minPrice, maxPrice,minYear, maxYear);
     }
 }
