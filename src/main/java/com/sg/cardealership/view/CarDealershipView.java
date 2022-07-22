@@ -29,4 +29,8 @@ public class CarDealershipView {
     public String displayContactPage(){
         return "contact";
     }
+
+    public String displayVehiculeDetailsPage(){
+        return "vehiculeDetails";
+    }
 }

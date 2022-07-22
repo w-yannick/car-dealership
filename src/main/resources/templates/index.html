@@ -30,73 +30,60 @@
 
             <hr/>
                 
-                <div class="page-title">
-                    <span ><h1> Featured vehicules</h1></span>
+            <div class="page-title">
+                <span ><h1> Featured vehicules</h1></span>
+            </div>
+
+            <div class="vehicule-container">
+                <div class="vehicule" th:each="vehicule : ${vehicules}">
+                    <a href="#" th:href="@{/inventory/details(id=${vehicule.vehiculeId})}" style="color:#7F8C8D;">
+                        <div class=" col text-center ">
+                            <img th:src="${'/images/' + vehicule.vehiculeId +'.jpg' }" width="200" height="200" onerror="this.src='/images/placeholder.jpg';"/>                
+                        </div>
+                    <strong>
+
+                        <div class="col-12 text-center">
+                            <span th:text="${vehicule.year}"/>                
+
+                            <span th:text="${vehicule.carModel.name}"/>                
+
+                            <span th:text="${vehicule.carModel.make.name}"/>                
+                        </div>
+                        <div class=" col-12 text-center">
+                            $<span th:text="${vehicule.salePrice}"/>                
+                        </div>
+                    </strong>
+                    </a>
                 </div>
-                
-                <div class="vehicule-container">
-                    <div class="vehicule" th:each="vehicule : ${vehicules}">
-                        <a href="#" th:href="@{/inventory(id=${vehicule.vehiculeId})}" style="color:#7F8C8D;">
-                            <div class=" col text-center ">
-                                <img th:src="${'/images/' + vehicule.vehiculeId +'.jpg' }" width="200" height="200" onerror="this.src='/images/placeholder.jpg';"/>                
-                            </div>
-                        <strong>
 
-                            <div class="col-12 text-center">
-                                <span th:text="${vehicule.year}"/>                
+<!--                Keep it to  reutilise in other page    
+                    <table class="table table-striped border-dark">
+                        <thead>
+                            <tr>
+                                <th>VIN #</th>
+                                <th>Price</th>
+                                <th>Model</th>
+                                <th>Make</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="vehicule : ${vehicules}">
+                                <td th:text="${vehicule.VINNumber}">VIN #</td>
+                                <td th:text="${vehicule.salePrice}">Sale Price</td>
+                                <td th:text="${vehicule.carModel.name}">Model</td>
+                                <td th:text="${vehicule.carModel.make.name}">Make</td>
+                            </tr>
+                        </tbody>
+                    </table>-->
 
-                                <span th:text="${vehicule.carModel.name}"/>                
-
-                                <span th:text="${vehicule.carModel.make.name}"/>                
-                            </div>
-                            <div class=" col-12 text-center">
-                                $<span th:text="${vehicule.salePrice}"/>                
-                            </div>
-                        </strong>
-                        </a>
-                    </div>
-
-    <!--                Keep it to  reutilise in other page    
-                        <table class="table table-striped border-dark">
-                            <thead>
-                                <tr>
-                                    <th>VIN #</th>
-                                    <th>Price</th>
-                                    <th>Model</th>
-                                    <th>Make</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr th:each="vehicule : ${vehicules}">
-                                    <td th:text="${vehicule.VINNumber}">VIN #</td>
-                                    <td th:text="${vehicule.salePrice}">Sale Price</td>
-                                    <td th:text="${vehicule.carModel.name}">Model</td>
-                                    <td th:text="${vehicule.carModel.make.name}">Make</td>
-                                </tr>
-                            </tbody>
-                        </table>-->
-
-                </div>
-            </div>  
+            </div>
+        </div>  
 
             
             <!-- End main body -->
 
         <!-- Optional JavaScript -->
-        
-        <!--                <script>
-                    $(document).ready(function(){
-                        var element = '${vehicules}';
-                        console.log(element);
-                        
-                    });
-                    var modelAttributeValue = JSON.parse('${vehicules}');
-                    console.log(element);
-                </script>-->
-        
-        
-        
-        
+ 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

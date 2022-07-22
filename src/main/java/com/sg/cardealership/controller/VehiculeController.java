@@ -28,6 +28,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.sg.cardealership.repository.CarModelRepository;
+import java.util.Optional;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -116,5 +118,14 @@ public class VehiculeController {
         model.addAttribute("activePage", "contact");
         
         return carDealershipView.displayContactPage();
+    }
+    
+    
+    //Display details of a specific superhuman by id
+    @GetMapping("/inventory/details")
+    public String displayDetailedVehicule(Integer id, Model model) {
+        Vehicule vehicule = vehiculeRepository.findById(id).orElse(null);
+        model.addAttribute("vehicule", vehicule);
+        return carDealershipView.displayVehiculeDetailsPage();
     }
 }

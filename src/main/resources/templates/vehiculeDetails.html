@@ -29,16 +29,49 @@
             </div>
 
             <div class="vehicule-container">
+                
+            <!--PRETTIFY THIS...-->
 
+                <div class="col m-4 ">
+        
+                    <span th:text="${vehicule.vehiculeId}">display  id</span><br>
+ 
+                    <span th:text="${vehicule.year}">display year</span><br>
+                
+                    <span th:text="${vehicule.carModel.name}">display model</span><br>
 
-                <div class="row">
-                    <h1>TO BE IMPLEMENTED</h1>
+                    <span th:text="${vehicule.carModel.make.name}">display maker</span><br>
 
+                    <span th:text="${vehicule.type}">display type(new/used)</span><br>
+                
+                    <span th:text="${vehicule.bodyStyle}">display bodyStyle</span><br>
+                
+                    <span th:text="${vehicule.automatic}">display automatic(true/false)</span><br>
+                
+                    <span th:text="${vehicule.exteriorColor}">display exteriorcolor</span><br>
+                
+                    <span th:text="${vehicule.interiorColor}">display interiorcolor</span>    <br>
+                
+                    <span th:text="${vehicule.mileage}">display mileage</span>   <br>
+                
+                    <span th:text="${vehicule.VINNumber}">display VIN</span>    <br>
+                
+                    <span th:text="${vehicule.MSRP}">display MSRP</span>        <br>
+                
+                    <span th:text="${vehicule.salePrice}">display salePrice</span><br>
+                
+                    <span th:text="${vehicule.description}">display description</span><br>
+                
+                    <span th:text="${vehicule.featured}">display featured(true/false)</span><br> 
+                
+                    <span th:text="${vehicule.available}">display available(true/false)</span><br>
+                
+                    
+                </div>  
 
-                </div>
-            </div>  
-
-        </div>  
+            </div>
+        </div>
+                    
             <!-- End main body -->
 
         <!-- Optional JavaScript -->
