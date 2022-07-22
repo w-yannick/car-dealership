@@ -120,12 +120,28 @@ public class VehiculeController {
         return carDealershipView.displayContactPage();
     }
     
-    
-    //Display details of a specific superhuman by id
     @GetMapping("/inventory/details")
     public String displayDetailedVehicule(Integer id, Model model) {
         Vehicule vehicule = vehiculeRepository.findById(id).orElse(null);
         model.addAttribute("vehicule", vehicule);
+        
         return carDealershipView.displayVehiculeDetailsPage();
+    }
+    
+    @GetMapping("/sales")
+    public String displaySales(Model model) {
+        
+        model.addAttribute("activePage", "sales");
+
+        return carDealershipView.displaySalesPage();
+    }
+    
+    @GetMapping("/admin")
+    public String displayAdmin(Model model) {
+        
+        
+                model.addAttribute("activePage", "admin");
+
+        return carDealershipView.displayAdminPage();
     }
 }

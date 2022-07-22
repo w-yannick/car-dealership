@@ -33,4 +33,12 @@ public class CarDealershipView {
     public String displayVehiculeDetailsPage(){
         return "vehiculeDetails";
     }
+    
+    public String displaySalesPage(){
+        return "sales";
+    }
+    
+    public String displayAdminPage(){
+        return "admin";
+    }
 }
