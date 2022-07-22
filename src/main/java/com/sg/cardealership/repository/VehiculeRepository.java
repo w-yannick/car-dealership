@@ -43,7 +43,7 @@ public interface VehiculeRepository extends JpaRepository<Vehicule, Integer> {
             "     OR ma.name LIKE ? " +
             "     OR year LIKE ? )" +
             " AND SalePrice BETWEEN ? AND ? " +
-            " AND Year BETWEEN ? AND ? ", nativeQuery = true)
+            " AND Year BETWEEN ? AND ?  LIMIT 20", nativeQuery = true)
     List<Vehicule> findBySearch(String type, String carModelName, String makeName, String Year,int minSalePrice,int maxSalePrice,int minYear, int maxYear);
     
     
