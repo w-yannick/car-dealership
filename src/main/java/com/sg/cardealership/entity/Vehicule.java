@@ -19,6 +19,7 @@ import javax.persistence.ManyToOne;
  *
  * @author w-yan
  */
+
 @Entity
 public class Vehicule {
     

@@ -41,4 +41,8 @@ public class CarDealershipView {
     public String displayAdminPage(){
         return "admin";
     }
+    
+    public String displayLoginPage(){
+        return "login";
+    }
 }

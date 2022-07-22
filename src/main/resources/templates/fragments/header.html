@@ -1,11 +1,5 @@
-<!--<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Spring MVC</title>
-</head>
-<body>-->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark" th:fragment="header">
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" th:fragment="header">
 
     <a class="navbar-brand" th:href="@{/}">Home</a>
 
@@ -37,8 +31,13 @@
                 <a class="nav-link" th:href="@{/sales}">Sales</a>
             </li>
             
-            <li class="nav-item" th:class="${activePage == 'admin'} ? 'nav-item active' : 'nav-item'">
+            <li class="nav-item" th:class="${activePage == 'admin'} ? 'nav-item active' : 'nav-item'" >
                 <a class="nav-link" th:href="@{/admin}">Admin</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" th:class="${activePage == 'login'} ? 'nav-item active' : 'nav-item'" >
+                <a class="nav-link" th:href="@{/login}">login</a>
             </li>
         </ul>
     </div>

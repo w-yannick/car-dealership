@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
-public class VehiculeController {
+public class RetailController {
     
     @Autowired
     VehiculeRepository vehiculeRepository;
@@ -68,6 +68,8 @@ public class VehiculeController {
     public String displayIndexPage(Model model) {
 
         List<Vehicule> vehicules = vehiculeRepository.findByFeatured(true);
+//        List<Vehicule> vehicules = vehiculeRepository.findAll();
+//        List<Vehicule> vehicules = vehiculeRepository.findByPriceAndYear("Used",0,999999,0,9999);
         
         model.addAttribute("vehicules", vehicules);
         return carDealershipView.displayIndexPage();
@@ -128,20 +130,12 @@ public class VehiculeController {
         return carDealershipView.displayVehiculeDetailsPage();
     }
     
-    @GetMapping("/sales")
-    public String displaySales(Model model) {
+    @GetMapping("/login")
+    public String displayLogin(Model model) {
         
-        model.addAttribute("activePage", "sales");
+        
+        model.addAttribute("activePage", "login");
 
-        return carDealershipView.displaySalesPage();
-    }
-    
-    @GetMapping("/admin")
-    public String displayAdmin(Model model) {
-        
-        
-                model.addAttribute("activePage", "admin");
-
-        return carDealershipView.displayAdminPage();
+        return carDealershipView.displayLoginPage();
     }
 }
