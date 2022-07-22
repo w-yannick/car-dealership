@@ -17,4 +17,16 @@ public class CarDealershipView {
     public String displayIndexPage(){
         return "index";
     }
+    
+    public String displayInventoryPage(){
+        return "inventory";
+    }
+    
+    public String displaySpecialPage(){
+        return "specials";
+    }
+
+    public String displayContactPage(){
+        return "contact";
+    }
 }

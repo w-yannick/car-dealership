@@ -70,5 +70,51 @@ public class VehiculeController {
         model.addAttribute("vehicules", vehicules);
         return carDealershipView.displayIndexPage();
     }
+    
+    @GetMapping("/inventory/new")
+    public String displayNewInventory(Model model) {
 
+        List<Vehicule> vehicules = vehiculeRepository.findByType("New");
+        
+        model.addAttribute("type", "New");
+        model.addAttribute("vehicules", vehicules);
+        model.addAttribute("activePage", "newInventory");
+        
+        return carDealershipView.displayInventoryPage();
+    }
+
+    
+    @GetMapping("/inventory/used")
+    public String displayUsedInventory(Model model) {
+
+        List<Vehicule> vehicules = vehiculeRepository.findByType("Used");
+        
+        model.addAttribute("type", "Used");
+        model.addAttribute("vehicules", vehicules);
+        model.addAttribute("activePage", "usedInventory");
+        
+        return carDealershipView.displayInventoryPage();
+    }
+    
+    @GetMapping("/home/specials")
+    public String displaySpecials(Model model) {
+
+        List<Special> specials = specialRepository.findAll();
+        
+        model.addAttribute("specials", specials);
+        model.addAttribute("activePage", "specials");
+        
+        return carDealershipView.displaySpecialPage();
+    }
+
+    @GetMapping("/home/contact")
+    public String displaContact(Model model) {
+
+        List<Special> specials = specialRepository.findAll();
+        
+        model.addAttribute("specials", specials);
+        model.addAttribute("activePage", "contact");
+        
+        return carDealershipView.displayContactPage();
+    }
 }

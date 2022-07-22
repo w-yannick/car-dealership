@@ -19,6 +19,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface VehiculeRepository extends JpaRepository<Vehicule, Integer> {
-    @Query(value = "SELECT * FROM Vehicule WHERE Featured = ?", nativeQuery = true)
+    //in case query is complex, use custom query:
+    //@Query(value = "SELECT * FROM Vehicule WHERE Featured = ?", nativeQuery = true)
+    
     List<Vehicule> findByFeatured(boolean featured);
+    
+    //find by type("New" or "Used")
+    List<Vehicule> findByType(String type);
 }
