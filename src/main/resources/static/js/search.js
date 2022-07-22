@@ -2,20 +2,32 @@ $(document).ready(function(){
     var type = $("#type").html();
     $("#button_1").click(function(){
         var quickSearch = $("#quick-search").val();
-        var priceMin = $("#price-min").val();
-        var priceMax = $("#price-max").val();
-        var yearMin = $("#year-min").val();
-        var yearMax = $("#year-max").val();
-        var url = (type === "New") ? "http://localhost:8080/api/newInventory" : "http://localhost:8080/api/usedInventory";
-        console.log(type);
-        console.log(priceMin);
-        console.log(priceMax);
-        console.log(yearMin);
-        console.log(yearMax);
+        var minPrice = $("#price-min").val();
+        var maxPrice = $("#price-max").val();
+        var minYear = $("#year-min").val();
+        var maxYear = $("#year-max").val();
+        var url = "http://localhost:8080/api/inventory";
+        
+        url += "?type=" + type;
+//        String type,String quickSearch, Integer minPrice, Integer maxPrice, Integer minYear,Integer maxYear, Model model
+        
+        url +=(quickSearch != '') ? "&quickSearch="+quickSearch : '';
+        url +=(minPrice != '') ? "&minPrice="+minPrice : '';
+        url +=(maxPrice != '') ? "&maxPrice="+maxPrice : '';
+        url +=(minPrice != '') ? "&minYear="+minPrice : '';
+        url +=(maxPrice != '') ? "&maxYear="+maxPrice : '';
+            
+         
+        
+        console.log(minPrice);
+        console.log(maxPrice);
+        console.log(minYear);
+        console.log(maxYear);
+        console.log(url);
+        
         $.ajax({
             type: 'GET',
             url: url,
-//            url: "http://contactlist.us-east-1.elasticbeanstalk.com/contacts",
             success:function(vehiculeArray) {
                 var contactsDiv = $('#allContacts');
                 $.each(vehiculeArray, function(index, vehicule) {

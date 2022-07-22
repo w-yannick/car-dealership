@@ -27,6 +27,25 @@ public interface VehiculeRepository extends JpaRepository<Vehicule, Integer> {
     //find by type("New" or "Used")
     List<Vehicule> findByType(String type);
     
-    @Query(value = "SELECT * FROM Vehicule WHERE Type = ? AND (SalePrice BETWEEN ? AND ?) AND (YEAR BETWEEN ? AND ?) LIMIT 20;", nativeQuery = true)
-    List<Vehicule> findByPriceAndYear(String type,int minSalePrice,int maxSalePrice,int minYear, int maxYear);
+    @Query ( value = "SELECT MAX(SalePrice) FROM Vehicule", nativeQuery = true)
+    int findMaxPrice();
+    
+    @Query ( value = "SELECT MAX(Year) FROM Vehicule", nativeQuery = true)
+    int findMaxYear();
+    
+    @Query(value = "SELECT v.*, mo.name " +
+            "FROM Vehicule v, CarModel mo, Make ma " +
+            "WHERE v.CarModelId = mo.CarModelId  " +
+            "AND type = ? " +
+            "AND mo.CarModelId = ma.makeId " +
+            "AND ( " +
+            "     mo.Name LIKE ? " +
+            "     OR ma.name LIKE ? " +
+            "     OR year LIKE ? )" +
+            " AND SalePrice BETWEEN ? AND ? " +
+            " AND Year BETWEEN ? AND ? ", nativeQuery = true)
+    List<Vehicule> findBySearch(String type, String carModelName, String makeName, String Year,int minSalePrice,int maxSalePrice,int minYear, int maxYear);
+    
+    
+
 }
