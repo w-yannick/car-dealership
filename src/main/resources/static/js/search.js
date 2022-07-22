@@ -45,8 +45,8 @@ $(document).ready(function(){
                     vehiculeInfo += 'id: ' + vehicule.exteriorColor + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.interiorColor + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.mileage + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.VINNumber + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.MSRP + '<br>';
+                    vehiculeInfo += 'id: ' + vehicule.vinnumber + '<br>';
+                    vehiculeInfo += 'id: ' + vehicule.msrp + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.salePrice + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.description + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.featured + '<br>';
