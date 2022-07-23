@@ -92,11 +92,8 @@ public class ManagerController {
             model.addAttribute("user",user); 
             switch(user.getRole()){
                 case "Admin":
-                    model.addAttribute("activePage","Admin"); 
-                    return carDealershipView.displayAdminPage();
                 case "Sales":
-                    model.addAttribute("activePage","Sales");
-                    return carDealershipView.displaySalesPage();
+                    return carDealershipView.displayLoginSucessPage();
                 default:
                     return "redirect:/login";
 
@@ -117,7 +114,7 @@ public class ManagerController {
     public String displayAdmin(Model model) {
         
         
-                model.addAttribute("activePage", "admin");
+        model.addAttribute("activePage", "admin");
 
         return carDealershipView.displayAdminPage();
     }

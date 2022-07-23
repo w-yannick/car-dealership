@@ -45,7 +45,9 @@ public class CarDealershipView {
     public String displayLoginPage(){
         return "login";
     }
-    
+    public String displayLoginSucessPage(){
+        return "loginSuccess";
+    }
     public String displayPurchasePage(){
         return "purchase";
     }
