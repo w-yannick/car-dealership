@@ -136,6 +136,8 @@ public class ManagerController {
     @PostMapping("/sales/purchase/add")
     public String addSale( @Valid Sale sale,BindingResult result, HttpServletRequest request, Model model) {
        String vehiculeId = request.getParameter("vehiculeId");
+       String userEmail = request.getParameter("userEmail");
+       User user = userRepository.findByEmail(userEmail);
        Vehicule vehicule = vehiculeRepository.findById(Integer.parseInt(vehiculeId)).orElse(null);
        Validator validate = Validation.buildDefaultValidatorFactory().getValidator();
         saleViolations = validate.validate(sale);
@@ -148,6 +150,7 @@ public class ManagerController {
        //set the vhicule availabilty to false and complete the sale
         vehicule.setAvailable(false);
         sale.setVehicule(vehicule);
+        sale.setUser(user);
         System.out.print("test");
        
         saleRepository.save(sale);
