@@ -29,8 +29,31 @@
             </div>
 
             <div class="login-container">
-
-                <h1>TO BE IMPLEMENTED</h1>
+ 
+                <div class="col-7 text-center m-3">
+                    <form action="/login" method="POST">
+                        <div class="form-group row">
+                            <label for="name" class="col-3 col-form-label">
+                                Email</label>
+                            <div class="col-9">
+                                <input type="text" name="email" 
+                                       id="email" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="password" class="col-3 col-form-label">
+                                Password</label>
+                            <div class="col-9">
+                                <input type="password" name="password" 
+                                       id="password" class="form-control"/>
+                            </div>
+                        </div>
+                        
+                        
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+                
             </div>
         </div>
 

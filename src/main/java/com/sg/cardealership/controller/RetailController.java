@@ -152,12 +152,5 @@ public class RetailController {
         return carDealershipView.displayVehiculeDetailsPage();
     }
     
-    @GetMapping("/login")
-    public String displayLogin(Model model) {
-        
-        
-        model.addAttribute("activePage", "login");
 
-        return carDealershipView.displayLoginPage();
-    }
 }

@@ -73,7 +73,37 @@ public class ManagerController {
     Set<ConstraintViolation<Vehicule>> vehiculeViolations = new HashSet<>();
     Set<ConstraintViolation<Sale>> saleViolations = new HashSet<>();
 
+    @GetMapping("/login")
+    public String displayLogin(Model model) {
+        
+        
+        model.addAttribute("activePage", "login");
+
+        return carDealershipView.displayLoginPage();
+    }
     
+    
+    @PostMapping("/login")
+    public String performLogin(String email,String password, Model model) {
+        
+        User user = userRepository.findByEmail(email);
+        if (user != null && password.equals(user.getPassword())){
+            user.setPassword("");
+            model.addAttribute("user",user); 
+            switch(user.getRole()){
+                case "Admin":
+                    model.addAttribute("activePage","Admin"); 
+                    return carDealershipView.displayAdminPage();
+                case "Sales":
+                    model.addAttribute("activePage","Sales");
+                    return carDealershipView.displaySalesPage();
+                default:
+                    return "redirect:/login";
+
+            }
+        }
+        return "redirect:/login";
+    }
     
     @GetMapping("/sales")
     public String displaySales(Model model) {

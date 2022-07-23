@@ -33,10 +33,10 @@ public class User {
     String email;
     
     @Column
-    String Role;
+    String role;
     
     @Column
-    String Password;
+    String password;
 
     public User() {
     }
@@ -46,8 +46,8 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.Role = Role;
-        this.Password = Password;
+        this.role = Role;
+        this.password = Password;
     }
 
     public int getUserId() {
@@ -83,19 +83,19 @@ public class User {
     }
 
     public String getRole() {
-        return Role;
+        return role;
     }
 
     public void setRole(String Role) {
-        this.Role = Role;
+        this.role = Role;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String Password) {
-        this.Password = Password;
+        this.password = Password;
     }
 
     @Override
@@ -105,8 +105,8 @@ public class User {
         hash = 73 * hash + Objects.hashCode(this.firstName);
         hash = 73 * hash + Objects.hashCode(this.lastName);
         hash = 73 * hash + Objects.hashCode(this.email);
-        hash = 73 * hash + Objects.hashCode(this.Role);
-        hash = 73 * hash + Objects.hashCode(this.Password);
+        hash = 73 * hash + Objects.hashCode(this.role);
+        hash = 73 * hash + Objects.hashCode(this.password);
         return hash;
     }
 
@@ -134,10 +134,10 @@ public class User {
         if (!Objects.equals(this.email, other.email)) {
             return false;
         }
-        if (!Objects.equals(this.Role, other.Role)) {
+        if (!Objects.equals(this.role, other.role)) {
             return false;
         }
-        if (!Objects.equals(this.Password, other.Password)) {
+        if (!Objects.equals(this.password, other.password)) {
             return false;
         }
         return true;

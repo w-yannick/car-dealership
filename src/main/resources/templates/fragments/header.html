@@ -9,7 +9,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarsExample04">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto" id="navbar">
             
             <li class="nav-item" th:class="${activePage == 'newInventory'} ? 'nav-item active' : 'nav-item'">
                 <a class="nav-link" th:href="@{/inventory/new}">new Inventory</a>
@@ -27,19 +27,21 @@
                 <a class="nav-link" th:href="@{/home/contact}">Contact</a>
             </li>
             
-            <li class="nav-item" th:class="${activePage == 'sales'} ? 'nav-item active' : 'nav-item'">
+<!--            <li class="nav-item" th:class="${activePage == 'sales'} ? 'nav-item active' : 'nav-item'">
                 <a class="nav-link" th:href="@{/sales}">Sales</a>
             </li>
             
             <li class="nav-item" th:class="${activePage == 'admin'} ? 'nav-item active' : 'nav-item'" >
                 <a class="nav-link" th:href="@{/admin}">Admin</a>
-            </li>
+            </li>-->
         </ul>
-        <ul class="navbar-nav ml-auto">
+        
+        <ul class="navbar-nav ml-auto" id="logout">
             <li class="nav-item" th:class="${activePage == 'login'} ? 'nav-item active' : 'nav-item'" >
                 <a class="nav-link" th:href="@{/login}">login</a>
             </li>
         </ul>
+        
     </div>
 </nav>
 <!--</body>

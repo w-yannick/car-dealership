@@ -112,8 +112,10 @@ create table Contact(
 -- Inserting dummy value
 
 INSERT INTO User (FirstName,LastName,Email,Role,Password)
-VALUES ("Alex", "manu", "alex@gmail.com", "Admin", "password");
-
+VALUES
+	("Alex", "Manu", "admin@gmail.com", "Admin", "password"),
+	("Bob", "Sponge", "sales@gmail.com", "Sales", "password"),
+	("Patrick", "Star", "disabled@gmail.com", "disabled", "password");
 
 INSERT INTO Make (Name,DateAdded,AddedByUserId)
 VALUES ("Audi","2022-07-22", 1);
