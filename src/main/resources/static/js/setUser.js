@@ -1,9 +1,9 @@
 $(document).ready(function(){
     var role = $('#role').val();
-    var email = $('#email').val();
-    localStorage.setItem("email",email);
+    var userId = $('#userId').val();
+    localStorage.setItem("userId",userId);
     localStorage.setItem("role",role);
-    console.log(email);
+    console.log(userId);
     console.log(role);
 //    window.location.href('/index'); 
     $(location).attr('href',"/index");

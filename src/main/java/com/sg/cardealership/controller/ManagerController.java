@@ -136,8 +136,8 @@ public class ManagerController {
     @PostMapping("/sales/purchase/add")
     public String addSale( @Valid Sale sale,BindingResult result, HttpServletRequest request, Model model) {
        String vehiculeId = request.getParameter("vehiculeId");
-       String userEmail = request.getParameter("userEmail");
-       User user = userRepository.findByEmail(userEmail);
+       String userId = request.getParameter("userId");
+       User user = userRepository.findById(Integer.parseInt(userId)).orElse(null);
        Vehicule vehicule = vehiculeRepository.findById(Integer.parseInt(vehiculeId)).orElse(null);
        Validator validate = Validation.buildDefaultValidatorFactory().getValidator();
         saleViolations = validate.validate(sale);
