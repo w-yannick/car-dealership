@@ -29,6 +29,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.sg.cardealership.repository.CarModelRepository;
 import java.util.Optional;
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -63,6 +71,7 @@ public class ManagerController {
     UserRepository userRepository;
     
     Set<ConstraintViolation<Vehicule>> vehiculeViolations = new HashSet<>();
+    Set<ConstraintViolation<Sale>> saleViolations = new HashSet<>();
 
     
     
@@ -81,5 +90,41 @@ public class ManagerController {
                 model.addAttribute("activePage", "admin");
 
         return carDealershipView.displayAdminPage();
+    }
+    
+    
+        //find a superhumans by its ID
+    @GetMapping("/sales/purchase/{id}")
+    public String displaySaleForm(@PathVariable int id, Model model) {
+        Vehicule vehicule = vehiculeRepository.findById(id).orElse(null);
+        model.addAttribute("activePage", "sales");
+
+        model.addAttribute("vehicule",vehicule);
+        model.addAttribute("errors",saleViolations);
+        
+        
+        return carDealershipView.displayPurchasePage();
+    }
+    
+    @PostMapping("/sales/purchase/add")
+    public String addSale( @Valid Sale sale,BindingResult result, HttpServletRequest request, Model model) {
+       String vehiculeId = request.getParameter("vehiculeId");
+       Vehicule vehicule = vehiculeRepository.findById(Integer.parseInt(vehiculeId)).orElse(null);
+       Validator validate = Validation.buildDefaultValidatorFactory().getValidator();
+        saleViolations = validate.validate(sale);
+       if(result.hasErrors()) {
+           model.addAttribute("vehicule",vehicule);
+           model.addAttribute("sale",sale);
+           model.addAttribute("errors",saleViolations);
+            return carDealershipView.displayPurchasePage();
+        }
+       //set the vhicule availabilty to false and complete the sale
+        vehicule.setAvailable(false);
+        sale.setVehicule(vehicule);
+        System.out.print("test");
+       
+        saleRepository.save(sale);
+        
+        return "redirect:/home";
     }
 }

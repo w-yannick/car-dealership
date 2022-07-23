@@ -73,8 +73,12 @@ img {
         text-align: left;
 
  }
+ 
+ 
  .content-title{
-     text-align: left;
+    margin: 3em;
+
+    text-align: left;
  }
  
  .search-box{
