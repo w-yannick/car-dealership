@@ -36,8 +36,8 @@ public interface VehiculeRepository extends JpaRepository<Vehicule, Integer> {
     @Query(value = "SELECT v.*, mo.name " +
             "FROM Vehicule v, CarModel mo, Make ma " +
             "WHERE v.CarModelId = mo.CarModelId  " +
+            "AND mo.makeId = ma.makeId " +
             "AND type = ? " +
-            "AND mo.CarModelId = ma.makeId " +
             "AND ( " +
             "     mo.Name LIKE ? " +
             "     OR ma.name LIKE ? " +
@@ -50,7 +50,7 @@ public interface VehiculeRepository extends JpaRepository<Vehicule, Integer> {
     @Query(value = "SELECT v.*, mo.name " +
             "FROM Vehicule v, CarModel mo, Make ma " +
             "WHERE v.CarModelId = mo.CarModelId  " +
-            "AND mo.CarModelId = ma.makeId " +
+            "AND mo.makeId = ma.makeId " +
             "AND available = true " +
             "AND ( " +
             "     mo.Name LIKE ? " +

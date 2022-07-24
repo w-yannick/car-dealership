@@ -6,7 +6,7 @@ $(document).ready(function(){
         var maxPrice = $("#price-max").val();
         var minYear = $("#year-min").val();
         var maxYear = $("#year-max").val();
-        var url = "http://localhost:8080/api/availableInventory";
+        var url = "http://localhost:8080/api/availableInventory?";
         
 
 //        String type,String quickSearch, Integer minPrice, Integer maxPrice, Integer minYear,Integer maxYear, Model model
@@ -14,8 +14,8 @@ $(document).ready(function(){
         url +=(quickSearch != '') ? "quickSearch="+quickSearch : '';
         url +=(minPrice != '') ? "&minPrice="+minPrice : '';
         url +=(maxPrice != '') ? "&maxPrice="+maxPrice : '';
-        url +=(minPrice != '') ? "&minYear="+minPrice : '';
-        url +=(maxPrice != '') ? "&maxYear="+maxPrice : '';
+        url +=(minYear != '') ? "&minYear="+minYear : '';
+        url +=(maxYear != '') ? "&maxYear="+maxYear : '';
             
          
         
@@ -35,6 +35,7 @@ $(document).ready(function(){
                 vehiculesDiv = $('#searchedVehicules');
                 $.each(vehiculeArray, function(index, vehicule) {
                     var vehiculeInfo = '<p>';
+                    vehiculeInfo += "<img src=\"/images/inventory-" + vehicule.vehiculeId  + "\"  width=\"200\" height=\"200\" onerror=\"this.src=\'/images/placeholder.jpg\';\">" + '<br>';  
                     vehiculeInfo += 'id: ' + vehicule.vehiculeId + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.year + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.carModel.name + '<br>';
@@ -53,7 +54,7 @@ $(document).ready(function(){
                     vehiculeInfo += 'id: ' + vehicule.available + '<br>';
                     vehiculeInfo += '</p>';
 
-                    vehiculeInfo += '<a href="/admin/editVehicle/'+vehicule.vehiculeId+'"><button class="btn btn-primary" id="vehicule-edit-button">Edit</button></a>';
+                    vehiculeInfo += '<a href="/admin/editVehicule/'+vehicule.vehiculeId+'"><button class="btn btn-primary" id="vehicule-edit-button">Edit</button></a>';
                     vehiculeInfo += '<hr>';
             vehiculesDiv.append(vehiculeInfo);
             });

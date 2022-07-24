@@ -137,28 +137,18 @@ public class ManagerController {
     }
     
     @PostMapping("/admin/addVehicule")
-    public String addVehicule( @Valid Vehicule vehicule,BindingResult result, HttpServletRequest request, Model model) {
-        //Maybe we need user that added the vehicule???
-//       String userId = request.getParameter("userId");
-//       User user = userRepository.findById(Integer.parseInt(userId)).orElse(null);
+    public String addVehicule(Vehicule vehicule,BindingResult result, HttpServletRequest request, Model model) {
+
 
 
         String carModelId = request.getParameter("modelId");
         CarModel carModel = carModelRepository.findById(Integer.parseInt(carModelId)).orElse(null);
+        //set the model and availabilty and complete the addition of the vehicule
+
         vehicule.setCarModel(carModel);
         vehicule.setAvailable(true);
-       Validator validate = Validation.buildDefaultValidatorFactory().getValidator();
-        vehiculeViolations = validate.validate(vehicule);
-       if(result.hasErrors()) {
-            List<Make> makes = makeRepository.findAll();
-           model.addAttribute("vehicule",vehicule);
-
-            model.addAttribute("makes", makes);
-//           model.addAttribute("errors",vehiculeViolations);
-            return carDealershipView.displayAddVehiculePage();
-        }
+        vehicule.setFeatured(false);
        
-       //set the model and availabilty and complete the addition of the vehicule
         vehiculeRepository.save(vehicule);
        try{
            Part image = request.getPart("file"); // Retrieves <input type="file" name="file">
@@ -167,9 +157,48 @@ public class ManagerController {
        }catch(IOException | ServletException e){
        }
            
+//        model.addAttribute("vehicule", vehicule);
+        return "redirect:/admin/editVehicule/"+vehicule.getVehiculeId();
+    }
+    
+    @GetMapping("/admin/editVehicule/{id}")
+    public String editVehicule(@PathVariable int id, Model model) {
+        Vehicule vehicule = vehiculeRepository.findById(id).orElse(null);
+        List<Make> makes = makeRepository.findAll();
+        model.addAttribute("vehicule", vehicule);
+        model.addAttribute("makes", makes);
+        return "editVehicule";
+    }
+    
+    @PostMapping("/admin/editVehicule")
+    public String performEditVehicule(Vehicule vehicule, HttpServletRequest request, BindingResult result) {
+        Vehicule managedStateVehicule = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
+        String carModelId = request.getParameter("modelId");
+        CarModel carModel = carModelRepository.findById(Integer.parseInt(carModelId)).orElse(null);
+        managedStateVehicule.setCarModel(carModel);
+        managedStateVehicule.setType(vehicule.getType());
+        managedStateVehicule.setYear(vehicule.getYear());
+        managedStateVehicule.setTransmission(vehicule.getTransmission());
+        managedStateVehicule.setExteriorColor(vehicule.getExteriorColor());
+        managedStateVehicule.setInteriorColor(vehicule.getInteriorColor());
+        managedStateVehicule.setMileage(vehicule.getMileage());
+        managedStateVehicule.setVINNumber(vehicule.getVINNumber());
+        managedStateVehicule.setMSRP(vehicule.getMSRP());
+        managedStateVehicule.setSalePrice(vehicule.getSalePrice());
+        managedStateVehicule.setDescription(vehicule.getDescription());
+        managedStateVehicule.setFeatured(vehicule.isFeatured());
+        vehiculeRepository.save(managedStateVehicule);
+        try{
+           Part image = request.getPart("file"); // Retrieves <input type="file" name="file">
+           String fileName = image.getSubmittedFileName();
+           saveImage(image, fileName, managedStateVehicule.getVehiculeId());
+       }catch(IOException | ServletException e){
+       }
         
         return "redirect:/admin/vehicules";
     }
+    
+    
     
     //find a superhumans by its ID
     @GetMapping("/sales/purchase/{id}")

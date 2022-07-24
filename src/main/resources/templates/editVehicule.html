@@ -39,16 +39,12 @@
             
                 <div class="vehicule-info">
 
-                    <div class="col-12 m-1 text-center" 
-                        th:if="${!errors.isEmpty()}">
-                        <p class="alert alert-danger" th:each="error : ${errors}" 
-                            th:text="${error.message}">Error message</p>
-                    </div>
+
 
                     <div class="col-12 text-center m-3">
                         <!--<form action="/sales/purchase/id=${vehicule.vehiculeId})" method="POST">-->
 
-                        <form action="/admin/addVehicule" method="POST" enctype="multipart/form-data">
+                        <form action="/admin/editVehicule" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <label for="makeId" class="col-3 col-form-label">
                                 Make</label>
@@ -56,7 +52,8 @@
                                     <select id="makeId" name="makeId" class="form-control" >
                                         <option th:each="make : ${makes}" 
                                                 th:value="${make.makeId}" 
-                                                th:text="${make.name}">
+                                                th:text="${make.name}"
+                                                th:selected="${make.name} == ${vehicule.carModel.make.name}">
                                             Make name</option>
                                     </select>
                                 </div>
@@ -80,8 +77,8 @@
                                 Type</label>
                                 <div class="col-9">
                                     <select id="type" name="type" class="form-control" >
-                                        <option value="New">New</option>
-                                        <option value="Used">Used</option>
+                                        <option value="New" th:selected="${vehicule.type == 'New'}" >New</option>
+                                        <option value="Used" th:selected="${vehicule.type == 'Used'}">Used</option>
                                     </select>
                                 </div>
                                 
@@ -89,10 +86,10 @@
                                 Body Type</label>
                                 <div class="col-9">
                                     <select id="bodyStyle" name="bodyStyle" class="form-control" >
-                                        <option value="Car">Car</option>
-                                        <option value="SUV">SUV</option>
-                                        <option value="Truck">Truck</option>
-                                        <option value="Van">Van</option>
+                                        <option value="Car" th:selected="${vehicule.bodyStyle == 'Car'}">Car</option>
+                                        <option value="SUV" th:selected="${vehicule.bodyStyle == 'SUV'}">SUV</option>
+                                        <option value="Truck" th:selected="${vehicule.bodyStyle == 'Truck'}">Truck</option>
+                                        <option value="Van" th:selected="${vehicule.bodyStyle == 'Van'}">VAN</option>
                                     </select>
                                 </div>
                                 
@@ -101,15 +98,15 @@
                                     Year</label>
                                 <div class="col-9">
                                     <input type="number" name="year" 
-                                           id="year" class="form-control" required="required" min="2000" value="2000"/>
+                                           id="year" class="form-control" required="required" min="2000" th:value='${vehicule.year}' />
                                 </div>
                                 
                                 <label for="transmission" class="col-3 col-form-label">
                                 Automatic</label>
                                 <div class="col-9">
                                     <select id="transmission" name="transmission" class="form-control" >
-                                        <option value="Automatic">Automatic</option>
-                                        <option value="Manual">Manual</option>
+                                        <option value="Automatic" th:selected="${vehicule.transmission == 'Automatic'}">Automatic</option>
+                                        <option value="Manual" th:selected="${vehicule.transmission == 'Manual'}">Manual</option>
                                     </select>
                                 </div>
                                 
@@ -117,11 +114,11 @@
                                 Color</label>
                                 <div class="col-9">
                                     <select id="exteriorColor" name="exteriorColor" class="form-control" >
-                                        <option value="Red">Red</option>
-                                        <option value="Blue">Blue</option>
-                                        <option value="Green">Green</option>
-                                        <option value="White">White</option>
-                                        <option value="Black">Black</option>
+                                        <option value="Red" th:selected="${vehicule.exteriorColor == 'Red'}">Red</option>
+                                        <option value="Blue" th:selected="${vehicule.exteriorColor == 'Blue'}">Blue</option>
+                                        <option value="Green" th:selected="${vehicule.exteriorColor == 'Green'}">Green</option>
+                                        <option value="White" th:selected="${vehicule.exteriorColor == 'White'}">White</option>
+                                        <option value="Black" th:selected="${vehicule.exteriorColor == 'Black'}">Black</option>
                                     </select>
                                 </div>
                                 
@@ -131,11 +128,11 @@
                                 Interior</label>
                                 <div class="col-9">
                                     <select id="interiorColor" name="interiorColor" class="form-control" >
-                                        <option value="Red">Red</option>
-                                        <option value="Blue">Blue</option>
-                                        <option value="Green">Green</option>
-                                        <option value="White">White</option>
-                                        <option value="Black">Black</option>
+                                        <option value="Red" th:selected="${vehicule.interiorColor == 'Red'}">Red</option>
+                                        <option value="Blue" th:selected="${vehicule.interiorColor == 'Blue'}">Blue</option>
+                                        <option value="Green" th:selected="${vehicule.interiorColor == 'Green'}">Green</option>
+                                        <option value="White" th:selected="${vehicule.interiorColor == 'White'}">White</option>
+                                        <option value="Black" th:selected="${vehicule.interiorColor == 'Black'}">Black</option>
                                     </select>
                                 </div>
                             </div>
@@ -144,7 +141,7 @@
                                     Mileage</label>
                                 <div class="col-9">
                                     <input type="number" name="mileage" 
-                                           id="mileage" class="form-control"  min="0" max="1000" value ="0" required/>
+                                           id="mileage" class="form-control"  min="0" th:value='${vehicule.mileage}' required/>
                                 </div>
                             </div>
 
@@ -154,7 +151,7 @@
                                     VIN #</label>
                                 <div class="col-9">
                                     <input type="text" name="VINNumber" 
-                                           id="VINNumber" class="form-control" required/>
+                                           id="VINNumber" class="form-control" th:value='${vehicule.VINNumber}' required/>
                                 </div>
                             </div>
 
@@ -164,7 +161,7 @@
                                     MSRP</label>
                                 <div class="col-9">
                                     <input type="number" name="MSRP" 
-                                           id="MSRP" class="form-control" min="0" value ="0" required/>
+                                           id="MSRP" class="form-control" min="0" th:value='${vehicule.MSRP}' required/>
                                 </div>
                             </div>
 
@@ -178,7 +175,7 @@
                                     Sale Price</label>
                                 <div class="col-9">
                                     <input type="number" name="salePrice" 
-                                           id="salePrice" class="form-control" min="0" value ="0" required/>
+                                           id="salePrice" class="form-control" min="0" th:value='${vehicule.salePrice}' required/>
                                 </div>
                             </div>
 
@@ -186,17 +183,19 @@
                             <label for="description" class="col-3 col-form-label">
                                 Message</label>
                             <div class="col-9">
-                                <textarea rows = "5" cols = "50" name = "description" id="description" required></textarea>
+                                <textarea rows = "5" cols = "50" name = "description" id="description" th:text='${vehicule.description}' required></textarea>
                             </div>
                         </div>
                         <div>    
-                        <input id="file" type="file" name="file" accept=".jpg,.jpeg, .png"  required>
+                        <img th:src="${'/images/inventory-' + vehicule.vehiculeId }" width="200" height="200" onerror="this.src='/images/placeholder.jpg';"/>   
+                        <input id="file" type="file" name="file" accept=".jpg,.jpeg, .png">
 <!--                        <label for="file" class="btn btn-primary">Select Image</label>
                         <input id="file" type="file" name="file" style="visibility:hidden;" required>-->
                         </div>    
                             
                             <input type="hidden" id="userId" name="userId"/>
-                            <button type="submit" class="btn btn-primary">Add vehicule</button>
+                            <input type="hidden" id="vehiculeId" name="vehiculeId" th:value="${vehicule.vehiculeId}"/>
+                            <button type="submit" class="btn btn-primary">Edit vehicule</button>
                         </form>
                         
                         
@@ -223,6 +222,6 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
             <script type="text/javascript" th:src="@{/js/getUser.js}"></script>
             <script type="text/javascript" th:src="@{/js/checkUser.js}"></script>
-            <script type="text/javascript" th:src="@{/js/formRestrictionAddVehicule.js}"></script>
+            <script type="text/javascript" th:src="@{/js/formRestrictionEditVehicule.js}"></script>
     </body>
 </html>

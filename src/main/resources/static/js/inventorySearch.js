@@ -35,10 +35,12 @@ $(document).ready(function(){
                 vehiculesDiv = $('#searchedVehicules');
                 $.each(vehiculeArray, function(index, vehicule) {
                     var vehiculeInfo = '<p>';
+                    vehiculeInfo += "<img src=\"/images/inventory-" + vehicule.vehiculeId  + "\"  width=\"200\" height=\"200\" onerror=\"this.src=\'/images/placeholder.jpg\';\">" + "<br>";  
                     vehiculeInfo += 'id: ' + vehicule.vehiculeId + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.year + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.carModel.name + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.carModel.make.name + '<br>';
+                    
                     vehiculeInfo += 'id: ' + vehicule.type + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.bodyStyle + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.transmission + '<br>';
