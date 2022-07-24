@@ -109,14 +109,7 @@ public class ManagerController {
         return "redirect:/login";
     }
     
-    @GetMapping("/sales")
-    public String displaySales(Model model) {
-        
-        model.addAttribute("activePage", "sales");
 
-        return carDealershipView.displaySalesPage();
-    }
-    
     @GetMapping("/admin/vehicules")
     public String displayAdminVehicules(Model model) {
         
@@ -191,13 +184,22 @@ public class ManagerController {
         try{
            Part image = request.getPart("file"); // Retrieves <input type="file" name="file">
            String fileName = image.getSubmittedFileName();
-           saveImage(image, fileName, managedStateVehicule.getVehiculeId());
+           if(!fileName.equals("")){
+                saveImage(image, fileName, managedStateVehicule.getVehiculeId());
+           }
        }catch(IOException | ServletException e){
        }
         
         return "redirect:/admin/vehicules";
     }
     
+    @GetMapping("/sales")
+    public String displaySales(Model model) {
+        
+        model.addAttribute("activePage", "sales");
+
+        return carDealershipView.displaySalesPage();
+    }
     
     
     //find a superhumans by its ID
@@ -238,6 +240,14 @@ public class ManagerController {
         return "redirect:/home";
     }
     
+        
+    @GetMapping("/admin/users")
+    public String displayUsers(Model model) {
+        List<User> users = userRepository.findAll();
+        model.addAttribute("activePage", "admin");
+        model.addAttribute("users", users);
+        return carDealershipView.displayUsersPage();
+    }
     
     public void saveImage(Part image,String fileName, int id){
         try{
@@ -263,4 +273,6 @@ public class ManagerController {
         }
         
     }
+    
+    
 }

@@ -29,6 +29,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.sg.cardealership.repository.CarModelRepository;
 import java.util.ArrayList;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -88,7 +90,10 @@ public class CarDealershipRestController {
         
     }
 
-    
+    @DeleteMapping("/admin/deleteVehicule/{id}")
+    public void deleteVehicule(@PathVariable int id) {
+        vehiculeRepository.deleteById(id);
+    }
     
     @GetMapping("/inventory")
     public List<Vehicule> displaySearchVehicule(String type,String quickSearch, Integer minPrice, Integer maxPrice, Integer minYear,Integer maxYear) {
@@ -102,6 +107,7 @@ public class CarDealershipRestController {
         return queryHelper(type, quickSearch, minPrice,maxPrice,minYear,maxYear);
 
     }
+    
     
     @GetMapping("/availableInventory")
     public List<Vehicule> searchAvailableVehicule(String quickSearch, Integer minPrice, Integer maxPrice, Integer minYear,Integer maxYear) {

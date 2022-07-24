@@ -57,4 +57,8 @@ public class CarDealershipView {
     public String displayAddVehiculePage(){
         return "addVehicule";
     }
+    
+    public String displayUsersPage(){
+        return "users";
+    }
 }

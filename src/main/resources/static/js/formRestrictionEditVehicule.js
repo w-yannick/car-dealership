@@ -78,3 +78,24 @@ $("#file").change(function() {
   filename = this.files[0].name;
   console.log(filename);
 });
+
+$('#delete-button').on('click', function(){
+    
+    var response = confirm("Are you sure you want to delete this vehicule?");
+    if (response == true){
+        var vehiculeId = $('#vehiculeId').val();
+        $.ajax({
+            type: 'DELETE',
+            url: "http://localhost:8080/api/admin/deleteVehicule/"+vehiculeId,
+            success:function(modelArray) {
+                $(location).attr('href',"/admin/vehicules/");
+                alert("Vehicule deleted");
+
+            },
+            error: function(result) {
+                alert('Unable to delete');
+            } 
+
+        });
+    }
+});

@@ -180,21 +180,30 @@
                             </div>
 
                             <div class="form-group row">
-                            <label for="description" class="col-3 col-form-label">
-                                Message</label>
-                            <div class="col-9">
-                                <textarea rows = "5" cols = "50" name = "description" id="description" th:text='${vehicule.description}' required></textarea>
+                                <label for="description" class="col-3 col-form-label">
+                                    Message</label>
+                                <div class="col-9">
+                                    <textarea rows = "5" cols = "50" name = "description" id="description" th:text='${vehicule.description}' required></textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div>    
-                        <img th:src="${'/images/inventory-' + vehicule.vehiculeId }" width="200" height="200" onerror="this.src='/images/placeholder.jpg';"/>   
-                        <input id="file" type="file" name="file" accept=".jpg,.jpeg, .png">
-<!--                        <label for="file" class="btn btn-primary">Select Image</label>
-                        <input id="file" type="file" name="file" style="visibility:hidden;" required>-->
-                        </div>    
-                            
+                            <div>    
+                                <img th:src="${'/images/inventory-' + vehicule.vehiculeId }" width="200" height="200" onerror="this.src='/images/placeholder.jpg';"/>   
+                            </div>
+                            <div>
+                                Replace picture<br>
+                                <input id="file" type="file" name="file" accept=".jpg,.jpeg, .png">
+        <!--                        <label for="file" class="btn btn-primary">Select Image</label>
+                                <input id="file" type="file" name="file" style="visibility:hidden;" required>-->
+                                
+                            </div>  
+                            <div>
+                                <input id="featured" type="checkbox" name="featured" th:checked="${vehicule.featured}"> Feature this vehicule
+                            </div>  
                             <input type="hidden" id="userId" name="userId"/>
                             <input type="hidden" id="vehiculeId" name="vehiculeId" th:value="${vehicule.vehiculeId}"/>
+                            
+                            <button type="button" class="btn btn-danger" id="delete-button">Delete vehicule</button>
+                           
                             <button type="submit" class="btn btn-primary">Edit vehicule</button>
                         </form>
                         
