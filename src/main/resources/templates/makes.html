@@ -25,29 +25,41 @@
             <hr/>
                 
             <div class="page-title">
-                <span ><h1>Users</h1></span>
-                <a th:href="@{/admin/addUser}"><span >Add a new User</span></a>
+                <span ><h1>Makes</h1></span>
+                
             </div>
-           
-            <div class="admin-container">
+            
+            <div class ="add-make-container">
+                <form action="/admin/addMake" method="POST">
+                    <div class="form-group row">  
+                        <label for="name" class="col col-form-label">
+                        make</label>
+                        <div class="col">
+                            <input type="text" name="name" 
+                            id="name" class="form-control" required/>
+                        </div>
+                        <div class="col">
+                            <input type="hidden" id="userId" name="userId"/>
+                            <button type="submit" class="btn btn-primary" id="save-button">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="makes-container">
 
                     <table class="table table-striped border-dark">
                         <thead>
                             <tr>
-                                <th>Last Name</th>
-                                <th>First Name</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th>Edit</th>
+                                <th>Make</th>
+                                <th>Date Added</th>
+                                <th>User</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="user : ${users}">
-                                <td th:text="${user.lastName}">Last Name</td>
-                                <td th:text="${user.firstName}">First Name</td>
-                                <td th:text="${user.email}">Email</td>
-                                <td th:text="${user.role}">Role</td>
-                                <td><a href="#" th:href="@{/admin/editUser/{id}(id=${user.userId})}">Edit</a></td>
+                            <tr th:each="make : ${makes}">
+                                <td th:text="${make.name}">Last Name</td>
+                                <td th:text="${make.dateAdded}">First Name</td>
+                                <td th:text="${make.user.email}">Email</td>
                             </tr>
                         </tbody>
                     </table>
@@ -65,5 +77,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script type="text/javascript" th:src="@{/js/addNavbarItems.js}"></script>
         <script type="text/javascript" th:src="@{/js/checkUserIsAdmin.js}"></script>
+        <script type="text/javascript" th:src="@{/js/getUser.js}"></script>
     </body>
 </html>

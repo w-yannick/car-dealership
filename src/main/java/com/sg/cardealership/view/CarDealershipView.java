@@ -69,4 +69,7 @@ public class CarDealershipView {
     public String displayChangePasswordPage(){
         return "changePassword";
     }
+    public String displayMakesPage(){
+        return "makes";
+    }
 }

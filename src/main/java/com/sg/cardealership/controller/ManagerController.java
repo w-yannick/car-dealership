@@ -33,6 +33,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.time.LocalDate;
 import java.util.Optional;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -305,6 +306,29 @@ public class ManagerController {
         return "redirect:/admin/users";
     }
     
+    @GetMapping("/admin/makes")
+    public String displayMakes(Model model) {
+        List<Make> makes = makeRepository.findAll();
+        model.addAttribute("activePage", "admin");
+        model.addAttribute("makes", makes);
+        return carDealershipView.displayMakesPage();
+    }
+    
+    @PostMapping("/admin/addMake")
+    public String addMake(String name, HttpServletRequest request) {
+        String userId = request.getParameter("userId");
+        User user = userRepository.findById(Integer.parseInt(userId)).orElse(null);
+        List<Make> makes = makeRepository.findAll();
+        if(user != null){
+            Make make = new Make();
+            make.setName(name);
+            make.setDateAdded(LocalDate.now());
+            make.setUser(user);
+            makeRepository.save(make);
+        }
+        
+        return "redirect:/admin/makes";
+    }
     
     
     public void saveImage(Part image,String fileName, int id){
