@@ -200,6 +200,7 @@
                                 <input id="featured" type="checkbox" name="featured" th:checked="${vehicule.featured}"> Feature this vehicule
                             </div>  
                             <input type="hidden" id="userId" name="userId"/>
+                            <input type="hidden" id="carModelId" name="carModelId" th:value="${vehicule.carModel.carModelId}"/>
                             <input type="hidden" id="vehiculeId" name="vehiculeId" th:value="${vehicule.vehiculeId}"/>
                             
                             <button type="button" class="btn btn-danger" id="delete-button">Delete vehicule</button>

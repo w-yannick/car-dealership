@@ -1,10 +1,8 @@
 $(document).ready(function(){
-    /*<![CDATA[*/
 
-    var carModelId = /*[[${vehicule.carModel.carModelId}]]*/ 'default';
+    var carModelId = $('#carModelId').val();
     console.log(carModelId);
 
-    /*]]>*/
     var val = $("#makeId").val(); 
     console.log("makeId" +val);
      var url = "http://localhost:8080/api/models?makeId="+val;
@@ -14,10 +12,11 @@ $(document).ready(function(){
             success:function(modelArray) {
                 $("#modelId").empty();
                 $.each(modelArray, function(index, carModel) {
-                    var selected = (carModel.carModelId == carModelId)? true : false ;
+                    var selected = (carModel.carModelId == carModelId)? ' selected ': '' ;
+                    console.log(selected);
                     console.log(carModel.carModelId);
                     console.log(carModel.name);
-                    $("#modelId").append('<option value=' +carModel.carModelId +' selected=' + selected + '>'+carModel.name+'</option>');
+                    $("#modelId").append('<option value=' +carModel.carModelId +' '+selected+' >'+carModel.name+'</option>');
            
                 });
             },
