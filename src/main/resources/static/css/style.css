@@ -70,11 +70,14 @@ img {
  
  .page-title{
     margin: 3em;
-        text-align: left;
+    text-align: left;
 
  }
  
- 
+ .page-option{
+    margin: 3em;
+    text-align: left;
+ }
  .content-title{
     margin: 3em;
 

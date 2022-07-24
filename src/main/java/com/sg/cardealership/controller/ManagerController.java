@@ -110,17 +110,48 @@ public class ManagerController {
         return carDealershipView.displaySalesPage();
     }
     
-    @GetMapping("/admin")
-    public String displayAdmin(Model model) {
+    @GetMapping("/admin/vehicules")
+    public String displayAdminVehicules(Model model) {
         
         
         model.addAttribute("activePage", "admin");
 
-        return carDealershipView.displayAdminPage();
+        return carDealershipView.displayAdminVehiculesPage();
     }
     
+    @GetMapping("/admin/addVehicule")
+    public String displayAddVehicule(Model model) {
+        
+        List<Make> makes = makeRepository.findAll();
+        model.addAttribute("activePage", "admin");
+        model.addAttribute("makes", makes);
+        model.addAttribute("errors",vehiculeViolations);
+        return carDealershipView.displayAddVehiculePage();
+    }
+    @PostMapping("/admin/addVehicule")
+    public String addVehicule( @Valid Vehicule vehicule,BindingResult result, HttpServletRequest request, Model model) {
+        //Maybe we need user that added the vehicule???
+//       String userId = request.getParameter("userId");
+//       User user = userRepository.findById(Integer.parseInt(userId)).orElse(null);
+       String carModelId = request.getParameter("modelId");
+       CarModel carModel = carModelRepository.findById(Integer.parseInt(carModelId)).orElse(null);
+       Validator validate = Validation.buildDefaultValidatorFactory().getValidator();
+        vehiculeViolations = validate.validate(vehicule);
+       if(result.hasErrors()) {
+           model.addAttribute("vehicule",vehicule);
+           model.addAttribute("errors",vehiculeViolations);
+            return carDealershipView.displayPurchasePage();
+        }
+       //set the model and availabilty and complete the addition of the vehicule
+        vehicule.setCarModel(carModel);
+        vehicule.setAvailable(true);
+       
+        vehiculeRepository.save(vehicule);
+        
+        return "redirect:/admin/addVehicule";
+    }
     
-        //find a superhumans by its ID
+    //find a superhumans by its ID
     @GetMapping("/sales/purchase/{id}")
     public String displaySaleForm(@PathVariable int id, Model model) {
         Vehicule vehicule = vehiculeRepository.findById(id).orElse(null);

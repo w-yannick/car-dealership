@@ -51,4 +51,10 @@ public class CarDealershipView {
     public String displayPurchasePage(){
         return "purchase";
     }
+    public String displayAdminVehiculesPage(){
+        return "adminVehicules";
+    }
+    public String displayAddVehiculePage(){
+        return "addVehicule";
+    }
 }

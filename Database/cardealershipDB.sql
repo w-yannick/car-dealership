@@ -118,10 +118,19 @@ VALUES
 	("Patrick", "Star", "disabled@gmail.com", "disabled", "password");
 
 INSERT INTO Make (Name,DateAdded,AddedByUserId)
-VALUES ("Audi","2022-07-22", 1);
+VALUES 
+	("Audi","2022-07-22", 1),
+    ("Ford","2022-07-22", 1),
+    ("Toyota","2022-07-22", 1);
 
 INSERT INTO CarModel (MakeId,Name,DateAdded,AddedByUserId)
-VALUES (1, "A8","2022-07-22", 1);
+VALUES 
+	(1, "A8","2022-07-22", 1),
+    (1, "A4","2022-07-22", 1),
+    (2, "F8","2022-07-22", 1),
+    (2, "F4","2022-07-22", 1),
+    (3, "T8","2022-07-22", 1),
+    (3, "T4","2022-07-22", 1);
 
 INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
 VALUES 

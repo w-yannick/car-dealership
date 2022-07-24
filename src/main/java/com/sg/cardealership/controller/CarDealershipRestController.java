@@ -62,6 +62,12 @@ public class CarDealershipRestController {
     
     Set<ConstraintViolation<Vehicule>> vehiculeViolations = new HashSet<>();
 
+    @GetMapping("/models")
+    public List<CarModel> getModels(Integer makeId) {
+       Make make = makeRepository.findById(makeId).orElse(null);
+        return carModelRepository.findByMake(make);
+        
+    }
     @GetMapping("/specials")
     public List<Special> getSpecials() {
        
