@@ -61,4 +61,7 @@ public class CarDealershipView {
     public String displayUsersPage(){
         return "users";
     }
+    public String displayAddUserPage(){
+        return "addUser";
+    }
 }

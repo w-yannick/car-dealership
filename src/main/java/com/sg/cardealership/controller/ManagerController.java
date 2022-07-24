@@ -249,6 +249,20 @@ public class ManagerController {
         return carDealershipView.displayUsersPage();
     }
     
+    @GetMapping("/admin/addUser")
+    public String displayAddUser(Model model) {
+        model.addAttribute("activePage", "admin");
+        return carDealershipView.displayAddUserPage();
+    }
+    @PostMapping("/admin/addUser")
+    public String addUser(User user, Model model) {
+        model.addAttribute("activePage", "admin");
+        userRepository.save(user);
+        return "redirect:/admin/users";
+    }
+    
+    
+    
     public void saveImage(Part image,String fileName, int id){
         try{
             String[] tokens = fileName.split("\\.(?=[^\\.]+$)");
