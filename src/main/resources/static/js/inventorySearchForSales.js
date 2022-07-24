@@ -41,7 +41,7 @@ $(document).ready(function(){
                     vehiculeInfo += 'id: ' + vehicule.carModel.make.name + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.type + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.bodyStyle + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.automatic + '<br>';
+                    vehiculeInfo += 'id: ' + vehicule.transmission + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.exteriorColor + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.interiorColor + '<br>';
                     vehiculeInfo += 'id: ' + vehicule.mileage + '<br>';

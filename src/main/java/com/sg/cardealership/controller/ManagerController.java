@@ -133,22 +133,25 @@ public class ManagerController {
         //Maybe we need user that added the vehicule???
 //       String userId = request.getParameter("userId");
 //       User user = userRepository.findById(Integer.parseInt(userId)).orElse(null);
-       String carModelId = request.getParameter("modelId");
-       CarModel carModel = carModelRepository.findById(Integer.parseInt(carModelId)).orElse(null);
+        String carModelId = request.getParameter("modelId");
+        CarModel carModel = carModelRepository.findById(Integer.parseInt(carModelId)).orElse(null);
+        vehicule.setCarModel(carModel);
+        vehicule.setAvailable(true);
        Validator validate = Validation.buildDefaultValidatorFactory().getValidator();
         vehiculeViolations = validate.validate(vehicule);
        if(result.hasErrors()) {
+            List<Make> makes = makeRepository.findAll();
            model.addAttribute("vehicule",vehicule);
-           model.addAttribute("errors",vehiculeViolations);
-            return carDealershipView.displayPurchasePage();
+
+            model.addAttribute("makes", makes);
+//           model.addAttribute("errors",vehiculeViolations);
+            return carDealershipView.displayAddVehiculePage();
         }
        //set the model and availabilty and complete the addition of the vehicule
-        vehicule.setCarModel(carModel);
-        vehicule.setAvailable(true);
        
         vehiculeRepository.save(vehicule);
         
-        return "redirect:/admin/addVehicule";
+        return "redirect:/admin/vehicules";
     }
     
     //find a superhumans by its ID

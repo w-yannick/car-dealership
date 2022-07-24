@@ -56,7 +56,7 @@ create table Vehicule(
     Type varchar(50),
     BodyStyle varchar(50),
     YEAR INT,
-    AUTOMATIC boolean,
+    Transmission VARCHAR(50),
     ExteriorColor VARCHAR(50),
     InteriorColor VARCHAR(50),
     Mileage int,
@@ -132,19 +132,19 @@ VALUES
     (3, "T8","2022-07-22", 1),
     (3, "T4","2022-07-22", 1);
 
-INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Automatic,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
+INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Transmission,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
 VALUES 
-	(1,"New","Car",2015,true,"Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true),
-	(1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(1,"New","Car",2015,true,"Black","Black",0,"VIN3",10000,9000,"its a car....",false,false),
-	(1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(1,"New","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,false),
-	(1,"Used","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(1,"Used","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,false),
-	(1,"Used","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(1,"Used","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(1,"Used","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(1,"Used","Car",2016,true,"Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
+	(1,"New","Car",2015,"Automatic","Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true),
+	(1,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(1,"New","Car",2015,"Automatic","Black","Black",0,"VIN3",10000,9000,"its a car....",false,false),
+	(1,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(1,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,false),
+	(1,"Used","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,false),
+	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
 
 INSERT INTO Sale (Name,Phone,Email,Street1,Street2,City,State, Zipcode,VehiculeId,PurchasePrice,PurchaseType,UserId)
 VALUES ("Bob","1-111-111-1111","bob@gmail.com","123 street","apt 2","Montreal","QC", "12345",3,9000,"Bank Finance",1);

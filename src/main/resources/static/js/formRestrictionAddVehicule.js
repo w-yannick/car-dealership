@@ -19,6 +19,9 @@ $(document).ready(function(){
             } 
 
     });
+   
+    console.log($("#year").attr("min",2000));
+    $("#year").attr("max",(new Date().getFullYear()+1));
 });
 
 
@@ -50,3 +53,4 @@ $("#makeId").on('change', function(){
 });
  
 
+$()

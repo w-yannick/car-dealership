@@ -46,7 +46,7 @@
 
                 <span th:text="${vehicule.bodyStyle}">display bodyStyle</span><br>
 
-                <span th:text="${vehicule.automatic}">display automatic(true/false)</span><br>
+                <span th:text="${vehicule.transmission}">display transmission</span><br>
 
                 <span th:text="${vehicule.exteriorColor}">display exteriorcolor</span><br>
 
@@ -230,7 +230,7 @@
                             <label for="purchasePrice" class="col-3 col-form-label">
                                 Purchase Price</label>
                             <div class="col-9">
-                                <input type="text" name="purchasePrice" id="purchasePrice" class="form-control"/>
+                                <input type="number" name="purchasePrice" id="purchasePrice" class="form-control"/>
                             </div>
                         </div>
                         

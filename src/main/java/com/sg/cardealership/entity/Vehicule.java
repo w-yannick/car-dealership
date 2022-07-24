@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -37,17 +38,19 @@ public class Vehicule {
     @Column
     String BodyStyle;
     
+    @NotNull(message = "not null")
     @Column
     int year;
     
     @Column
-    boolean automatic;
+    String transmission;
     
     @Column
     String exteriorColor;
     
     @Column
     String interiorColor;
+    
     
     @Column
     int mileage;
@@ -75,22 +78,7 @@ public class Vehicule {
     }
 
     
-    public Vehicule(int id, String type, String BodyStyle, int year, boolean isAutomatic, String exteriorColor, String interiorColor, int mileage, String VINNumber, BigDecimal MSRP, BigDecimal salePrice, String description, boolean isFeatured, boolean isAvailable) {
-        this.vehiculeId = id;
-        this.type = type;
-        this.BodyStyle = BodyStyle;
-        this.year = year;
-        this.automatic = isAutomatic;
-        this.exteriorColor = exteriorColor;
-        this.interiorColor = interiorColor;
-        this.mileage = mileage;
-        this.VINNumber = VINNumber;
-        this.MSRP = MSRP;
-        this.salePrice = salePrice;
-        this.description = description;
-        this.featured = isFeatured;
-        this.available = isAvailable;
-    }
+
 
     public int getVehiculeId() {
         return vehiculeId;
@@ -133,14 +121,10 @@ public class Vehicule {
         this.year = year;
     }
 
-    public boolean isAutomatic() {
-        return automatic;
-    }
-
-    public void setAutomatic(boolean automatic) {
-        this.automatic = automatic;
-    }
-
+    
+    
+    
+    
     public String getExteriorColor() {
         return exteriorColor;
     }
@@ -221,24 +205,32 @@ public class Vehicule {
         this.carModel = carModel;
     }
 
+    public String getTransmission() {
+        return transmission;
+    }
+
+    public void setTransmission(String transmission) {
+        this.transmission = transmission;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + this.vehiculeId;
-        hash = 97 * hash + Objects.hashCode(this.carModel);
-        hash = 97 * hash + Objects.hashCode(this.type);
-        hash = 97 * hash + Objects.hashCode(this.BodyStyle);
-        hash = 97 * hash + this.year;
-        hash = 97 * hash + (this.automatic ? 1 : 0);
-        hash = 97 * hash + Objects.hashCode(this.exteriorColor);
-        hash = 97 * hash + Objects.hashCode(this.interiorColor);
-        hash = 97 * hash + this.mileage;
-        hash = 97 * hash + Objects.hashCode(this.VINNumber);
-        hash = 97 * hash + Objects.hashCode(this.MSRP);
-        hash = 97 * hash + Objects.hashCode(this.salePrice);
-        hash = 97 * hash + Objects.hashCode(this.description);
-        hash = 97 * hash + (this.featured ? 1 : 0);
-        hash = 97 * hash + (this.available ? 1 : 0);
+        hash = 23 * hash + this.vehiculeId;
+        hash = 23 * hash + Objects.hashCode(this.carModel);
+        hash = 23 * hash + Objects.hashCode(this.type);
+        hash = 23 * hash + Objects.hashCode(this.BodyStyle);
+        hash = 23 * hash + this.year;
+        hash = 23 * hash + Objects.hashCode(this.transmission);
+        hash = 23 * hash + Objects.hashCode(this.exteriorColor);
+        hash = 23 * hash + Objects.hashCode(this.interiorColor);
+        hash = 23 * hash + this.mileage;
+        hash = 23 * hash + Objects.hashCode(this.VINNumber);
+        hash = 23 * hash + Objects.hashCode(this.MSRP);
+        hash = 23 * hash + Objects.hashCode(this.salePrice);
+        hash = 23 * hash + Objects.hashCode(this.description);
+        hash = 23 * hash + (this.featured ? 1 : 0);
+        hash = 23 * hash + (this.available ? 1 : 0);
         return hash;
     }
 
@@ -260,9 +252,6 @@ public class Vehicule {
         if (this.year != other.year) {
             return false;
         }
-        if (this.automatic != other.automatic) {
-            return false;
-        }
         if (this.mileage != other.mileage) {
             return false;
         }
@@ -276,6 +265,9 @@ public class Vehicule {
             return false;
         }
         if (!Objects.equals(this.BodyStyle, other.BodyStyle)) {
+            return false;
+        }
+        if (!Objects.equals(this.transmission, other.transmission)) {
             return false;
         }
         if (!Objects.equals(this.exteriorColor, other.exteriorColor)) {
@@ -302,13 +294,8 @@ public class Vehicule {
         return true;
     }
 
-    
 
-    @Override
-    public String toString() {
-        return "Vehicule{" + "id=" + vehiculeId + ", type=" + type + ", BodyStyle=" + BodyStyle + ", year=" + year + ", automatic=" + automatic + ", exteriorColor=" + exteriorColor + ", interiorColor=" + interiorColor + ", mileage=" + mileage + ", VINNumber=" + VINNumber + ", MSRP=" + MSRP + ", salePrice=" + salePrice + ", description=" + description + ", featured=" + featured + ", available=" + available + '}';
-    }
-    
+
     
     
 }
