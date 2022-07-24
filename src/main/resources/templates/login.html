@@ -29,7 +29,15 @@
             </div>
 
             <div class="login-container">
- 
+<!--                 <div class="col-12 m-1 text-center" id="error" style="display:none;"> 
+                    <p class="alert alert-danger">Password and confirm password needs to be equal</p>
+                </div>-->
+                
+                <div class="col-12 m-1 text-center" 
+                    th:if='${!error.equals("")}'>
+                    <p class="alert alert-danger" th:text="${error}">Error message</p>
+                </div>
+                
                 <div class="col-7 text-center m-3">
                     <form action="/login" method="POST">
                         <div class="form-group row">

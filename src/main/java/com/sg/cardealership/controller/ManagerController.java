@@ -85,7 +85,7 @@ public class ManagerController {
         
         
         model.addAttribute("activePage", "login");
-
+        model.addAttribute("error","");
         return carDealershipView.displayLoginPage();
     }
     
@@ -101,12 +101,17 @@ public class ManagerController {
                 case "Admin":
                 case "Sales":
                     return carDealershipView.displayLoginSucessPage();
+                case "Disabled":
+                    model.addAttribute("error", "User is disabled");
+                    return carDealershipView.displayLoginPage();
                 default:
-                    return "redirect:/login";
+                    model.addAttribute("error", "Invalid user");
+                    return carDealershipView.displayLoginPage();
 
             }
         }
-        return "redirect:/login";
+         model.addAttribute("error", "Invalid user");
+        return carDealershipView.displayLoginPage();
     }
     
 
