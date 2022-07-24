@@ -67,7 +67,9 @@ $("#type").on('change', function(){
         $("#mileage").removeAttr("max");
         $("#mileage").val(1001);
     }
-    
+});
 
-    
+$("#file").change(function() {
+  filename = this.files[0].name;
+  console.log(filename);
 });

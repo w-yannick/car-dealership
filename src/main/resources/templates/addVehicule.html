@@ -125,6 +125,8 @@
                                     </select>
                                 </div>
                                 
+                                
+                                
                                 <label for="interiorColor" class="col-3 col-form-label">
                                 Interior</label>
                                 <div class="col-9">
@@ -136,8 +138,6 @@
                                         <option value="Black">Black</option>
                                     </select>
                                 </div>
-                                
-                                
                             </div>
                             <div class="form-group row">
                                 <label for="mileage" class="col-3 col-form-label">
@@ -186,15 +186,28 @@
                             <label for="description" class="col-3 col-form-label">
                                 Message</label>
                             <div class="col-9">
-                                <textarea rows = "5" cols = "50" name = "description" id="description"></textarea>
+                                <textarea rows = "5" cols = "50" name = "description" id="description" required></textarea>
                             </div>
                         </div>
-                            
+                        <div>    
+                        <input id="file" type="file" name="file" accept=".jpg,.jpeg, .png"  required>
+<!--                        <label for="file" class="btn btn-primary">Select Image</label>
+                        <input id="file" type="file" name="file" style="visibility:hidden;" required>-->
+                        </div>    
                             
                             <input type="hidden" id="userId" name="userId"/>
                             <button type="submit" class="btn btn-primary">Add vehicule</button>
                         </form>
-
+                        
+                        
+<!--                        <div class=" col-12 text-center">
+                    <form action="upload" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" th:value="${superhuman.id}"/>
+                        <label for="file" class="btn btn-primary">Select Image</label>
+                        <input id="file" style="visibility:hidden;" type="file" name="file">
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </form>       
+                </div>-->
                     </div>
                 </div>  
             
