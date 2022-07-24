@@ -44,6 +44,7 @@ import javax.validation.Validator;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -330,7 +331,7 @@ public class ManagerController {
     }
     
     
-        @GetMapping("/admin/models")
+    @GetMapping("/admin/models")
     public String displayModels(Model model) {
         List<CarModel> carModels = carModelRepository.findAll();
         List<Make> makes = makeRepository.findAll();
@@ -357,6 +358,34 @@ public class ManagerController {
         
         return "redirect:/admin/models";
     }
+    
+    @GetMapping("/admin/specials")
+    public String displayAdminSpecials(Model model) {
+        List<Special> specials = specialRepository.findAll();
+        model.addAttribute("activePage", "admin");
+        model.addAttribute("specials", specials);
+        return carDealershipView.displayAdminSpecialsPage();
+    }
+    
+    @PostMapping("/admin/addSpecial")
+    public String addSpecial(Special special, HttpServletRequest request) {
+        
+        Special newSpecial = new Special();
+        newSpecial.setTitle(special.getTitle());
+        newSpecial.setDescription(special.getDescription());
+        specialRepository.save(special);
+        
+        return "redirect:/admin/specials";
+    }
+    
+    @PostMapping("/admin/deleteSpecial")
+    public String deleteSpecial( int specialId, HttpServletRequest request) {
+        
+        specialRepository.deleteById(specialId);
+        
+        return "redirect:/admin/specials";
+    }
+    
     
     
     public void saveImage(Part image,String fileName, int id){

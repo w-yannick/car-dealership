@@ -29,7 +29,9 @@ $(document).ready(function(){
                 +  '<div class="dropdown-divider"></div>'
                 +  '<a class="dropdown-item" href="/admin/models">models</a>' 
                 +  '<div class="dropdown-divider"></div>'
-                +  '<a class="dropdown-item" href="/admin/specials">reports</a>' 
+                +  '<a class="dropdown-item" href="/admin/specials">specials</a>' 
+                +  '<div class="dropdown-divider"></div>'
+                +  '<a class="dropdown-item" href="/admin/reports">reports</a>' 
                 +  '</div>'
                 + '</li>'   
                 

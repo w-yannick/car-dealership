@@ -75,4 +75,7 @@ public class CarDealershipView {
     public String displayModelsPage(){
         return "models";
     }
+    public String displayAdminSpecialsPage(){
+        return "adminSpecials";
+    }
 }
