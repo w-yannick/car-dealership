@@ -254,10 +254,34 @@ public class ManagerController {
         model.addAttribute("activePage", "admin");
         return carDealershipView.displayAddUserPage();
     }
+    
     @PostMapping("/admin/addUser")
     public String addUser(User user, Model model) {
         model.addAttribute("activePage", "admin");
         userRepository.save(user);
+        return "redirect:/admin/users";
+    }
+    
+    @GetMapping("/admin/editUser/{id}")
+    public String displayAddUser(@PathVariable int id, Model model) {
+        User user = userRepository.findById(id).orElse(null);
+        
+        model.addAttribute("activePage", "admin");
+        model.addAttribute("user", user);
+        return carDealershipView.displayEditUserPage();
+    }
+    
+    @PostMapping("/admin/editUser")
+    public String editUser(User user, Model model) {
+        User managedStateUser = userRepository.findById(user.getUserId()).orElse(null);
+        managedStateUser.setFirstName(user.getFirstName());
+        managedStateUser.setLastName(user.getLastName());
+        managedStateUser.setEmail(user.getEmail());
+        managedStateUser.setRole(user.getRole());
+        if(!user.getPassword().equals("")) {
+            managedStateUser.setPassword(user.getPassword());
+        }
+        userRepository.save(managedStateUser);
         return "redirect:/admin/users";
     }
     

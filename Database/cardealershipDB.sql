@@ -102,7 +102,6 @@ create table Special(
 create table Contact(
 	ContactId int primary key auto_increment,
     Name varchar(50),
-    LastName varchar(50),
     Email varchar(50),
     Phone varchar(50),
     Message varchar(255)
@@ -139,11 +138,11 @@ VALUES
 	(1,"New","Car",2015,"Automatic","Black","Black",0,"VIN3",10000,9000,"its a car....",false,false),
 	(1,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
 	(1,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,false),
-	(1,"Used","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,false),
+	(1,"Used","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
+	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,false),
 	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
+	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,false),
 	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
 
 INSERT INTO Sale (Name,Phone,Email,Street1,Street2,City,State, Zipcode,VehiculeId,PurchasePrice,PurchaseType,UserId)

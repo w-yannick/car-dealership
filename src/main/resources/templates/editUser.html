@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/style.css" />
+        <title>HERO</title>
+    </head>
+    <body>
+        <!-- Main Body of Page -->
+        
+        <div class="container">
+            
+            <!-- nav bar fragment-->
+            <div th:replace="~{fragments/header :: header}"> </div>
+            
+            <!--jumbotron-->
+            <!--<div th:replace="~{fragments/jumbotron :: jumbotron}"> </div>-->
+            
+            
+            <hr/>
+                
+            <div class="page-title">
+                <span ><h1>Edit User</h1></span>
+            </div>
+
+           
+            <div class="user-info">
+
+                <div class="col-12 m-1 text-center" id="password-error" style="display:none;"> 
+                    <p class="alert alert-danger">Password and confirm password needs to be equal</p>
+                </div>
+
+                <div class="col-12 text-center m-3">
+                    <!--<form action="/sales/purchase/id=${vehicule.vehiculeId})" method="POST">-->
+
+                    <form action="/admin/editUser" method="POST">
+                        <div class="form-group row">
+
+                            <label for="firstName" class="col col-form-label">
+                                First Name</label>
+                            <div class="col">
+                                <input type="text" name="firstName" 
+                                        id="firstName" class="form-control" th:value='${user.firstName}' required/>
+                            </div>
+
+                            <label for="lastName" class="col col-form-label">
+                                Last Name</label>
+                            <div class="col">
+                                <input type="text" name="lastName" 
+                                       id="lastName" class="form-control" th:value='${user.lastName}'required/>
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col col-form-label">
+                                Email</label>
+                            <div class="col">
+                                <input type="email" name="email" 
+                                       id="email" class="form-control"  th:value='${user.email}' required/>
+                            </div>
+                            <label for="role" class="col col-form-label">
+                                Role</label>
+                            <div class="col">
+                                <select name="role" id="role" class="form-control">
+                                <option value="Disabled" th:selected="${user.role == 'Disabled'}">Disabled</option>
+                                <option value="Sales" th:selected="${user.role == 'Sales'}">Sales</option>
+                                <option value="Admin" th:selected="${user.role == 'Admin'}">Admin</option>
+                            </select>       
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group row">
+                            <label for="password" class="col col-form-label">
+                                password</label>
+                            <div class="col">
+                                <input type="password" name="password" 
+                                       id="password" class="form-control"/>
+                            </div>
+                            <label for="confirmPassword" class="col col-form-label">
+                                Confirm Password</label>
+                            <div class="col">
+                                <input type="password" name="confirmPassword" 
+                                       id="confirmPassword" class="form-control"/>
+                            </div>
+                        </div>
+                        <input type="hidden" id="userId" name="userId" th:value="${user.userId}"/>
+
+                        <button type="submit" class="btn btn-primary" id="save-button">Save</button>
+                    </form>
+
+                </div>
+            </div>  
+            
+        </div>
+                    
+            <!-- End main body -->
+        
+
+        <!-- Optional JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script type="text/javascript" th:src="@{/js/checkUser.js}"></script>
+        <script type="text/javascript" th:src="@{/js/formRestrictionAddUser.js}"></script>
+    </body>
+</html>

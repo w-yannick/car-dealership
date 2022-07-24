@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class CarDealershipView {
-        //Superhumans
     public String displayIndexPage(){
         return "index";
     }
@@ -63,5 +62,8 @@ public class CarDealershipView {
     }
     public String displayAddUserPage(){
         return "addUser";
+    }
+    public String displayEditUserPage(){
+        return "editUser";
     }
 }
