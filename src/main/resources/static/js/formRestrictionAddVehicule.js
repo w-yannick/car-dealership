@@ -20,8 +20,10 @@ $(document).ready(function(){
 
     });
    
-    console.log($("#year").attr("min",2000));
+    
     $("#year").attr("max",(new Date().getFullYear()+1));
+    $("#mileage").attr("min",0);
+    $("#mileage").attr("max",1000);
 });
 
 
@@ -53,4 +55,19 @@ $("#makeId").on('change', function(){
 });
  
 
-$()
+$("#type").on('change', function(){
+    console.log("list item selected");
+    var val = $(this).val();
+    if(val == "New"){
+        $("#mileage").attr("min",0);
+        $("#mileage").attr("max",1000);
+    }
+    else{
+        $("#mileage").attr("min",1001);
+        $("#mileage").removeAttr("max");
+        $("#mileage").val(1001);
+    }
+    
+
+    
+});
