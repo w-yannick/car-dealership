@@ -318,7 +318,6 @@ public class ManagerController {
     public String addMake(String name, HttpServletRequest request) {
         String userId = request.getParameter("userId");
         User user = userRepository.findById(Integer.parseInt(userId)).orElse(null);
-        List<Make> makes = makeRepository.findAll();
         if(user != null){
             Make make = new Make();
             make.setName(name);
@@ -328,6 +327,35 @@ public class ManagerController {
         }
         
         return "redirect:/admin/makes";
+    }
+    
+    
+        @GetMapping("/admin/models")
+    public String displayModels(Model model) {
+        List<CarModel> carModels = carModelRepository.findAll();
+        List<Make> makes = makeRepository.findAll();
+        model.addAttribute("activePage", "admin");
+        model.addAttribute("models", carModels);
+        model.addAttribute("makes", makes);
+        return carDealershipView.displayModelsPage();
+    }
+    
+    @PostMapping("/admin/addModel")
+    public String addModel(String name, int makeId, HttpServletRequest request) {
+        String userId = request.getParameter("userId");
+        User user = userRepository.findById(Integer.parseInt(userId)).orElse(null);
+        Make make = makeRepository.findById(makeId).orElse(null);
+        if(user != null){
+            
+            CarModel carModel = new CarModel();
+            carModel.setName(name);
+            carModel.setMake(make);
+            carModel.setDateAdded(LocalDate.now());
+            carModel.setUser(user);
+            carModelRepository.save(carModel);
+        }
+        
+        return "redirect:/admin/models";
     }
     
     

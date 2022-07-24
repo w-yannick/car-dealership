@@ -72,4 +72,7 @@ public class CarDealershipView {
     public String displayMakesPage(){
         return "makes";
     }
+    public String displayModelsPage(){
+        return "models";
+    }
 }
