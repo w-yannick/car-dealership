@@ -82,8 +82,6 @@ public class ManagerController {
 
     @GetMapping("/login")
     public String displayLogin(Model model) {
-        
-        
         model.addAttribute("activePage", "login");
         model.addAttribute("error","");
         return carDealershipView.displayLoginPage();
@@ -105,15 +103,32 @@ public class ManagerController {
                     model.addAttribute("error", "User is disabled");
                     return carDealershipView.displayLoginPage();
                 default:
-                    model.addAttribute("error", "Invalid user");
+                    model.addAttribute("error", "Invalid username/password");
                     return carDealershipView.displayLoginPage();
 
             }
         }
-         model.addAttribute("error", "Invalid user");
+         model.addAttribute("error", "Invalid username/password");
         return carDealershipView.displayLoginPage();
     }
     
+    
+    @GetMapping("/account/changePassword")
+    public String displayChangePassword(Model model) {
+        return carDealershipView.displayChangePasswordPage();
+    }
+    
+    @PostMapping("/account/changePassword")
+    public String changePassword(String password,HttpServletRequest request, Model model) {
+        String userId = request.getParameter("userId");
+
+        User user = userRepository.findById(Integer.parseInt(userId)).orElse(null);
+        if (user != null){
+            user.setPassword(password);
+            userRepository.save(user);
+        }
+        return "redirect:/home";
+    }
 
     @GetMapping("/admin/vehicules")
     public String displayAdminVehicules(Model model) {

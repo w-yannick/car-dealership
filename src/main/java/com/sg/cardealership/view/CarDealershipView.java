@@ -66,4 +66,7 @@ public class CarDealershipView {
     public String displayEditUserPage(){
         return "editUser";
     }
+    public String displayChangePasswordPage(){
+        return "changePassword";
+    }
 }

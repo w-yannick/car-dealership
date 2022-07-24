@@ -1,6 +1,5 @@
 $(document).ready(function(){
     
-    var email = localStorage.getItem("role");
     var role = localStorage.getItem("role");
     switch(role){
        
