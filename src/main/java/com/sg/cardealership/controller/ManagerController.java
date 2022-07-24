@@ -28,8 +28,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.sg.cardealership.repository.CarModelRepository;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Optional;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
 import javax.validation.Valid;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -128,11 +135,14 @@ public class ManagerController {
         model.addAttribute("errors",vehiculeViolations);
         return carDealershipView.displayAddVehiculePage();
     }
+    
     @PostMapping("/admin/addVehicule")
     public String addVehicule( @Valid Vehicule vehicule,BindingResult result, HttpServletRequest request, Model model) {
         //Maybe we need user that added the vehicule???
 //       String userId = request.getParameter("userId");
 //       User user = userRepository.findById(Integer.parseInt(userId)).orElse(null);
+
+
         String carModelId = request.getParameter("modelId");
         CarModel carModel = carModelRepository.findById(Integer.parseInt(carModelId)).orElse(null);
         vehicule.setCarModel(carModel);
@@ -147,9 +157,16 @@ public class ManagerController {
 //           model.addAttribute("errors",vehiculeViolations);
             return carDealershipView.displayAddVehiculePage();
         }
-       //set the model and availabilty and complete the addition of the vehicule
        
+       //set the model and availabilty and complete the addition of the vehicule
         vehiculeRepository.save(vehicule);
+       try{
+           Part image = request.getPart("file"); // Retrieves <input type="file" name="file">
+           String fileName = image.getSubmittedFileName();
+           saveImage(image, fileName, vehicule.getVehiculeId());
+       }catch(IOException | ServletException e){
+       }
+           
         
         return "redirect:/admin/vehicules";
     }
@@ -190,5 +207,31 @@ public class ManagerController {
         saleRepository.save(sale);
         
         return "redirect:/home";
+    }
+    
+    
+    public void saveImage(Part image,String fileName, int id){
+        try{
+            String[] tokens = fileName.split("\\.(?=[^\\.]+$)");
+//            String extension = tokens[1];
+            
+            InputStream fileContent = image.getInputStream();
+
+            File f = new File("src/main/resources/static/images/inventory-" + id);
+
+            OutputStream os = new FileOutputStream(f);
+            byte[] buf = new byte[1024];
+            int len;
+
+            while ((len = fileContent.read(buf)) > 0) {
+                os.write(buf, 0, len);
+            }
+
+            os.close();
+            fileContent.close();
+        }
+        catch(IOException e){
+        }
+        
     }
 }
