@@ -19,10 +19,7 @@ import com.sg.cardealership.repository.SpecialRepository;
 import com.sg.cardealership.repository.UserRepository;
 import com.sg.cardealership.repository.VehiculeRepository;
 import com.sg.cardealership.view.CarDealershipView;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import javax.validation.ConstraintViolation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,23 +31,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.time.LocalDate;
-import java.util.Optional;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
-import javax.validation.Valid;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import com.sg.cardealership.entity.SalesReportInterface;
 
 
 @Controller
@@ -80,8 +66,6 @@ public class ManagerController {
     @Autowired
     UserRepository userRepository;
     
-    Set<ConstraintViolation<Vehicule>> vehiculeViolations = new HashSet<>();
-    Set<ConstraintViolation<Sale>> saleViolations = new HashSet<>();
 
     @GetMapping("/login")
     public String displayLogin(Model model) {
@@ -148,7 +132,6 @@ public class ManagerController {
         List<Make> makes = makeRepository.findAll();
         model.addAttribute("activePage", "admin");
         model.addAttribute("makes", makes);
-        model.addAttribute("errors",vehiculeViolations);
         return carDealershipView.displayAddVehiculePage();
     }
     
@@ -160,7 +143,6 @@ public class ManagerController {
         String carModelId = request.getParameter("modelId");
         CarModel carModel = carModelRepository.findById(Integer.parseInt(carModelId)).orElse(null);
         //set the model and availabilty and complete the addition of the vehicule
-
         vehicule.setCarModel(carModel);
         vehicule.setAvailable(true);
         vehicule.setFeatured(false);
@@ -173,7 +155,6 @@ public class ManagerController {
        }catch(IOException | ServletException e){
        }
            
-//        model.addAttribute("vehicule", vehicule);
         return "redirect:/admin/editVehicule/"+vehicule.getVehiculeId();
     }
     
@@ -188,9 +169,10 @@ public class ManagerController {
     
     @PostMapping("/admin/editVehicule")
     public String performEditVehicule(Vehicule vehicule, HttpServletRequest request, BindingResult result) {
-        Vehicule managedStateVehicule = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
         String carModelId = request.getParameter("modelId");
         CarModel carModel = carModelRepository.findById(Integer.parseInt(carModelId)).orElse(null);
+        //get a vehicule with a managed state to be able to update with save() via jpaRepository
+        Vehicule managedStateVehicule = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
         managedStateVehicule.setCarModel(carModel);
         managedStateVehicule.setType(vehicule.getType());
         managedStateVehicule.setYear(vehicule.getYear());
@@ -204,8 +186,9 @@ public class ManagerController {
         managedStateVehicule.setDescription(vehicule.getDescription());
         managedStateVehicule.setFeatured(vehicule.isFeatured());
         vehiculeRepository.save(managedStateVehicule);
+        
         try{
-           Part image = request.getPart("file"); // Retrieves <input type="file" name="file">
+           Part image = request.getPart("file");
            String fileName = image.getSubmittedFileName();
            if(!fileName.equals("")){
                 saveImage(image, fileName, managedStateVehicule.getVehiculeId());
@@ -232,26 +215,18 @@ public class ManagerController {
         model.addAttribute("activePage", "sales");
 
         model.addAttribute("vehicule",vehicule);
-        model.addAttribute("errors",saleViolations);
         
         
         return carDealershipView.displayPurchasePage();
     }
     
     @PostMapping("/sales/purchase/add")
-    public String addSale( @Valid Sale sale,BindingResult result, HttpServletRequest request, Model model) {
+    public String addSale(Sale sale,BindingResult result, HttpServletRequest request, Model model) {
        String vehiculeId = request.getParameter("vehiculeId");
        String userId = request.getParameter("userId");
        User user = userRepository.findById(Integer.parseInt(userId)).orElse(null);
        Vehicule vehicule = vehiculeRepository.findById(Integer.parseInt(vehiculeId)).orElse(null);
-       Validator validate = Validation.buildDefaultValidatorFactory().getValidator();
-        saleViolations = validate.validate(sale);
-       if(result.hasErrors()) {
-           model.addAttribute("vehicule",vehicule);
-           model.addAttribute("sale",sale);
-           model.addAttribute("errors",saleViolations);
-            return carDealershipView.displayPurchasePage();
-        }
+
        //set the vhicule availabilty to false and complete the sale
         vehicule.setAvailable(false);
         sale.setVehicule(vehicule);

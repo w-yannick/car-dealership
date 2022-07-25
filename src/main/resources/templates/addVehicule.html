@@ -17,15 +17,9 @@
             
             <!-- nav bar fragment-->
             <div th:replace="~{fragments/header :: header}"> </div>
-            
-            <!--jumbotron-->
-            <!--<div th:replace="~{fragments/jumbotron :: jumbotron}"> </div>-->
-            
-            
+
             <hr/>
                
-            
-            
             <div class="page-title">
                 <span ><h1><span th:text="${type}">display type</span> Add Vehicule</h1></span>
             </div>
@@ -34,16 +28,7 @@
                 
             <!--PRETTIFY THIS...-->
 
-  
-    
-            
                 <div class="vehicule-info">
-
-                    <div class="col-12 m-1 text-center" 
-                        th:if="${!errors.isEmpty()}">
-                        <p class="alert alert-danger" th:each="error : ${errors}" 
-                            th:text="${error.message}">Error message</p>
-                    </div>
 
                     <div class="col-12 text-center m-3">
                         <!--<form action="/sales/purchase/id=${vehicule.vehiculeId})" method="POST">-->
@@ -169,10 +154,6 @@
                             </div>
 
 
-                
-
-
-                            
                             <div class="form-group row">
                                 <label for="salePrice" class="col-3 col-form-label">
                                     Sale Price</label>
@@ -186,7 +167,7 @@
                             <label for="description" class="col-3 col-form-label">
                                 Message</label>
                             <div class="col-9">
-                                <textarea rows = "5" cols = "50" name = "description" id="description" required></textarea>
+                                <textarea class="form-control" rows = "5" name = "description" id="description" required></textarea>
                             </div>
                         </div>
                         <div>    
@@ -200,14 +181,6 @@
                         </form>
                         
                         
-<!--                        <div class=" col-12 text-center">
-                    <form action="upload" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="id" th:value="${superhuman.id}"/>
-                        <label for="file" class="btn btn-primary">Select Image</label>
-                        <input id="file" style="visibility:hidden;" type="file" name="file">
-                        <button type="submit" class="btn btn-primary">Upload</button>
-                    </form>       
-                </div>-->
                     </div>
                 </div>  
             

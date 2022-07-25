@@ -27,22 +27,16 @@
             
             
             <div class="page-title">
-                <span ><h1><span th:text="${type}">display type</span> Add Vehicule</h1></span>
+                <h1><span th:text="${type}">display type</span> Edit Vehicule</h1>
             </div>
 
             <div class="vehicule-container">
                 
             <!--PRETTIFY THIS...-->
 
-  
-    
-            
                 <div class="vehicule-info">
 
-
-
                     <div class="col-12 text-center m-3">
-                        <!--<form action="/sales/purchase/id=${vehicule.vehiculeId})" method="POST">-->
 
                         <form action="/admin/editVehicule" method="POST" enctype="multipart/form-data">
                             <div class="row">
@@ -61,10 +55,6 @@
                                     Model</label>
                                 <div>
                                     <select id="modelId" name="modelId" class="form-control" >
-<!--                                        <option th:each="make : ${makes}" 
-                                                th:value="${make.makeId}" 
-                                                th:text="${make.name}">
-                                            Make name</option>-->
                                     </select>
                                     
                                 </div>
@@ -207,16 +197,6 @@
                            
                             <button type="submit" class="btn btn-primary">Edit vehicule</button>
                         </form>
-                        
-                        
-<!--                        <div class=" col-12 text-center">
-                    <form action="upload" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="id" th:value="${superhuman.id}"/>
-                        <label for="file" class="btn btn-primary">Select Image</label>
-                        <input id="file" style="visibility:hidden;" type="file" name="file">
-                        <button type="submit" class="btn btn-primary">Upload</button>
-                    </form>       
-                </div>-->
                     </div>
                 </div>  
             
