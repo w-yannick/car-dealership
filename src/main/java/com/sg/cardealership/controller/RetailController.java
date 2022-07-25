@@ -31,6 +31,7 @@ import com.sg.cardealership.repository.CarModelRepository;
 import java.util.Optional;
 import javax.validation.Validation;
 import javax.validation.Validator;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -71,9 +72,6 @@ public class RetailController {
     public String displayIndexPage(Model model) {
 
         List<Vehicule> vehicules = vehiculeRepository.findByFeatured(true);
-//        List<Vehicule> vehicules = vehiculeRepository.findAll();
-//        List<Vehicule> vehicules = vehiculeRepository.findByPriceAndYear("Used",0,999999,0,9999);
-//        carModelRepository.deleteById(1);
         model.addAttribute("vehicules", vehicules);
         model.addAttribute("errors", vehiculeViolations);
         return carDealershipView.displayIndexPage();
@@ -144,8 +142,8 @@ public class RetailController {
     
     
     
-    @GetMapping("/inventory/details")
-    public String displayDetailedVehicule(Integer id, Model model) {
+    @GetMapping("/inventory/details/{id}")
+    public String displayDetailedVehicule(@PathVariable Integer id, Model model) {
         Vehicule vehicule = vehiculeRepository.findById(id).orElse(null);
         model.addAttribute("vehicule", vehicule);
         

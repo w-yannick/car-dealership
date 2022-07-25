@@ -29,7 +29,7 @@
 
             <div class="vehicule-container">
                 <div class="vehicule" th:each="vehicule : ${vehicules}">
-                    <a href="#" th:href="@{/inventory/details(id=${vehicule.vehiculeId})}" style="color:#7F8C8D;">
+                    <a href="#" th:href="@{/inventory/details/{id} (id=${vehicule.vehiculeId})}" style="color:#7F8C8D;">
                         <div class=" col text-center ">
                             <img th:src="${'/images/inventory-' + vehicule.vehiculeId }" width="200" height="200" onerror="this.src='/images/placeholder.jpg';"/>                
                         </div>

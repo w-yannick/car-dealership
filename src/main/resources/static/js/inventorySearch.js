@@ -55,7 +55,7 @@ $(document).ready(function(){
                     vehiculeInfo += 'id: ' + vehicule.available + '<br>';
                     vehiculeInfo += '</p>';
 
-                    vehiculeInfo += '<a href="/inventory/details?id='+vehicule.vehiculeId+'"><button class="btn btn-primary" id="vehicule-details-button">Details</button></a>';
+                    vehiculeInfo += '<a href="/inventory/details/'+vehicule.vehiculeId+'"><button class="btn btn-primary" id="vehicule-details-button">Details</button></a>';
                     vehiculeInfo += '<hr>';
             vehiculesDiv.append(vehiculeInfo);
             });
