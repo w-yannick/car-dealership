@@ -78,4 +78,13 @@ public class CarDealershipView {
     public String displayAdminSpecialsPage(){
         return "adminSpecials";
     }
+    public String displayReportsPage(){
+        return "reports";
+    }
+    public String displayInventoryReportPage(){
+        return "inventoryReport";
+    }
+    public String displaySalesReportPage(){
+        return "salesReport";
+    }
 }

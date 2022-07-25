@@ -31,7 +31,7 @@ $(document).ready(function(){
                 +  '<div class="dropdown-divider"></div>'
                 +  '<a class="dropdown-item" href="/admin/specials">specials</a>' 
                 +  '<div class="dropdown-divider"></div>'
-                +  '<a class="dropdown-item" href="/admin/reports">reports</a>' 
+                +  '<a class="dropdown-item" href="/reports/index">reports</a>' 
                 +  '</div>'
                 + '</li>'   
                 

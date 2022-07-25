@@ -135,15 +135,18 @@ INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Transmission,ExteriorColor,
 VALUES 
 	(1,"New","Car",2015,"Automatic","Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true),
 	(1,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(1,"New","Car",2015,"Automatic","Black","Black",0,"VIN3",10000,9000,"its a car....",false,false),
-	(1,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(1,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,false),
-	(1,"Used","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
-	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,false),
+	(2,"New","Car",2015,"Automatic","Black","Black",0,"VIN3",10000,9000,"its a car....",false,false),
+	(2,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(3,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,false),
+	(3,"Used","Car",2015,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
+	(2,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,false),
+	(2,"Used","Car",2015,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
+	(3,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
+	(4,"Used","Car",2015,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,false),
 	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
-	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,false),
-	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true);
+	(1,"New","Car",2015,"Automatic","Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true),
+	(1,"New","Car",2015,"Automatic","Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true);
+
 
 INSERT INTO Sale (Name,Phone,Email,Street1,Street2,City,State, Zipcode,VehiculeId,PurchasePrice,PurchaseType,UserId)
 VALUES ("Bob","1-111-111-1111","bob@gmail.com","123 street","apt 2","Montreal","QC", "12345",3,9000,"Bank Finance",1);

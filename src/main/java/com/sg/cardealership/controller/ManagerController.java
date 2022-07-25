@@ -386,6 +386,21 @@ public class ManagerController {
         return "redirect:/admin/specials";
     }
     
+    @GetMapping("/reports/index")
+    public String displayReports(Model model) {
+        return carDealershipView.displayReportsPage();
+    }
+    
+    @GetMapping("/reports/sales")
+    public String displaySalesReport(Model model) {
+        return carDealershipView.displaySalesReportPage();
+    }
+    
+        @GetMapping("/reports/inventory")
+    public String displayInventoryReport(Model model) {
+        return carDealershipView.displayInventoryReportPage();
+    }
+    
     
     
     public void saveImage(Part image,String fileName, int id){
