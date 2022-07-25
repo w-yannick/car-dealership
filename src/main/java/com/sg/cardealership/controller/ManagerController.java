@@ -6,7 +6,7 @@
 package com.sg.cardealership.controller;
 
 import com.sg.cardealership.entity.CarModel;
-import com.sg.cardealership.entity.Contact;
+import com.sg.cardealership.entity.InventoryReportInterface;
 import com.sg.cardealership.entity.Make;
 import com.sg.cardealership.entity.Sale;
 import com.sg.cardealership.entity.Special;
@@ -398,6 +398,11 @@ public class ManagerController {
     
         @GetMapping("/reports/inventory")
     public String displayInventoryReport(Model model) {
+        List<InventoryReportInterface> newVehiculesReport = vehiculeRepository.findInventoryReportByType("New");
+        List<InventoryReportInterface> usedVehiculesReport = vehiculeRepository.findInventoryReportByType("Used");
+        model.addAttribute("newReport", newVehiculesReport);
+        model.addAttribute("usedReport", usedVehiculesReport);
+
         return carDealershipView.displayInventoryReportPage();
     }
     

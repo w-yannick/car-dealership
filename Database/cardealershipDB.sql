@@ -142,6 +142,8 @@ VALUES
 	(2,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,false),
 	(2,"Used","Car",2015,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
 	(3,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
+	(3,"Used","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
+
 	(4,"Used","Car",2015,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,false),
 	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
 	(1,"New","Car",2015,"Automatic","Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true),
