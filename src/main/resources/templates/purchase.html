@@ -50,11 +50,11 @@
 
                 <span th:text="${vehicule.mileage}">display mileage</span>   <br>
 
-                <span id="vinNumber" th:text="${vehicule.VINNumber}">display VIN</span>    <br>
+                <span id="vinNumber" th:text="${vehicule.VINNumber}">display VIN</span> <br>
 
-                <span th:text="${vehicule.MSRP}">display MSRP</span>        <br>
+                <span id="MSRP" th:text="${vehicule.MSRP}">display MSRP</span> <br>
 
-                <span th:text="${vehicule.salePrice}">display salePrice</span><br>
+                <span id="salePrice" th:text="${vehicule.salePrice}">display salePrice</span><br>
 
                 <span th:text="${vehicule.description}">display description</span><br>
 
@@ -247,5 +247,6 @@
         <script type="text/javascript" th:src="@{/js/getUser.js}"></script>
         <script type="text/javascript" th:src="@{/js/addNavbarItems.js}"></script>
         <script type="text/javascript" th:src="@{/js/checkUserIsSales.js}"></script>
+        <script type="text/javascript" th:src="@{/js/formRestrictionPurchase.js}"></script>
     </body>
 </html>
