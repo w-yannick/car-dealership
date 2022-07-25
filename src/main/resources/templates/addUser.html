@@ -17,18 +17,13 @@
             
             <!-- nav bar fragment-->
             <div th:replace="~{fragments/header :: header}"> </div>
-            
-            <!--jumbotron-->
-            <!--<div th:replace="~{fragments/jumbotron :: jumbotron}"> </div>-->
-            
-            
+        
             <hr/>
                 
             <div class="page-title">
-                <span ><h1>Add User</h1></span>
+                <h1>Add User</h1>
             </div>
-
-           
+  
             <div class="user-info">
 
                 <div class="col-12 m-1 text-center" id="password-error" style="display:none;"> 
@@ -36,8 +31,6 @@
                 </div>
 
                 <div class="col-12 text-center m-3">
-                    <!--<form action="/sales/purchase/id=${vehicule.vehiculeId})" method="POST">-->
-
                     <form action="/admin/addUser" method="POST">
                         <div class="form-group row">
 
@@ -53,8 +46,6 @@
                                 <input type="text" name="lastName" 
                                        id="lastName" class="form-control" required/>
                             </div>
-
-
                         </div>
 
                         <div class="form-group row">
@@ -74,9 +65,6 @@
                             </select>       
                             </div>
                         </div>
-
-
-
 
                         <div class="form-group row">
                             <label for="password" class="col col-form-label">
@@ -102,7 +90,6 @@
                     
             <!-- End main body -->
         
-
         <!-- Optional JavaScript -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

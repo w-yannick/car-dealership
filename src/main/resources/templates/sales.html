@@ -18,14 +18,11 @@
             <!-- nav bar fragment-->
             <div th:replace="~{fragments/header :: header}"> </div>
             
-            <!--jumbotron-->
-            <!--<div th:replace="~{fragments/jumbotron :: jumbotron}"> </div>-->
-            
             
             <hr/>
                 
             <div class="page-title">
-                <span ><h1>Sales</h1></span>
+                <h1>Sales</h1>
             </div>
 
             <div class="sales-container">
@@ -33,64 +30,55 @@
                 
                 <div class="search-box">
 
-                    <!--<form id="form-id">-->
-                        <div class="content-title">
-                            <h3>Quick Search</h3>
-                        </div>
-                        <div class="row">
-                            
-                            <div class="col-4">
-                                <input type="text" name="quick-search" id="quick-search" placeholder="Enter Make, Model or year" class="form-control"/>
-                            </div>
-                            
-                            <div class="col-4">
-                                <div class="row">
-                                    <span style="margin-left: 20px">Price</span>
-                                    <div class="col">
-                                        <input type="number" step="any" name="price-min" id="price-min" placeholder="min" class="form-control">
-                                    </div>
-                                    <div class="col">
-                                        <input type="number" step="any" name="price-max" id="price-max" placeholder="max" class="form-control">
-                                    </div>
-                                
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="row">
-                                    <span style="margin-left: 20px">Year</span>
-                                    <div class="col">
-                                        <input type="number" step="any" name="year-min" id="year-min" placeholder="min" class="form-control">
-                                    </div>
-                                    <div class="col">
-                                        <input type="number" step="any" name="year-max" id="year-max" placeholder="max" class="form-control">
-                                    </div>
-                                </div>   
-                            </div>
-                        </div>
-                        <div>
-                            
-                            <button class="btn btn-primary" id="button_1">Search</button>
-                            
+                    <div class="content-title">
+                        <h3>Quick Search</h3>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-4">
+                            <input type="text" name="quick-search" id="quick-search" placeholder="Enter Make, Model or year" class="form-control"/>
                         </div>
 
-                    <!--</form>-->
+                        <div class="col-4">
+                            <div class="row">
+                                <span style="margin-left: 20px">Price</span>
+                                <div class="col">
+                                    <input type="number" step="any" name="price-min" id="price-min" placeholder="min" class="form-control">
+                                </div>
+                                <div class="col">
+                                    <input type="number" step="any" name="price-max" id="price-max" placeholder="max" class="form-control">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <span style="margin-left: 20px">Year</span>
+                                <div class="col">
+                                    <input type="number" step="any" name="year-min" id="year-min" placeholder="min" class="form-control">
+                                </div>
+                                <div class="col">
+                                    <input type="number" step="any" name="year-max" id="year-max" placeholder="max" class="form-control">
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" id="button_1">Search</button>
+                    </div>
                 </div> 
-                
-                
-                 <div class="vehicule-container">
-                <h2>Search Result</h2>
+                <div class="vehicule-container">
+                    <h2>Search Result</h2>
                     <div id="searchedVehicules">
-                </div>
-           
-                    
-        </div>  
+                        
+                    </div>
+                </div>  
             </div>
         </div>
 
             
             <!-- End main body -->
-<!--        <input type="hidden" id="role" name="role" th:value="${user.role}"/>
-        <input type="hidden" id="email" name="email" th:value="${user.email}"/>-->
+            
         <!-- Optional JavaScript -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

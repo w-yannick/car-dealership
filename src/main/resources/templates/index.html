@@ -21,11 +21,10 @@
             <div th:replace="~{fragments/jumbotron :: jumbotron}"> </div>
             
 
-
             <hr/>
                 
             <div class="page-title">
-                <span ><h1> Featured vehicules</h1></span>
+                <h1> Featured vehicules</h1>
             </div>
 
             <div class="vehicule-container">
@@ -49,27 +48,6 @@
                     </strong>
                     </a>
                 </div>
-
-<!--                Keep it to  reutilise in other page    
-                    <table class="table table-striped border-dark">
-                        <thead>
-                            <tr>
-                                <th>VIN #</th>
-                                <th>Price</th>
-                                <th>Model</th>
-                                <th>Make</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="vehicule : ${vehicules}">
-                                <td th:text="${vehicule.VINNumber}">VIN #</td>
-                                <td th:text="${vehicule.salePrice}">Sale Price</td>
-                                <td th:text="${vehicule.carModel.name}">Model</td>
-                                <td th:text="${vehicule.carModel.make.name}">Make</td>
-                            </tr>
-                        </tbody>
-                    </table>-->
-
             </div>
         </div>  
 

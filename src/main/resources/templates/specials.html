@@ -18,23 +18,19 @@
             <!-- nav bar fragment-->
             <div th:replace="~{fragments/header :: header}"> </div>
             
-            <!--jumbotron-->
-            <!--<div th:replace="~{fragments/jumbotron :: jumbotron}"> </div>-->
-            
-            
             <hr/>
 
             <div class="page-title">
-                <span ><h1>Specials</h1></span>
+                <h1>Specials</h1>
             </div>
 
             <div class="specials-container">
 
                 <div class="special" th:each="special : ${specials}">
                      
-                        <span th:text="${special.title}"/>          <br/>      
+                    <span th:text="${special.title}"/> <br/>      
 
-                        <span th:text="${special.description}"/>                
+                    <span th:text="${special.description}"/>                
              
                 </div>
                 

@@ -17,17 +17,13 @@
             
             <!-- nav bar fragment-->
             <div th:replace="~{fragments/header :: header}"> </div>
-            
-            <!--jumbotron-->
-            <!--<div th:replace="~{fragments/jumbotron :: jumbotron}"> </div>-->
-            
-            
+
             <hr/>
                
             
             
             <div class="page-title">
-                <h1><span th:text="${type}">display type</span> Edit Vehicule</h1>
+                <h1>Edit Vehicule</h1>
             </div>
 
             <div class="vehicule-container">
@@ -154,10 +150,6 @@
                                            id="MSRP" class="form-control" min="0" th:value='${vehicule.MSRP}' required/>
                                 </div>
                             </div>
-
-
-                
-
 
                             
                             <div class="form-group row">

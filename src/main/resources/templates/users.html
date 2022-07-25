@@ -18,47 +18,41 @@
             <!-- nav bar fragment-->
             <div th:replace="~{fragments/header :: header}"> </div>
             
-            <!--jumbotron-->
-            <!--<div th:replace="~{fragments/jumbotron :: jumbotron}"> </div>-->
-            
-            
             <hr/>
                 
             <div class="page-title">
-                <span ><h1>Users</h1></span>
+                <h1>Users</h1>
                 <a th:href="@{/admin/addUser}"><span >Add a new User</span></a>
             </div>
            
             <div class="admin-container">
 
-                    <table class="table table-striped border-dark">
-                        <thead>
-                            <tr>
-                                <th>Last Name</th>
-                                <th>First Name</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th>Edit</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="user : ${users}">
-                                <td th:text="${user.lastName}">Last Name</td>
-                                <td th:text="${user.firstName}">First Name</td>
-                                <td th:text="${user.email}">Email</td>
-                                <td th:text="${user.role}">Role</td>
-                                <td><a href="#" th:href="@{/admin/editUser/{id}(id=${user.userId})}">Edit</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <table class="table table-striped border-dark">
+                    <thead>
+                        <tr>
+                            <th>Last Name</th>
+                            <th>First Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="user : ${users}">
+                            <td th:text="${user.lastName}">Last Name</td>
+                            <td th:text="${user.firstName}">First Name</td>
+                            <td th:text="${user.email}">Email</td>
+                            <td th:text="${user.role}">Role</td>
+                            <td><a href="#" th:href="@{/admin/editUser/{id}(id=${user.userId})}">Edit</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
         
             <!-- End main body -->
 
-<!--        <input type="hidden" id="role" name="role" th:value="${user.role}"/>
-        <input type="hidden" id="email" name="email" th:value="${user.email}"/>-->
         <!-- Optional JavaScript -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

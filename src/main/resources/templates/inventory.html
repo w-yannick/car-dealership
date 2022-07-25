@@ -14,20 +14,14 @@
         <!-- Main Body of Page -->
         
         <div class="container">
-            
-            <!-- nav bar fragment-->
+              <!-- nav bar fragment-->
             <div th:replace="~{fragments/header :: header}"> </div>
-            
-            <!--jumbotron-->
-<!--            <div th:replace="~{fragments/jumbotron :: jumbotron}"> </div>-->
-            
             
             <hr/>
                 
             <div class="page-title">
-                <span ><h1><span id="type" th:text="${type}">display type</span> Vehicules</h1></span>
+                <h1><span id="type" th:text="${type}">display type</span> Vehicules</h1>
             </div>
-                
             
 
                 <div class="search-box">
@@ -76,14 +70,11 @@
                 </div>  
             
             
-
         <div class="vehicule-container">
-                
-           
+            
                 <h2>Search Result</h2>
                     <div id="searchedVehicules">
                 </div>
-                <!--<img th:src="${'/images/inventory-' + vehicule.vehiculeId }" width="200" height="200" onerror="this.src='/images/placeholder.jpg';"/>-->  
                     
         </div>  
             <!-- End main body -->

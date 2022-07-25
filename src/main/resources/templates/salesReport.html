@@ -18,10 +18,7 @@
             <!-- nav bar fragment-->
             <div th:replace="~{fragments/header :: header}"> </div>
             
-            <!--jumbotron-->
-<!--            <div th:replace="~{fragments/jumbotron :: jumbotron}"> </div>-->
-            
-            
+
             <hr/>
             <div class="page-title">
                 <h1>Inventory Reports</h1>
@@ -29,51 +26,46 @@
             
             <div class="search-box">
 
-                    <!--<form id="form-id">-->
-                        <div class="content-title">
-                            <h3>Quick Search</h3>
-                        </div>
-                            
-                            <div class="form-group row">
-                                <label for="userId" class="col-3 col-form-label">
-                                User</label>
-                                <div>
-                                    <select id="userId" name="userId" class="form-control" >
-                                        <option th:value="all"> - ALL - </option>
-                                        <option th:each="user : ${users}" 
-                                                th:value="${user.userId}" 
-                                                th:text="${user.firstName +' '+ user.lastName}">
-                                            user name</option>
-                                    </select>
-                                </div>
-                                
-                                
-                                <label for="fromDate" class="col col-form-label">
-                                From Date</label>
-                                <div class="col">
-                                    <input type="date" step="any" name="fromDate" id="fromDate" class="form-control">
-                                </div>
-                                <label for="toDate" class="col col-form-label">
-                                To Date</label>
-                                <div class="col">
-                                    <input type="date" step="any" name="toDate" id="toDate" class="form-control">
-                                </div>
+                <div class="content-title">
+                    <h3>Quick Search</h3>
+                </div>
 
-                            </div>
-                           
-                        <div>
-                            
-                            <button class="btn btn-primary" id="button_1">Search</button>
-                            
-                        </div>
+                <div class="form-group row">
+                    <label for="userId" class="col-3 col-form-label">
+                    User</label>
+                    <div>
+                        <select id="userId" name="userId" class="form-control" >
+                            <option th:value="all"> - ALL - </option>
+                            <option th:each="user : ${users}" 
+                                    th:value="${user.userId}" 
+                                    th:text="${user.firstName +' '+ user.lastName}">
+                                user name</option>
+                        </select>
+                    </div>
 
-                    <!--</form>-->
+
+                    <label for="fromDate" class="col col-form-label">
+                    From Date</label>
+                    <div class="col">
+                        <input type="date" step="any" name="fromDate" id="fromDate" class="form-control">
+                    </div>
+                    <label for="toDate" class="col col-form-label">
+                    To Date</label>
+                    <div class="col">
+                        <input type="date" step="any" name="toDate" id="toDate" class="form-control">
+                    </div>
+
+                </div>
+
+                <div>
+                    <button class="btn btn-primary" id="button_1">Search</button>
+                </div>
+
             </div> 
             
             <div class="content-title">
                 <h2>Search Result</h2>
             </div>
-            
             
              <table class="table table-striped border-dark">
                 <thead>
@@ -84,17 +76,8 @@
                     </tr>
                 </thead>
                 <tbody id="tbodyId">
-<!--                    <tr th:each="report : ${newReport}">
-                        <td th:text="${report.year}">year</td>
-                        <td th:text="${report.make}">make</td>
-                        <td th:text="${report.model}">modeld</td>
-                        <td th:text="${report.count}">modeld</td>
-                        <td th:text="${'$'+report.stockValue}">stockValue</td>
-                    </tr>-->
                 </tbody>
             </table>
-            
-
         </div>  
             <!-- End main body -->
 
