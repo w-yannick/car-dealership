@@ -83,6 +83,7 @@ create table Sale(
     Zipcode CHAR(5),
     VehiculeId INT,
     PurchasePrice DECIMAL(10,2),
+    date Date,
     PurchaseType VARCHAR(50),
     UserId int,
     foreign key(VehiculeId)
@@ -143,15 +144,21 @@ VALUES
 	(2,"Used","Car",2015,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
 	(3,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
 	(3,"Used","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
-
 	(4,"Used","Car",2015,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,false),
 	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
 	(1,"New","Car",2015,"Automatic","Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true),
 	(1,"New","Car",2015,"Automatic","Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true);
 
 
-INSERT INTO Sale (Name,Phone,Email,Street1,Street2,City,State, Zipcode,VehiculeId,PurchasePrice,PurchaseType,UserId)
-VALUES ("Bob","1-111-111-1111","bob@gmail.com","123 street","apt 2","Montreal","QC", "12345",3,9000,"Bank Finance",1);
+INSERT INTO Sale (Name,Phone,Email,Street1,Street2,City,State, Zipcode,VehiculeId,PurchasePrice,PurchaseType,date,UserId)
+VALUES
+	("Bob","1-111-111-1111","bob@gmail.com","123 street","apt 2","Montreal","QC", "12345",3,9000,"Bank Finance","2022-03-22",1),
+	("Patrick","1-111-111-1111","patrick@gmail.com","13 street","apt 22","Montreal","QC", "12345",5,9000,"Bank Finance","2022-04-22",2),
+	("Ken","1-111-111-1111","ken@gmail.com","163 street","apt 3","Montreal","QC", "12345",7,9000,"Bank Finance","2022-05-22",2),
+	("Tara","1-111-111-1111","tara@gmail.com","45 street","apt 1","Montreal","QC", "12345",11,9000,"Bank Finance","2022-07-22",2);
+
+
+
 
 INSERT INTO Special (Title, Description)
 VALUES 

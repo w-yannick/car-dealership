@@ -34,6 +34,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.sg.cardealership.entity.SalesReportInterface;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @RestController
 @RequestMapping("/api/")
@@ -120,6 +123,18 @@ public class CarDealershipRestController {
         maxYear = (maxYear != null) ? maxYear : vehiculeRepository.findMaxYear();
        
         return queryHelper(quickSearch, minPrice,maxPrice,minYear,maxYear);
+
+    }
+    @GetMapping("/salesReport")
+    public List<SalesReportInterface> searchSalesReport(String userId, String fromDate, String toDate) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+//  LocalDate localDate = LocalDate.parse(date, formatter);
+        userId = (userId != null) ? userId : "%";
+        LocalDate localDateFromDate = (fromDate != null) ? LocalDate.parse(fromDate, formatter) : saleRepository.findMinDate();
+        LocalDate localDatetoDate = (toDate != null) ? LocalDate.parse(toDate, formatter) : saleRepository.findMaxDate();
+       
+        return saleRepository.searchSaleReportByNameDate(userId, localDateFromDate, localDatetoDate);
 
     }
     

@@ -50,6 +50,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import com.sg.cardealership.entity.SalesReportInterface;
 
 
 @Controller
@@ -254,6 +255,7 @@ public class ManagerController {
        //set the vhicule availabilty to false and complete the sale
         vehicule.setAvailable(false);
         sale.setVehicule(vehicule);
+        sale.setDate(LocalDate.now());
         sale.setUser(user);
         System.out.print("test");
        
@@ -393,6 +395,9 @@ public class ManagerController {
     
     @GetMapping("/reports/sales")
     public String displaySalesReport(Model model) {
+        List<User> users = userRepository.findAll();
+        model.addAttribute("users", users);
+        
         return carDealershipView.displaySalesReportPage();
     }
     

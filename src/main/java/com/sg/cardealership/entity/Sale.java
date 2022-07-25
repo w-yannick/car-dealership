@@ -6,6 +6,7 @@
 package com.sg.cardealership.entity;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -61,6 +62,10 @@ public class Sale {
     
     @Column
     String purchaseType;
+    
+    @Column
+    LocalDate date;
+    
     
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
@@ -162,6 +167,15 @@ public class Sale {
         this.purchaseType = purchaseType;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    
     public User getUser() {
         return user;
     }
@@ -172,20 +186,21 @@ public class Sale {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 67 * hash + this.saleId;
-        hash = 67 * hash + Objects.hashCode(this.name);
-        hash = 67 * hash + Objects.hashCode(this.phone);
-        hash = 67 * hash + Objects.hashCode(this.email);
-        hash = 67 * hash + Objects.hashCode(this.street1);
-        hash = 67 * hash + Objects.hashCode(this.street2);
-        hash = 67 * hash + Objects.hashCode(this.city);
-        hash = 67 * hash + Objects.hashCode(this.state);
-        hash = 67 * hash + Objects.hashCode(this.zipcode);
-        hash = 67 * hash + Objects.hashCode(this.vehicule);
-        hash = 67 * hash + Objects.hashCode(this.purchasePrice);
-        hash = 67 * hash + Objects.hashCode(this.purchaseType);
-        hash = 67 * hash + Objects.hashCode(this.user);
+        int hash = 7;
+        hash = 13 * hash + this.saleId;
+        hash = 13 * hash + Objects.hashCode(this.name);
+        hash = 13 * hash + Objects.hashCode(this.phone);
+        hash = 13 * hash + Objects.hashCode(this.email);
+        hash = 13 * hash + Objects.hashCode(this.street1);
+        hash = 13 * hash + Objects.hashCode(this.street2);
+        hash = 13 * hash + Objects.hashCode(this.city);
+        hash = 13 * hash + Objects.hashCode(this.state);
+        hash = 13 * hash + Objects.hashCode(this.zipcode);
+        hash = 13 * hash + Objects.hashCode(this.vehicule);
+        hash = 13 * hash + Objects.hashCode(this.purchasePrice);
+        hash = 13 * hash + Objects.hashCode(this.purchaseType);
+        hash = 13 * hash + Objects.hashCode(this.date);
+        hash = 13 * hash + Objects.hashCode(this.user);
         return hash;
     }
 
@@ -237,12 +252,14 @@ public class Sale {
         if (!Objects.equals(this.purchasePrice, other.purchasePrice)) {
             return false;
         }
+        if (!Objects.equals(this.date, other.date)) {
+            return false;
+        }
         if (!Objects.equals(this.user, other.user)) {
             return false;
         }
         return true;
     }
-    
     
     
 }
