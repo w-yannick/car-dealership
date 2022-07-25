@@ -41,7 +41,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 
-public class MakeTest {
+public class MakeRepositoryTest {
 
     
     @Autowired
@@ -65,7 +65,7 @@ public class MakeTest {
     @Autowired 
     VehiculeRepository vehiculeRepository;
      
-    public MakeTest() {
+    public MakeRepositoryTest() {
         
     }
     
