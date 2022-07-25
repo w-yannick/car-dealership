@@ -9,6 +9,7 @@
 package com.sg.cardealership.repository;
 
 import com.sg.cardealership.entity.CarModel;
+import com.sg.cardealership.entity.Sale;
 import com.sg.cardealership.entity.User;
 import com.sg.cardealership.entity.Vehicule;
 import com.sg.cardealership.view.CarDealershipView;
@@ -39,7 +40,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 
-public class VehiculeRepositoryTest {
+public class SaleRepositoryTest {
 
     
     @Autowired
@@ -60,10 +61,11 @@ public class VehiculeRepositoryTest {
     @Autowired
     UserRepository userRepository;
 
+    
     @Autowired 
     VehiculeRepository vehiculeRepository;
      
-    public VehiculeRepositoryTest() {
+    public SaleRepositoryTest() {
         
     }
     
@@ -84,61 +86,61 @@ public class VehiculeRepositoryTest {
     public void tearDown() {
         
     }
-        @Test
-    public void testAddVehicule(){
+    @Test
+    public void testAddSale(){
 
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("");
-        Vehicule savedvehicule = vehiculeRepository.save(vehicule);
+        Sale sale = new Sale();
+        sale.setName("Bob");
+        
+        
+        saleRepository.save(sale);
 
-        assertThat(savedvehicule).isNotNull();
-        assertThat(savedvehicule.getVehiculeId()).isGreaterThan(0);
+        assertThat(sale).isNotNull();
+        assertThat(sale.getSaleId()).isGreaterThan(0);
     }
     
     @Test
-    public void testAddAndGetVehicule(){
+    public void testAddAndGetSale(){
 
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("test");
+        Sale sale = new Sale();
+        sale.setName("Bob");
+        saleRepository.save(sale);
         
-        CarModel carModel = new CarModel(0, null, "A8", LocalDate.now(), null);
-        carModelRepository.save(carModel);
-        
-        vehicule.setCarModel(carModel);
-        vehiculeRepository.save(vehicule);
-        Vehicule fromRepo = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
-        assertEquals(vehicule,fromRepo);
-        assertEquals(vehicule.getDescription(),fromRepo.getDescription() );
+        Sale fromRepo = saleRepository.findById(sale.getSaleId()).orElse(null);
+        assertEquals(sale,fromRepo);
+        assertEquals("Bob",fromRepo.getName());
     }
     
     @Test
     public void testAddAndDelete(){
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("test");
-        vehiculeRepository.save(vehicule);
-        Vehicule fromRepoBeforeDelete = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
-        assertEquals(vehicule,fromRepoBeforeDelete);
+        Sale sale = new Sale();
+        sale.setName("Bob");
+        saleRepository.save(sale);
         
-        vehiculeRepository.delete(vehicule);
-        Vehicule fromRepoAfterDelete = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
+        Sale fromRepoBeforeDelete = saleRepository.findById(sale.getSaleId()).orElse(null);
+        assertEquals(sale,fromRepoBeforeDelete);
+        
+        saleRepository.delete(sale);
+        Sale fromRepoAfterDelete = saleRepository.findById(sale.getSaleId()).orElse(null);
         
         Assertions.assertNull(fromRepoAfterDelete);
     }
     
     @Test
     public void testAddAndUpdate(){
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("before");
-        vehiculeRepository.save(vehicule);
-        Vehicule fromRepoBeforeUpdate = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
-        assertEquals(vehicule,fromRepoBeforeUpdate);
+        Sale sale = new Sale();
+        sale.setName("Bob");
+        saleRepository.save(sale);
+        
+        Sale fromRepoBeforeUpdate = saleRepository.findById(sale.getSaleId()).orElse(null);
+        assertEquals(sale,fromRepoBeforeUpdate);
         
         
-        fromRepoBeforeUpdate.setDescription("after");
-        vehiculeRepository.save(fromRepoBeforeUpdate);
-        Vehicule fromRepoAfterDelete = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
+        fromRepoBeforeUpdate.setName("Sponge");
+        saleRepository.save(fromRepoBeforeUpdate);
+        Sale fromRepoAfterDelete = saleRepository.findById(sale.getSaleId()).orElse(null);
         
-        assertEquals("after", fromRepoAfterDelete.getDescription());
+        assertEquals("Sponge", fromRepoAfterDelete.getName());
     }
     
 }

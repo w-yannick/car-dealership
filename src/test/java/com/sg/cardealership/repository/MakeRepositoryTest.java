@@ -9,6 +9,8 @@
 package com.sg.cardealership.repository;
 
 import com.sg.cardealership.entity.CarModel;
+import com.sg.cardealership.entity.Contact;
+import com.sg.cardealership.entity.Make;
 import com.sg.cardealership.entity.User;
 import com.sg.cardealership.entity.Vehicule;
 import com.sg.cardealership.view.CarDealershipView;
@@ -39,7 +41,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 
-public class VehiculeRepositoryTest {
+public class MakeTest {
 
     
     @Autowired
@@ -63,7 +65,7 @@ public class VehiculeRepositoryTest {
     @Autowired 
     VehiculeRepository vehiculeRepository;
      
-    public VehiculeRepositoryTest() {
+    public MakeTest() {
         
     }
     
@@ -85,60 +87,60 @@ public class VehiculeRepositoryTest {
         
     }
         @Test
-    public void testAddVehicule(){
+    public void testAddMake(){
 
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("");
-        Vehicule savedvehicule = vehiculeRepository.save(vehicule);
+        Make make = new Make();
+        make.setName("Ford");
+        makeRepository.save(make);
 
-        assertThat(savedvehicule).isNotNull();
-        assertThat(savedvehicule.getVehiculeId()).isGreaterThan(0);
+        assertThat(make).isNotNull();
+        assertThat(make.getMakeId()).isGreaterThan(0);
     }
     
     @Test
     public void testAddAndGetVehicule(){
 
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("test");
+        Make make = new Make();
+        make.setName("Ford");
+        makeRepository.save(make);
         
-        CarModel carModel = new CarModel(0, null, "A8", LocalDate.now(), null);
-        carModelRepository.save(carModel);
         
-        vehicule.setCarModel(carModel);
-        vehiculeRepository.save(vehicule);
-        Vehicule fromRepo = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
-        assertEquals(vehicule,fromRepo);
-        assertEquals(vehicule.getDescription(),fromRepo.getDescription() );
+        Make fromRepo = makeRepository.findById(make.getMakeId()).orElse(null);
+        assertEquals(make,fromRepo);
+        assertEquals("Ford",fromRepo.getName());
+        
     }
     
     @Test
     public void testAddAndDelete(){
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("test");
-        vehiculeRepository.save(vehicule);
-        Vehicule fromRepoBeforeDelete = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
-        assertEquals(vehicule,fromRepoBeforeDelete);
+        Make make = new Make();
+        make.setName("Ford");
+        makeRepository.save(make);
         
-        vehiculeRepository.delete(vehicule);
-        Vehicule fromRepoAfterDelete = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
+        Make fromRepoBeforeDelete = makeRepository.findById(make.getMakeId()).orElse(null);
+        assertEquals(make,fromRepoBeforeDelete);
+        
+        makeRepository.delete(make);
+        Make fromRepoAfterDelete = makeRepository.findById(make.getMakeId()).orElse(null);
         
         Assertions.assertNull(fromRepoAfterDelete);
     }
     
     @Test
     public void testAddAndUpdate(){
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("before");
-        vehiculeRepository.save(vehicule);
-        Vehicule fromRepoBeforeUpdate = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
-        assertEquals(vehicule,fromRepoBeforeUpdate);
+        Make make = new Make();
+        make.setName("Ford");
+        makeRepository.save(make);
+        
+        Make fromRepoBeforeUpdate = makeRepository.findById(make.getMakeId()).orElse(null);
+        assertEquals(make,fromRepoBeforeUpdate);
         
         
-        fromRepoBeforeUpdate.setDescription("after");
-        vehiculeRepository.save(fromRepoBeforeUpdate);
-        Vehicule fromRepoAfterDelete = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
+        fromRepoBeforeUpdate.setName("after");
+        makeRepository.save(fromRepoBeforeUpdate);
+        Make fromRepoAfterDelete = makeRepository.findById(make.getMakeId()).orElse(null);
         
-        assertEquals("after", fromRepoAfterDelete.getDescription());
+        assertEquals("after", fromRepoAfterDelete.getName());
     }
     
 }

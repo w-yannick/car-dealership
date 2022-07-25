@@ -39,7 +39,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 
-public class VehiculeRepositoryTest {
+public class CarModelRepositoryTest {
 
     
     @Autowired
@@ -60,10 +60,11 @@ public class VehiculeRepositoryTest {
     @Autowired
     UserRepository userRepository;
 
+    
     @Autowired 
     VehiculeRepository vehiculeRepository;
      
-    public VehiculeRepositoryTest() {
+    public CarModelRepositoryTest() {
         
     }
     
@@ -85,60 +86,58 @@ public class VehiculeRepositoryTest {
         
     }
         @Test
-    public void testAddVehicule(){
+    public void testAddCarModel(){
 
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("");
-        Vehicule savedvehicule = vehiculeRepository.save(vehicule);
+        CarModel carModel = new CarModel();
+        carModel.setName("A8");
+        carModelRepository.save(carModel);
 
-        assertThat(savedvehicule).isNotNull();
-        assertThat(savedvehicule.getVehiculeId()).isGreaterThan(0);
+        assertThat(carModel).isNotNull();
+        assertThat(carModel.getCarModelId()).isGreaterThan(0);
     }
     
     @Test
-    public void testAddAndGetVehicule(){
+    public void testAddAndGetCarModel(){
 
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("test");
-        
-        CarModel carModel = new CarModel(0, null, "A8", LocalDate.now(), null);
+        CarModel carModel = new CarModel();
+        carModel.setName("A8");
         carModelRepository.save(carModel);
         
-        vehicule.setCarModel(carModel);
-        vehiculeRepository.save(vehicule);
-        Vehicule fromRepo = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
-        assertEquals(vehicule,fromRepo);
-        assertEquals(vehicule.getDescription(),fromRepo.getDescription() );
+        CarModel fromRepo = carModelRepository.findById(carModel.getCarModelId()).orElse(null);
+        assertEquals(carModel,fromRepo);
+        assertEquals("A8",fromRepo.getName());
     }
     
     @Test
     public void testAddAndDelete(){
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("test");
-        vehiculeRepository.save(vehicule);
-        Vehicule fromRepoBeforeDelete = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
-        assertEquals(vehicule,fromRepoBeforeDelete);
+        CarModel carModel = new CarModel();
+        carModel.setName("A8");
+        carModelRepository.save(carModel);
         
-        vehiculeRepository.delete(vehicule);
-        Vehicule fromRepoAfterDelete = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
+        CarModel fromRepoBeforeDelete = carModelRepository.findById(carModel.getCarModelId()).orElse(null);
+        assertEquals(carModel,fromRepoBeforeDelete);
+        
+        carModelRepository.delete(carModel);
+        CarModel fromRepoAfterDelete = carModelRepository.findById(carModel.getCarModelId()).orElse(null);
         
         Assertions.assertNull(fromRepoAfterDelete);
     }
     
     @Test
     public void testAddAndUpdate(){
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("before");
-        vehiculeRepository.save(vehicule);
-        Vehicule fromRepoBeforeUpdate = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
-        assertEquals(vehicule,fromRepoBeforeUpdate);
+        CarModel carModel = new CarModel();
+        carModel.setName("A8");
+        carModelRepository.save(carModel);
+        
+        CarModel fromRepoBeforeUpdate = carModelRepository.findById(carModel.getCarModelId()).orElse(null);
+        assertEquals(carModel,fromRepoBeforeUpdate);
         
         
-        fromRepoBeforeUpdate.setDescription("after");
-        vehiculeRepository.save(fromRepoBeforeUpdate);
-        Vehicule fromRepoAfterDelete = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
+        fromRepoBeforeUpdate.setName("A4");
+        carModelRepository.save(fromRepoBeforeUpdate);
+        CarModel fromRepoAfterDelete = carModelRepository.findById(carModel.getCarModelId()).orElse(null);
         
-        assertEquals("after", fromRepoAfterDelete.getDescription());
+        assertEquals("A4", fromRepoAfterDelete.getName());
     }
     
 }

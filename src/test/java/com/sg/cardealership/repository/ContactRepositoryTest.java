@@ -9,6 +9,7 @@
 package com.sg.cardealership.repository;
 
 import com.sg.cardealership.entity.CarModel;
+import com.sg.cardealership.entity.Contact;
 import com.sg.cardealership.entity.User;
 import com.sg.cardealership.entity.Vehicule;
 import com.sg.cardealership.view.CarDealershipView;
@@ -39,7 +40,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 
-public class VehiculeRepositoryTest {
+public class ContactRepositoryTest {
 
     
     @Autowired
@@ -63,7 +64,7 @@ public class VehiculeRepositoryTest {
     @Autowired 
     VehiculeRepository vehiculeRepository;
      
-    public VehiculeRepositoryTest() {
+    public ContactRepositoryTest() {
         
     }
     
@@ -85,60 +86,59 @@ public class VehiculeRepositoryTest {
         
     }
         @Test
-    public void testAddVehicule(){
+    public void testAddContact(){
 
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("");
-        Vehicule savedvehicule = vehiculeRepository.save(vehicule);
+        Contact contact = new Contact();
+        contact.setName("Bob");
+        contactRepository.save(contact);
 
-        assertThat(savedvehicule).isNotNull();
-        assertThat(savedvehicule.getVehiculeId()).isGreaterThan(0);
+        assertThat(contact).isNotNull();
+        assertThat(contact.getContactId()).isGreaterThan(0);
     }
     
     @Test
     public void testAddAndGetVehicule(){
 
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("test");
+        Contact contact = new Contact();
+        contact.setName("Bob");
+        contactRepository.save(contact);
         
-        CarModel carModel = new CarModel(0, null, "A8", LocalDate.now(), null);
-        carModelRepository.save(carModel);
         
-        vehicule.setCarModel(carModel);
-        vehiculeRepository.save(vehicule);
-        Vehicule fromRepo = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
-        assertEquals(vehicule,fromRepo);
-        assertEquals(vehicule.getDescription(),fromRepo.getDescription() );
+        Contact fromRepo = contactRepository.findById(contact.getContactId()).orElse(null);
+        assertEquals(contact,fromRepo);
+        assertEquals("Bob",fromRepo.getName());
+        
     }
     
     @Test
     public void testAddAndDelete(){
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("test");
-        vehiculeRepository.save(vehicule);
-        Vehicule fromRepoBeforeDelete = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
-        assertEquals(vehicule,fromRepoBeforeDelete);
+        Contact contact = new Contact();
+        contact.setName("Bob");
+        contactRepository.save(contact);
         
-        vehiculeRepository.delete(vehicule);
-        Vehicule fromRepoAfterDelete = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
+        Contact fromRepoBeforeDelete = contactRepository.findById(contact.getContactId()).orElse(null);
+        assertEquals(contact,fromRepoBeforeDelete);
+        
+        contactRepository.delete(contact);
+        Contact fromRepoAfterDelete = contactRepository.findById(contact.getContactId()).orElse(null);
         
         Assertions.assertNull(fromRepoAfterDelete);
     }
     
     @Test
     public void testAddAndUpdate(){
-        Vehicule vehicule = new Vehicule();
-        vehicule.setDescription("before");
-        vehiculeRepository.save(vehicule);
-        Vehicule fromRepoBeforeUpdate = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
-        assertEquals(vehicule,fromRepoBeforeUpdate);
+        Contact contact = new Contact();
+        contact.setName("before");
+        contactRepository.save(contact);
+        Contact fromRepoBeforeUpdate = contactRepository.findById(contact.getContactId()).orElse(null);
+        assertEquals(contact,fromRepoBeforeUpdate);
         
         
-        fromRepoBeforeUpdate.setDescription("after");
-        vehiculeRepository.save(fromRepoBeforeUpdate);
-        Vehicule fromRepoAfterDelete = vehiculeRepository.findById(vehicule.getVehiculeId()).orElse(null);
+        fromRepoBeforeUpdate.setName("after");
+        contactRepository.save(fromRepoBeforeUpdate);
+        Contact fromRepoAfterDelete = contactRepository.findById(contact.getContactId()).orElse(null);
         
-        assertEquals("after", fromRepoAfterDelete.getDescription());
+        assertEquals("after", fromRepoAfterDelete.getName());
     }
     
 }
