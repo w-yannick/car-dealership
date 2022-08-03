@@ -34,27 +34,33 @@ $(document).ready(function(){
                 vehiculesDiv.replaceWith('<div id="searchedVehicules"></div>');
                 vehiculesDiv = $('#searchedVehicules');
                 $.each(vehiculeArray, function(index, vehicule) {
-                    var vehiculeInfo = '<p>';
-                    vehiculeInfo += "<img src=\"/images/inventory-" + vehicule.vehiculeId  + "\"  width=\"200\" height=\"200\" onerror=\"this.src=\'/images/placeholder.jpg\';\">" + '<br>';  
-                    vehiculeInfo += 'id: ' + vehicule.vehiculeId + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.year + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.carModel.name + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.carModel.make.name + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.type + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.bodyStyle + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.transmission + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.exteriorColor + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.interiorColor + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.mileage + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.vinnumber + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.msrp + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.salePrice + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.description + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.featured + '<br>';
-                    vehiculeInfo += 'id: ' + vehicule.available + '<br>';
-                    vehiculeInfo += '</p>';
+                    var vehiculeInfo = '<div class="row" style="align-items: center;">';  
+                    vehiculeInfo += '<div class="col-2">';  
+                    vehiculeInfo += '<Strong>' + vehicule.year + ' ' + vehicule.carModel.make.name + ' ' + vehicule.carModel.name + '</Strong>' ;
+                    
+                    vehiculeInfo += "<img src=\"/images/inventory-" + vehicule.vehiculeId  + "\"  width=\"200\" height=\"200\" onerror=\"this.src=\'/images/placeholder.jpg\';\">" + "<br>";  
+                    vehiculeInfo += '</div>';
+                    vehiculeInfo += '<div class="col-3">';  
+
+                    vehiculeInfo += 'bodyStyle: ' + vehicule.bodyStyle + '<br>';
+                    vehiculeInfo += 'Trans: ' + vehicule.transmission + '<br>';
+                    vehiculeInfo += 'Color: ' + vehicule.exteriorColor + '<br>';
+                    
+                    vehiculeInfo += '</div>';
+                    
+                    vehiculeInfo += '<div class="col-3">';  
+                    vehiculeInfo += 'Interior: ' + vehicule.interiorColor + '<br>';
+                    vehiculeInfo += 'Mileage: ' + vehicule.mileage + '<br>';
+                    vehiculeInfo += 'VIN #: ' + vehicule.vinnumber + '<br>';
+                    vehiculeInfo += '</div>';
+                    
+                    vehiculeInfo += '<div class="col-3" style="text-align: right;">';
+                    vehiculeInfo += 'SalePrice: ' + vehicule.salePrice + '<br>';
+                    vehiculeInfo += 'MSRP: ' + vehicule.msrp + '<br>';
 
                     vehiculeInfo += '<a href="/admin/editVehicule/'+vehicule.vehiculeId+'"><button class="btn btn-primary" id="vehicule-edit-button">Edit</button></a>';
+                    vehiculeInfo += '</div>';
+                    vehiculeInfo += '</div>';
                     vehiculeInfo += '<hr>';
             vehiculesDiv.append(vehiculeInfo);
             });
