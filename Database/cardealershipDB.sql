@@ -134,20 +134,20 @@ VALUES
 
 INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Transmission,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
 VALUES 
-	(1,"New","Car",2015,"Automatic","Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true),
-	(1,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(2,"New","Car",2015,"Automatic","Black","Black",0,"VIN3",10000,9000,"its a car....",false,false),
-	(2,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(3,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,false),
-	(3,"Used","Car",2015,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
-	(2,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,false),
-	(2,"Used","Car",2015,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(3,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
-	(3,"Used","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
-	(4,"Used","Car",2015,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,false),
-	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(1,"New","Car",2015,"Automatic","Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true),
-	(1,"New","Car",2015,"Automatic","Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true);
+	(1,"New","Car",2015,"Automatic","Black","Black",0,"4Y1SL65848Z411439",15000,14000,"its a car....",true,true),
+	(1,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",15000,14000,"its a car....",true,true),
+	(2,"New","Car",2015,"Automatic","Black","Black",0,"VIN3",14000,13000,"its a car....",false,false),
+	(2,"New","Car",2016,"Automatic","Black","Black",0,"VIN4",15000,14000,"its a car....",true,true),
+	(3,"New","Car",2016,"Automatic","Black","Black",0,"VIN5",13000,12000,"its a car....",true,false),
+	(3,"Used","Car",2015,"Automatic","Black","Black",0,"VIN6",10000,9900,"its a car....",false,true),
+	(2,"Used","Car",2016,"Manual","Black","Black",0,"VIN7",10000,9000,"its a car....",false,false),
+	(2,"Used","Car",2015,"Manual","Black","Black",0,"VIN8",9000,8000,"its a car....",true,true),
+	(3,"Used","Car",2016,"Manual","Black","Black",0,"VIN9",10000,9000,"its a car....",false,true),
+	(3,"Used","Car",2016,"Automatic","Black","Black",0,"VIN10",11000,1000,"its a car....",false,true),
+	(4,"Used","Car",2015,"Manual","Black","Black",0,"VIN11",10000,9900,"its a car....",false,false),
+	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN12",10000,9900,"its a car....",true,true),
+	(1,"New","Car",2015,"Automatic","Black","Black",0,"VIN13",14000,13000,"its a car....",true,true),
+	(1,"New","Car",2015,"Automatic","Black","Black",0,"VIN14",130000,12000,"its a car....",true,true);
 
 
 INSERT INTO Sale (Name,Phone,Email,Street1,Street2,City,State, Zipcode,VehiculeId,PurchasePrice,PurchaseType,date,UserId)
