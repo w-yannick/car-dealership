@@ -34,41 +34,37 @@
                         <!--<form action="/sales/purchase/id=${vehicule.vehiculeId})" method="POST">-->
 
                         <form action="/admin/addVehicule" method="POST" enctype="multipart/form-data">
-                            <div class="row">
-                                <label for="makeId" class="col-3 col-form-label">
-                                Make</label>
-                                <div>
-                                    <select id="makeId" name="makeId" class="form-control" >
-                                        <option th:each="make : ${makes}" 
-                                                th:value="${make.makeId}" 
-                                                th:text="${make.name}">
-                                            Make name</option>
-                                    </select>
+                            <div class="row" style="text-align: left">
+                                <div class="col-6" style="float:left;margin-right:20px;" >
+                                    <label for="makeId" class="col-form-label">
+                                    Make</label>
+                                        <select id="makeId" name="makeId" class="form-control">
+                                            <option th:each="make : ${makes}" 
+                                                    th:value="${make.makeId}" 
+                                                    th:text="${make.name}">
+                                                Make name</option>
+                                        </select>
                                 </div>
+                                <div class="col" style="float:left;margin-right:20px;" >
                                     <label for="modelId" class="col-3 col-form-label">
-                                    Model</label>
-                                <div>
-                                    <select id="modelId" name="modelId" class="form-control" >
-                                    </select>
-                                    
+                                        Model</label>
+                                        <select id="modelId" name="modelId" class="form-control" >
+                                        </select>
                                 </div>
-
-
                             </div>
-                            <div class="form-group row">
+                            <div class="row" style="text-align: left">
+                                <div class="col-6" style="float:left;margin-right:20px;" >
                                 
-                                <label for="type" class="col-3 col-form-label">
-                                Type</label>
-                                <div class="col-9">
-                                    <select id="type" name="type" class="form-control" >
-                                        <option value="New">New</option>
-                                        <option value="Used">Used</option>
-                                    </select>
+                                    <label for="type" class="col-3 col-form-label">
+                                    Type</label>
+                                        <select id="type" name="type" class="form-control" >
+                                            <option value="New">New</option>
+                                            <option value="Used">Used</option>
+                                        </select>
                                 </div>
-                                
-                                <label for="bodyStyle" class="col-3 col-form-label">
-                                Body Type</label>
-                                <div class="col-9">
+                                <div class="col" style="float:left;margin-right:20px;" >
+                                    <label for="bodyStyle" class="col-3 col-form-label">
+                                        Body Type</label>
                                     <select id="bodyStyle" name="bodyStyle" class="form-control" >
                                         <option value="Car">Car</option>
                                         <option value="SUV">SUV</option>
@@ -76,104 +72,107 @@
                                         <option value="Van">Van</option>
                                     </select>
                                 </div>
-                                
-                                
-                                <label for="year" class="col-3 col-form-label">
-                                    Year</label>
-                                <div class="col-9">
-                                    <input type="number" name="year" 
-                                           id="year" class="form-control" required="required" min="2000" value="2000"/>
+                            </div>
+                            <div class="row" style="text-align: left">
+                                <div class="col-6" style="float:left;margin-right:20px;" >
+                                    <label for="year" class="col-3 col-form-label">
+                                        Year</label>
+                                        <input type="number" name="year" 
+                                               id="year" class="form-control" required="required" min="2000" value="2000"/>
                                 </div>
-                                
-                                <label for="transmission" class="col-3 col-form-label">
-                                Automatic</label>
-                                <div class="col-9">
-                                    <select id="transmission" name="transmission" class="form-control" >
-                                        <option value="Automatic">Automatic</option>
-                                        <option value="Manual">Manual</option>
-                                    </select>
-                                </div>
-                                
-                                <label for="exteriorColor" class="col-3 col-form-label">
-                                Color</label>
-                                <div class="col-9">
-                                    <select id="exteriorColor" name="exteriorColor" class="form-control" >
-                                        <option value="Red">Red</option>
-                                        <option value="Blue">Blue</option>
-                                        <option value="Green">Green</option>
-                                        <option value="White">White</option>
-                                        <option value="Black">Black</option>
-                                    </select>
-                                </div>
-                                
-                                
-                                
-                                <label for="interiorColor" class="col-3 col-form-label">
-                                Interior</label>
-                                <div class="col-9">
-                                    <select id="interiorColor" name="interiorColor" class="form-control" >
-                                        <option value="Red">Red</option>
-                                        <option value="Blue">Blue</option>
-                                        <option value="Green">Green</option>
-                                        <option value="White">White</option>
-                                        <option value="Black">Black</option>
-                                    </select>
+                                <div class="col" style="float:left;margin-right:20px;" >
+                                    <label for="transmission" class="col-3 col-form-label">
+                                    Automatic</label>
+                                        <select id="transmission" name="transmission" class="form-control" >
+                                            <option value="Automatic">Automatic</option>
+                                            <option value="Manual">Manual</option>
+                                        </select>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="mileage" class="col-3 col-form-label">
-                                    Mileage</label>
-                                <div class="col-9">
-                                    <input type="number" name="mileage" 
-                                           id="mileage" class="form-control"  min="0" max="1000" value ="0" required/>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group row">
-                                <label for="VINNumber" class="col-3 col-form-label">
-                                    VIN #</label>
-                                <div class="col-9">
-                                    <input type="text" name="VINNumber" 
-                                           id="VINNumber" class="form-control" required/>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group row">
-                                <label for="MSRP" class="col-3 col-form-label">
-                                    MSRP</label>
-                                <div class="col-9">
-                                    <input type="number" name="MSRP" 
-                                           id="MSRP" class="form-control" min="0" value ="0" required/>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group row">
-                                <label for="salePrice" class="col-3 col-form-label">
-                                    Sale Price</label>
-                                <div class="col-9">
-                                    <input type="number" name="salePrice" 
-                                           id="salePrice" class="form-control" min="0" value ="0" required/>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                            <label for="description" class="col-3 col-form-label">
-                                Message</label>
-                            <div class="col-9">
-                                <textarea class="form-control" rows = "5" name = "description" id="description" required></textarea>
-                            </div>
-                        </div>
-                        <div>    
-                        <input id="file" type="file" name="file" accept=".jpg,.jpeg, .png"  required>
-<!--                        <label for="file" class="btn btn-primary">Select Image</label>
-                        <input id="file" type="file" name="file" style="visibility:hidden;" required>-->
-                        </div>    
                             
-                            <input type="hidden" id="userId" name="userId"/>
-                            <button type="submit" class="btn btn-primary">Add vehicule</button>
+                            <div class="row" style="text-align: left">
+                                <div class="col-6" style="float:left;margin-right:20px;" >
+                                    <label for="exteriorColor" class="col-3 col-form-label">
+                                        Color</label>
+                                        <select id="exteriorColor" name="exteriorColor" class="form-control" >
+                                            <option value="Red">Red</option>
+                                            <option value="Blue">Blue</option>
+                                            <option value="Green">Green</option>
+                                            <option value="White">White</option>
+                                            <option value="Black">Black</option>
+                                        </select>
+                                </div>
+                                
+                                <div class="col" style="float:left;margin-right:20px;" >
+                                    <label for="interiorColor" class="col-3 col-form-label">
+                                    Interior</label>
+                                        <select id="interiorColor" name="interiorColor" class="form-control" >
+                                            <option value="Red">Red</option>
+                                            <option value="Blue">Blue</option>
+                                            <option value="Green">Green</option>
+                                            <option value="White">White</option>
+                                            <option value="Black">Black</option>
+                                        </select>
+                                </div>
+                            </div>
+                        
+                            
+                            <div class="row" style="text-align: left">
+                                <div class="col-6" style="float:left;margin-right:20px;" >
+                                    <label for="mileage" class="col-3 col-form-label">
+                                        Mileage</label>
+                                        <input type="number" name="mileage" 
+                                               id="mileage" class="form-control"  min="0" max="1000" value ="0" required/>
+
+                                </div>
+                                    
+                                <div class="col" style="float:left;margin-right:20px;" >
+                                    <label for="VINNumber" class="col-3 col-form-label">
+                                        VIN #</label>
+                                    <input type="text" name="VINNumber" 
+                                            id="VINNumber" class="form-control" required/>
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="row" style="text-align: left">
+                                <div class="col-6" style="float:left;margin-right:20px;" >
+                                    <label for="MSRP" class="col-3 col-form-label">
+                                        MSRP</label>
+                                        <input type="number" name="MSRP" 
+                                               id="MSRP" class="form-control" min="0" value ="0" required/>
+                                </div>
+                                
+                                <div class="col" style="float:left;margin-right:20px;" >
+                                    <label for="salePrice" class="col-3 col-form-label">
+                                        Sale Price</label>
+                                        <input type="number" name="salePrice" 
+                                               id="salePrice" class="form-control" min="0" value ="0" required/>
+                                </div>
+                            </div>
+
+                            <div class="row" style="text-align: left">
+                                <div class="col" style="float:left;margin-right:20px;" >
+                                        <label for="description" class="col-3 col-form-label">
+                                        Message</label>
+                                        <textarea class="form-control" rows = "5" name = "description" id="description" required></textarea>
+                                    
+                                </div>
+                            </div>
+                            <div class="row" style="text-align: left; margin: 1em">
+                                
+                                <div class="col-6" style="float:left;margin-right:20px;" >
+                                    <label for="file">
+                                        Picture</label>
+                                    <input id="file" type="file" name="file" accept=".jpg,.jpeg, .png" class="form-control" required>
+                                    <!-- <label for="file" class="btn btn-primary">Select Image</label>
+                                    <input id="file" type="file" name="file" style="visibility:hidden;" required>-->
+                                </div>
+                            </div>
+                            <div class="row" style="text-align: left">
+                                <input type="hidden" id="userId" name="userId"/>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
                         </form>
                         
                         
