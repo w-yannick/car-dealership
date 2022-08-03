@@ -36,7 +36,7 @@ $(document).ready(function(){
                 $.each(vehiculeArray, function(index, vehicule) {
                     var vehiculeInfo = '<div class="row" style="align-items: center;">';  
                     vehiculeInfo += '<div class="col-2">';  
-                    vehiculeInfo += '<Strong>' + vehicule.year + ' ' + vehicule.carModel.make.name + ' ' + vehicule.carModel.name + '</Strong>' ;
+                    vehiculeInfo += '<Strong>' + vehicule.year + ' ' + vehicule.carModel.make.name + ' ' + vehicule.carModel.name + '</Strong><br/>' ;
                     
                     vehiculeInfo += "<img src=\"/images/inventory-" + vehicule.vehiculeId  + "\"  width=\"200\" height=\"200\" onerror=\"this.src=\'/images/placeholder.jpg\';\">" + "<br>";  
                     vehiculeInfo += '</div>';
