@@ -41,7 +41,7 @@ $(document).ready(function(){
                     
                     vehiculeInfo += "<img src=\"/images/inventory-" + vehicule.vehiculeId  + "\"  width=\"200\" height=\"200\" onerror=\"this.src=\'/images/placeholder.jpg\';\">" + "<br>";  
                     vehiculeInfo += '</div>';
-                    vehiculeInfo += '<div class="col-3">';  
+                    vehiculeInfo += '<div class="col-3" style="text-align: left;">';  
 
                     vehiculeInfo += 'bodyStyle: ' + vehicule.bodyStyle + '<br>';
                     vehiculeInfo += 'Trans: ' + vehicule.transmission + '<br>';
