@@ -25,47 +25,50 @@
             </div>
 
             <div class="contact-container">
+                <div class="row">
+                    <div class="col-5 text-center m-3">
+                        <form action="/home/contact/add" method="POST">
+                            <div class="form-group row col-12" style="float:left;margin-right:20px;" >
+                                <label for="name" >
+                                    Name</label><br>
 
-                <div class="col-7 text-center m-3">
-                    <form action="/home/contact/add" method="POST">
-                        <div class="form-group row">
-                            <label for="name" class="col-3 col-form-label">
-                                Name</label>
-                            <div class="col-9">
-                                <input type="text" name="name" 
-                                       id="name" class="form-control" required/>
+                                    <input type="text" name="name" 
+                                           id="name" class="form-control" required/>
+
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="email" class="col-3 col-form-label">
-                                Email</label>
-                            <div class="col-9">
-                                <input type="email" name="email" 
-                                       id="email" class="form-control" required/>
+                            <div class="form-group row col-12" style="float:left;margin-right:20px;">
+                                <label for="email">
+                                    Email</label>
+                                    <input type="email" name="email" 
+                                           id="email" class="form-control" required/>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="phone" class="col-3 col-form-label" >
-                                Phone</label>
-                            <div class="col-9">
-                                <input type="text" name="phone" 
-                                       id="phone" class="form-control" required/>
+                            <div class="form-group row col-12" style="float:left;margin-right:20px;">
+                                <label for="phone" >
+                                    Phone</label>
+                                    <input type="text" name="phone" 
+                                           id="phone" class="form-control" required/>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="message" class="col-3 col-form-label">
-                                Message</label>
-                            <div class="col-9">
-                                <textarea class="form-control" rows= "5" name = "message" id="message" required></textarea>
+                            <div class="form-group row col-12" style="float:left;margin-right:20px;">
+                                <label for="message">
+                                    Message</label>
+                                    <textarea class="form-control" rows= "5" name = "message" id="message" required></textarea>
                             </div>
-                        </div>
+
+                            <button type="submit" class="btn btn-primary" id="contact-button">Submit</button>
+                        </form>
+                    </div>
+                    <div class="col-5">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5593.249206690616!2d-73.56286928057666!3d45.49750375338384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91be27e0188d5%3A0x2e90582901c9dbad!2smthree%2C%20Canada!5e0!3m2!1sfr!2sca!4v1658554117534!5m2!1sfr!2sca" 
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">          
+                        </iframe> 
+                    <br><span> 111 W Main Street</span>
+                    <br><span> Kent, OH 44444</span><br>
+                    <br><span> Sales : 111-111-1111 </span>
+                    <br><span> Service : 111-111-1112 </span>
                         
-                        <button type="submit" class="btn btn-primary" id="contact-button">Submit</button>
-                    </form>
-                </div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5593.249206690616!2d-73.56286928057666!3d45.49750375338384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91be27e0188d5%3A0x2e90582901c9dbad!2smthree%2C%20Canada!5e0!3m2!1sfr!2sca!4v1658554117534!5m2!1sfr!2sca" 
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">          
-                </iframe>
+                    </div>
+                    
+                 </div>
             </div>
         </div>
 

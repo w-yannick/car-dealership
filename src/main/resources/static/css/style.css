@@ -26,7 +26,10 @@ img {
  }
  
 
- 
+  
+ input, label {
+    display:inline-block;
+}
 
 
 /*.row{
@@ -94,6 +97,4 @@ img {
     background-color: #7F8C8D;
     
  }
- 
- 
  
