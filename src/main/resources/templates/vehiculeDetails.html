@@ -22,65 +22,61 @@
             <hr/>
                 
             <div class="page-title">
-                <h1>Vehicules</h1>
+                <h1>Vehicle Details</h1>
             </div>
 
             <div class="vehicule-container">
                 
             <!--PRETTIFY THIS...-->
 
-            <div class="col m-4 " id="vehicule-info">
-        
-                <img th:src="${'/images/inventory-' + vehicule.vehiculeId }" width="200" height="200" onerror="this.src='/images/placeholder.jpg';"/>   <br>
+                <div class="col m-4 " id="vehicule-info">
+                    <div class="row" style="align-items: center;">
 
-                    <span th:text="${vehicule.vehiculeId}">display  id</span><br>
- 
-                    <span th:text="${vehicule.year}">display year</span><br>
-                
-                    <span th:text="${vehicule.carModel.name}">display model</span><br>
+                        <div class="col-2">
+                            <Strong><span th:text="${vehicule.year}">display year</span>
+                            <span th:text="${vehicule.carModel.make.name}">display maker</span>
+                            <span th:text="${vehicule.carModel.name}">display model</span>
+                        </Strong>
+                            <img th:src="${'/images/inventory-' + vehicule.vehiculeId }" width="200" height="200" onerror="this.src='/images/placeholder.jpg';"/>   <br>
+                       </div>   
 
-                    <span th:text="${vehicule.carModel.make.name}">display maker</span><br>
+                        <div class="col-3" style="text-align: left;">
+                            <Strong>Body Style: </Strong><span th:text="${vehicule.bodyStyle}">display bodyStyle</span><br>
+                            <Strong>Transmission: </Strong><span th:text="${vehicule.transmission}">display transmission</span><br>
+                            <Strong>Color: </Strong><span th:text="${vehicule.exteriorColor}">display exteriorcolor</span><br>
+                        </div>
 
-                    <span th:text="${vehicule.type}">display type(new/used)</span><br>
-                
-                    <span th:text="${vehicule.bodyStyle}">display bodyStyle</span><br>
-                
-                    <span th:text="${vehicule.transmission}">display transmission</span><br>
-                
-                    <span th:text="${vehicule.exteriorColor}">display exteriorcolor</span><br>
-                
-                    <span th:text="${vehicule.interiorColor}">display interiorcolor</span>    <br>
-                
-                    <span th:text="${vehicule.mileage}">display mileage</span>   <br>
-                    
-                    
-                    
-                    <!--CArefull with reworking the UI, the VINNumberScrip will retrieve the value of this VIN field with the Id-->
-                    <span id="vinNumber" th:text="${vehicule.VINNumber}">display VIN</span>    <br>
-                    <!--CArefull with reworking the UI, the VINNumberScrip will retrieve the value of this VIN field with the Id-->
-                    
-                    
-                    
-                    <span th:text="${vehicule.MSRP}">display MSRP</span>        <br>
-                
-                    <span th:text="${vehicule.salePrice}">display salePrice</span><br>
-                
-                    <span th:text="${vehicule.description}">display description</span><br>
-                
-                    <span th:text="${vehicule.featured}">display featured(true/false)</span><br> 
-                
-                    <span th:text="${vehicule.available}">display available(true/false)</span><br>
-                    
-                    
-                    <!--hidden value for scrip-->
-                    <input type="hidden" id="vinNumber" name="vinNumber" th:value="${vehicule.VINNumber}"/>
-                    <input type="hidden" id="available" name="available" th:value="${vehicule.available}"/>
+                        <div class="col-3">
+                            <Strong>Interior: </Strong><span th:text="${vehicule.interiorColor}">display interiorcolor</span><br>
+                            <Strong>Mileage: </Strong><span th:text="${vehicule.mileage}">display mileage</span>   <br>
+                            <Strong>VIN #: </Strong><span id="vinNumber" th:text="${vehicule.VINNumber}">display VIN</span>    <br>
+                            <!--<span th:text="${vehicule.vehiculeId}">display  id</span><br>-->
+                            <!--<span th:text="${vehicule.type}">display type(new/used)</span><br>-->
+                        </div>
 
-                    <a id="contact-link" href="#" th:href="@{/home/contact}">
-                        <button class="btn btn-primary" id="contact-button">Contact</button>
-                    </a>
-                </div>  
+                        <div class="col" style="text-align: right;">
+                                <Strong>Sale Price: </Strong><span th:text="${vehicule.salePrice}">display salePrice</span><br>
+                                <Strong>MSRP: </Strong><span th:text="${vehicule.MSRP}">display MSRP</span><br>
 
+                        </div>
+                    </div>
+                    <div class="row" style="align-items: center;">
+                        <div class="col-2">
+                        </div>
+                        <div class="col" style="text-align: left">
+                            <Strong>Description: </Strong><span th:text="${vehicule.description}">display description</span><br>
+                        </div>
+                    </div>
+                    <div style="text-align: right;">
+                        <!--hidden value for scrip-->
+                        <input type="hidden" id="vinNumber" name="vinNumber" th:value="${vehicule.VINNumber}"/>
+                        <input type="hidden" id="available" name="available" th:value="${vehicule.available}"/>
+                        <a id="contact-link" href="#" th:href="@{/home/contact}">
+                            <button class="btn btn-primary" id="contact-button">Contact</button>
+                        </a>
+                    </div>  
+
+                </div>
             </div>
         </div>
                     
