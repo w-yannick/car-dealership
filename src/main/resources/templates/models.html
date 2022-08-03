@@ -27,27 +27,30 @@
             
             <div class ="add-model-container">
                 <form action="/admin/addModel" method="POST">
-                    <div class="form-group row">  
-                        <label for="name" class="col col-form-label">
+                    <div class="form-group row" style="margin: 3em">  
+                        <label for="name" class="col-form-label">
                         new Model</label>
-                        <div class="col">
+                        <div class="col-2">
                             <input type="text" name="name" 
                             id="name" class="form-control" required/>
                         </div>
                         
-                        <div class="col">
-                            <label for="makeId" class="col-3 col-form-label">
+                        <div class="col col-3">
+                        <div class="row">  
+
+                            <label for="makeId" class="col-form-label col-3">
                                 Make</label>
-                            <div>
-                                <select id="makeId" name="makeId" class="form-control" >
-                                    <option th:each="make : ${makes}" 
-                                            th:value="${make.makeId}" 
-                                            th:text="${make.name}">
-                                            Make name
-                                    </option>
-                                </select>
-                                </div>
+                            
+                            <select id="makeId" name="makeId" class="form-control col-9" >
+                                <option th:each="make : ${makes}" 
+                                        th:value="${make.makeId}" 
+                                        th:text="${make.name}">
+                                        Make name
+                                </option>
+                            </select>
+
                         
+                        </div>
                         </div>
                         <div class="col">
                             <input type="hidden" id="userId" name="userId"/>
