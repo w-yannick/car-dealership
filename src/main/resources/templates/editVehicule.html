@@ -18,26 +18,19 @@
             <!-- nav bar fragment-->
             <div th:replace="~{fragments/header :: header}"> </div>
 
-            <hr/>
-               
-            
+            <hr/>            
             
             <div class="page-title">
                 <h1>Edit Vehicule</h1>
             </div>
 
             <div class="vehicule-container">
-                
-            <!--PRETTIFY THIS...-->
 
                 <div class="vehicule-info">
-
                     <div class="col-12 text-center m-3">
-
                         <form action="/admin/editVehicule" method="POST" enctype="multipart/form-data">
                             <div class="row" style="text-align: left">
                                 <div class="col-6" style="float:left;margin-right:20px;" >
-
                                     <label for="makeId" class="col-3 col-form-label">
                                         Make</label>
                                     <select id="makeId" name="makeId" class="form-control" >
@@ -54,8 +47,7 @@
                                     <select id="modelId" name="modelId" class="form-control" >
                                     </select>
                                 </div>
-                            </div>
-                            
+                            </div>                            
                             
                             <div class="row" style="text-align: left">
                                 <div class="col-6" style="float:left;margin-right:20px;" >
@@ -184,13 +176,11 @@
                                 <input type="hidden" id="vehiculeId" name="vehiculeId" th:value="${vehicule.vehiculeId}"/>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-danger" id="delete-button">Delete</button>
-                           
+                            <button type="button" class="btn btn-danger" id="delete-button">Delete</button>                           
                             <button type="submit" class="btn btn-primary">Edit</button>
                         </form>
                     </div>
-                </div>  
-            
+                </div>
             </div>
         </div>
 
@@ -198,12 +188,12 @@
 
 
             <!-- Optional JavaScript -->
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-            <script type="text/javascript" th:src="@{/js/getUser.js}"></script>
-            <script type="text/javascript" th:src="@{/js/addNavbarItems.js}"></script>
-            <script type="text/javascript" th:src="@{/js/formRestrictionEditVehicule.js}"></script>
-            <script type="text/javascript" th:src="@{/js/checkUserIsAdmin.js}"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script type="text/javascript" th:src="@{/js/getUser.js}"></script>
+        <script type="text/javascript" th:src="@{/js/addNavbarItems.js}"></script>
+        <script type="text/javascript" th:src="@{/js/formRestrictionEditVehicule.js}"></script>
+        <script type="text/javascript" th:src="@{/js/checkUserIsAdmin.js}"></script>
     </body>
 </html>

@@ -25,11 +25,7 @@
                 <h1>Login</h1>
             </div>
 
-            <div class="login-container">
-<!--                 <div class="col-12 m-1 text-center" id="error" style="display:none;"> 
-                    <p class="alert alert-danger">Password and confirm password needs to be equal</p>
-                </div>-->
-                
+            <div class="login-container">                
                 <div class="col-12 m-1 text-center" 
                     th:if='${!error.equals("")}'>
                     <p class="alert alert-danger" th:text="${error}">Error message</p>
@@ -52,13 +48,10 @@
                                 <input type="password" name="password" 
                                        id="password" class="form-control"/>
                             </div>
-                        </div>
-                        
-                        
+                        </div>                        
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
-                </div>
-                
+                </div>                
             </div>
         </div>
 

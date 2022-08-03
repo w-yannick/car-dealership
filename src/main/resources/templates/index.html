@@ -16,10 +16,8 @@
         <div class="container">
             
             <!-- nav bar fragment-->
-            <div th:replace="~{fragments/header :: header}"> </div>
-            
-            <div th:replace="~{fragments/jumbotron :: jumbotron}"> </div>
-            
+            <div th:replace="~{fragments/header :: header}"> </div>            
+            <div th:replace="~{fragments/jumbotron :: jumbotron}"> </div>            
 
             <hr/>
                 
@@ -34,7 +32,6 @@
                             <img th:src="${'/images/inventory-' + vehicule.vehiculeId }" width="200" height="200" onerror="this.src='/images/placeholder.jpg';"/>                
                         </div>
                     <strong>
-
                         <div class="col-12 text-center">
                             <span th:text="${vehicule.year}"/>                
 
@@ -50,7 +47,6 @@
                 </div>
             </div>
         </div>  
-
             
             <!-- End main body -->
 

@@ -17,16 +17,10 @@
             
             <!-- nav bar fragment-->
             <div th:replace="~{fragments/header :: header}"> </div>
+            <hr/>    
             
-            <!--jumbotron-->
-            <!--<div th:replace="~{fragments/jumbotron :: jumbotron}"> </div>-->
-            
-            
-            <hr/>
-                
             <div class="page-title">
-               <h1>Specials</h1>
-                
+               <h1>Specials</h1>                
             </div>
             
             <div class ="add-make-container" style="margin: 3em">
@@ -52,9 +46,10 @@
                         </div>
                 </form>
             </div>
+            
             <hr/>
+            
             <div class="makes-container" style='text-align: left'>
-
                 <div class="special" th:each="special : ${specials}">
                     <div class='row'>
                         <div class=" col-3">
@@ -75,21 +70,15 @@
                             <div class="col-12">
                                 <span th:text="${special.description}"/>
                             </div>
-                        </div>
-                        
-                        
+                        </div>                        
                     </div>
                     <hr/>
-
                 </div>
             </div>
         </div>
-
         
             <!-- End main body -->
-
-<!--        <input type="hidden" id="role" name="role" th:value="${user.role}"/>
-        <input type="hidden" id="email" name="email" th:value="${user.email}"/>-->
+            
         <!-- Optional JavaScript -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -97,6 +86,5 @@
         <script type="text/javascript" th:src="@{/js/addNavbarItems.js}"></script>
         <script type="text/javascript" th:src="@{/js/checkUserIsAdmin.js}"></script>
         <script type="text/javascript" th:src="@{/js/getUser.js}"></script>
-        <!--<script type="text/javascript" th:src="@{/js/adminSpecialsConfirmDelete.js}"></script>-->
     </body>
 </html>

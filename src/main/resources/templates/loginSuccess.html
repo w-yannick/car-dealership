@@ -13,8 +13,7 @@
     <body>
         <!-- Main Body of Page -->
         
-        <div class="container">
-            
+        <div class="container">            
             <!-- nav bar fragment-->
             <div th:replace="~{fragments/header :: header}"> </div>
            
@@ -24,9 +23,7 @@
                 <h1>Login Successful</h1>
                 <p>Redirecting...</p>
             </div>
-
         </div>
-
             
             <!-- End main body -->
         <input type="hidden" id="role" name="role" th:value="${user.role}"/>
