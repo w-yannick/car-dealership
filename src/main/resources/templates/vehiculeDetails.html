@@ -27,16 +27,14 @@
 
             <div class="vehicule-container">
                 
-            <!--PRETTIFY THIS...-->
-
                 <div class="col m-4 " id="vehicule-info">
-                    <div class="row" style="align-items: center;">
+                    <div class="row col-12" style="align-items: center;">
 
                         <div class="col-2">
                             <Strong><span th:text="${vehicule.year}">display year</span>
                             <span th:text="${vehicule.carModel.make.name}">display maker</span>
                             <span th:text="${vehicule.carModel.name}">display model</span>
-                        </Strong>
+                        </Strong><br/>
                             <img th:src="${'/images/inventory-' + vehicule.vehiculeId }" width="200" height="200" onerror="this.src='/images/placeholder.jpg';"/>   <br>
                        </div>   
 
@@ -54,7 +52,7 @@
                             <!--<span th:text="${vehicule.type}">display type(new/used)</span><br>-->
                         </div>
 
-                        <div class="col" style="text-align: right;">
+                        <div class="col-3" style="text-align: right;">
                                 <Strong>Sale Price: </Strong><span th:text="${vehicule.salePrice}">display salePrice</span><br>
                                 <Strong>MSRP: </Strong><span th:text="${vehicule.MSRP}">display MSRP</span><br>
 
@@ -67,7 +65,7 @@
                             <Strong>Description: </Strong><span th:text="${vehicule.description}">display description</span><br>
                         </div>
                     </div>
-                    <div style="text-align: right;">
+                    <div class="col-12" style="text-align: right;">
                         <!--hidden value for scrip-->
                         <input type="hidden" id="vinNumber" name="vinNumber" th:value="${vehicule.VINNumber}"/>
                         <input type="hidden" id="available" name="available" th:value="${vehicule.available}"/>
