@@ -34,60 +34,60 @@
                     <!--<form action="/sales/purchase/id=${vehicule.vehiculeId})" method="POST">-->
 
                     <form action="/admin/editUser" method="POST">
-                        <div class="form-group row">
-
-                            <label for="firstName" class="col col-form-label">
-                                First Name</label>
-                            <div class="col">
+                        <div class="row" style="text-align: left">
+                            <div class="col-6" style="float:left;margin-right:20px;" >
+                                <label for="firstName" class="col col-form-label">
+                                    First Name</label>
                                 <input type="text" name="firstName" 
-                                        id="firstName" class="form-control" th:value='${user.firstName}' required/>
+                                    id="firstName" class="form-control" th:value='${user.firstName}' required/>
                             </div>
-
-                            <label for="lastName" class="col col-form-label">
-                                Last Name</label>
-                            <div class="col">
+                            <div class="col" style="float:left;margin-right:20px;" >
+                                <label for="lastName" class="col col-form-label">
+                                    Last Name</label>
                                 <input type="text" name="lastName" 
-                                       id="lastName" class="form-control" th:value='${user.lastName}'required/>
+                                    id="lastName" class="form-control" th:value='${user.lastName}'required/>
                             </div>
-
-
                         </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col col-form-label">
-                                Email</label>
-                            <div class="col">
+                        
+                        <div class="row" style="text-align: left">
+                            <div class="col-6" style="float:left;margin-right:20px;" >
+                                <label for="email" class="col col-form-label">
+                                    Email</label>
                                 <input type="email" name="email" 
                                        id="email" class="form-control"  th:value='${user.email}' required/>
                             </div>
-                            <label for="role" class="col col-form-label">
-                                Role</label>
-                            <div class="col">
-                                <select name="role" id="role" class="form-control">
-                                <option value="Disabled" th:selected="${user.role == 'Disabled'}">Disabled</option>
-                                <option value="Sales" th:selected="${user.role == 'Sales'}">Sales</option>
-                                <option value="Admin" th:selected="${user.role == 'Admin'}">Admin</option>
-                            </select>       
+                            <div class="col" style="float:left;margin-right:20px;" >
+                                <label for="role" class="col col-form-label">
+                                    Role</label>
+                                <select name="role" id="role" class="form-control col-6">
+                                    <option value="Disabled" th:selected="${user.role == 'Disabled'}">Disabled</option>
+                                    <option value="Sales" th:selected="${user.role == 'Sales'}">Sales</option>
+                                    <option value="Admin" th:selected="${user.role == 'Admin'}">Admin</option>
+                                </select>       
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col col-form-label">
-                                password</label>
-                            <div class="col">
+                        <div class="row" style="text-align: left">
+                            <div class="col-6" style="float:left;margin-right:20px;" >
+                                <label for="password" class="col col-form-label">
+                                    password</label>
                                 <input type="password" name="password" 
-                                       id="password" class="form-control"/>
+                                    id="password" class="form-control"/>
                             </div>
-                            <label for="confirmPassword" class="col col-form-label">
-                                Confirm Password</label>
-                            <div class="col">
+                            <div class="col" style="float:left;margin-right:20px;" >
+                                <label for="confirmPassword" class="col col-form-label">
+                                    Confirm Password</label>
                                 <input type="password" name="confirmPassword" 
-                                       id="confirmPassword" class="form-control"/>
+                                    id="confirmPassword" class="form-control"/>
                             </div>
                         </div>
-                        <input type="hidden" id="userId" name="userId" th:value="${user.userId}"/>
-
-                        <button type="submit" class="btn btn-primary" id="save-button">Save</button>
+                        <div class="row" style="text-align: left; margin-top: 1em;">
+                            <div class="col-6" style="float:left;margin-right:20px;" >
+                                <input type="hidden" id="userId" name="userId" th:value="${user.userId}"/>
+                                <button type="submit" class="btn btn-primary" id="save-button">Save</button>
+                            </div>
+                        </div>
+                            
                     </form>
 
                 </div>
