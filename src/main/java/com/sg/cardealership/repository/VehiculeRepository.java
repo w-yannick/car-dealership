@@ -44,7 +44,8 @@ public interface VehiculeRepository extends JpaRepository<Vehicule, Integer> {
             "     OR ma.name LIKE ? " +
             "     OR year LIKE ? )" +
             " AND SalePrice BETWEEN ? AND ? " +
-            " AND Year BETWEEN ? AND ?  LIMIT 20", nativeQuery = true)
+            " AND (Year BETWEEN ? AND ?)  " +
+            " ORDER BY v.MSRP DESC LIMIT 20", nativeQuery = true)
     List<Vehicule> findBySearch(String type, String carModelName, String makeName, String Year,int minSalePrice,int maxSalePrice,int minYear, int maxYear);
     
     
@@ -58,7 +59,8 @@ public interface VehiculeRepository extends JpaRepository<Vehicule, Integer> {
             "     OR ma.name LIKE ? " +
             "     OR year LIKE ? )" +
             " AND SalePrice BETWEEN ? AND ? " +
-            " AND Year BETWEEN ? AND ?  LIMIT 20", nativeQuery = true)
+            " AND Year BETWEEN ? AND ? " +
+            " ORDER BY v.MSRP DESC LIMIT 20", nativeQuery = true)
     List<Vehicule> findBySearchForSales(String carModelName, String makeName, String Year,int minSalePrice,int maxSalePrice,int minYear, int maxYear);
     
      @Query(value = "SELECT  v.year,ma.name as make,mo.name as model , count(v.vehiculeId) as count,SUM(v.MSRP) as stockValue "
