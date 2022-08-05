@@ -14,8 +14,8 @@ $(document).ready(function(){
         url +=(quickSearch != '') ? "&quickSearch="+quickSearch : '';
         url +=(minPrice != '') ? "&minPrice="+minPrice : '';
         url +=(maxPrice != '') ? "&maxPrice="+maxPrice : '';
-        url +=(minPrice != '') ? "&minYear="+minPrice : '';
-        url +=(maxPrice != '') ? "&maxYear="+maxPrice : '';
+        url +=(minYear != '') ? "&minYear="+minYear : '';
+        url +=(maxYear != '') ? "&maxYear="+maxYear : '';
             
          
         
@@ -31,17 +31,17 @@ $(document).ready(function(){
             success:function(vehiculeArray) {
                 //TO DO: CLEAN THIS
                 var vehiculesDiv = $('#searchedVehicules');
-                vehiculesDiv.replaceWith('<div id="searchedVehicules"></div>');
+                vehiculesDiv.replaceWith('<div id="searchedVehicules" style="align-items: center;"></div>');
                 vehiculesDiv = $('#searchedVehicules');
                 $.each(vehiculeArray, function(index, vehicule) {
 
                     var vehiculeInfo = '<div class="row" style="align-items: center;">';  
-                    vehiculeInfo += '<div class="col-2">';  
+                    vehiculeInfo += '<div class="col-2" style="max-width: 220px;">';  
                     vehiculeInfo += '<Strong>' + vehicule.year + ' ' + vehicule.carModel.make.name + ' ' + vehicule.carModel.name + '</Strong><br/>' ;
                     
                     vehiculeInfo += "<img src=\"/images/inventory-" + vehicule.vehiculeId  + "\"  width=\"200\" height=\"200\" onerror=\"this.src=\'/images/placeholder.jpg\';\">" + "<br>";  
                     vehiculeInfo += '</div>';
-                    vehiculeInfo += '<div class="col-3" style="text-align: left;">';  
+                    vehiculeInfo += '<div class="col-3" style="display: inline-block; text-align: left;">';  
 
                     vehiculeInfo += 'bodyStyle: ' + vehicule.bodyStyle + '<br>';
                     vehiculeInfo += 'Trans: ' + vehicule.transmission + '<br>';
@@ -49,13 +49,13 @@ $(document).ready(function(){
                     
                     vehiculeInfo += '</div>';
                     
-                    vehiculeInfo += '<div class="col-3">';  
+                    vehiculeInfo += '<div class="col-sm-3">';  
                     vehiculeInfo += 'Interior: ' + vehicule.interiorColor + '<br>';
                     vehiculeInfo += 'Mileage: ' + vehicule.mileage + '<br>';
                     vehiculeInfo += 'VIN #: ' + vehicule.vinnumber + '<br>';
                     vehiculeInfo += '</div>';
                     
-                    vehiculeInfo += '<div class="col-3" style="text-align: right;">';
+                    vehiculeInfo += '<div class="col-sm-3" style="text-align: right;">';
                     vehiculeInfo += 'SalePrice: ' + vehicule.salePrice + '<br>';
                     vehiculeInfo += 'MSRP: ' + vehicule.msrp + '<br>';
 //                    vehiculeInfo += 'id: ' + vehicule.type + '<br>';

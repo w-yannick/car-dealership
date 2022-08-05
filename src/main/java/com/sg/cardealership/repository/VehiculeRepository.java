@@ -72,6 +72,6 @@ public interface VehiculeRepository extends JpaRepository<Vehicule, Integer> {
                     + "AND v.available = true "
                     + "AND v.type = ? "
                     + "Group by v.year, ma.name, mo.name "
-                    + "Order by make", nativeQuery = true)
+                    + "Order by Year DESC", nativeQuery = true)
     List<InventoryReportInterface> findInventoryReportByType(String type);
 }
