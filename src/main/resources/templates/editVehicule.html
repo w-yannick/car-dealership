@@ -138,7 +138,7 @@
                                     <label for="salePrice" class="col-3 col-form-label">
                                         Sale Price</label>
                                     <input type="number" name="salePrice" 
-                                           id="salePrice" class="form-control" min="0" th:value='${vehicule.salePrice}' required/>
+                                           id="salePrice" class="form-control" min="0" th:max="${vehicule.MSRP}" th:value='${vehicule.salePrice}' required/>
                                 </div>
                             </div>
 

@@ -73,6 +73,14 @@ $("#type").on('change', function(){
     }
 });
 
+$("#MSRP").on('change', function(){
+    var val = $(this).val();
+        $("#salePrice").attr("min",0);
+        $("#salePrice").attr("max",val);
+        $("#salePrice").val(val);
+    
+});
+
 $("#file").change(function() {
   filename = this.files[0].name;
   console.log(filename);

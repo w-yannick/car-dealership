@@ -25,9 +25,6 @@ $(document).ready(function(){
 });
 
 
-
-
-
 $("#makeId").on('change', function(){
     console.log("list item selected");
     var val = $(this).val();    
@@ -59,12 +56,21 @@ $("#type").on('change', function(){
     if(val == "New"){
         $("#mileage").attr("min",0);
         $("#mileage").attr("max",1000);
+        $("#mileage").val(0);
     }
     else{
         $("#mileage").attr("min",1001);
         $("#mileage").removeAttr("max");
         $("#mileage").val(1001);
     }
+});
+
+$("#MSRP").on('change', function(){
+    var val = $(this).val();
+        $("#salePrice").attr("min",0);
+        $("#salePrice").attr("max",val);
+        $("#salePrice").val(val);
+    
 });
 
 $("#file").change(function() {
