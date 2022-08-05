@@ -21,8 +21,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VehiculeRepository extends JpaRepository<Vehicule, Integer> {
     //in case query is complex, use custom query:
-    //@Query(value = "SELECT * FROM Vehicule WHERE Featured = ?", nativeQuery = true)
-    
+    @Query(value = "SELECT * FROM Vehicule WHERE Featured = ? "+
+            " AND Available = true ", nativeQuery = true)
     List<Vehicule> findByFeatured(boolean featured);
     
     //find by type("New" or "Used")
@@ -45,6 +45,7 @@ public interface VehiculeRepository extends JpaRepository<Vehicule, Integer> {
             "     OR year LIKE ? )" +
             " AND SalePrice BETWEEN ? AND ? " +
             " AND (Year BETWEEN ? AND ?)  " +
+            " AND v.Available = true  " +
             " ORDER BY v.MSRP DESC LIMIT 20", nativeQuery = true)
     List<Vehicule> findBySearch(String type, String carModelName, String makeName, String Year,int minSalePrice,int maxSalePrice,int minYear, int maxYear);
     
@@ -60,6 +61,7 @@ public interface VehiculeRepository extends JpaRepository<Vehicule, Integer> {
             "     OR year LIKE ? )" +
             " AND SalePrice BETWEEN ? AND ? " +
             " AND Year BETWEEN ? AND ? " +
+            " AND v.Available = true  " +
             " ORDER BY v.MSRP DESC LIMIT 20", nativeQuery = true)
     List<Vehicule> findBySearchForSales(String carModelName, String makeName, String Year,int minSalePrice,int maxSalePrice,int minYear, int maxYear);
     
