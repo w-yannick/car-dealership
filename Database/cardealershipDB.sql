@@ -2,7 +2,7 @@ drop database if exists cardealershipDB;
 create database cardealershipDB;
 use cardealershipDB;
 
--- Superpower
+-- Cars
 create table cars(
 	Id int primary key auto_increment,
     Brand varchar(50) not null,
