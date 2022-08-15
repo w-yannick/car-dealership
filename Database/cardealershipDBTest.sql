@@ -2,7 +2,7 @@ drop database if exists cardealershipDBTest;
 create database cardealershipDBTest;
 use cardealershipDBTest;
 
--- Superpower
+-- Cars
 create table cars(
 	Id int primary key auto_increment,
     Brand varchar(50) not null,
@@ -83,6 +83,7 @@ create table Sale(
     Zipcode CHAR(5),
     VehiculeId INT,
     PurchasePrice DECIMAL(10,2),
+    date Date,
     PurchaseType VARCHAR(50),
     UserId int,
     foreign key(VehiculeId)
@@ -133,28 +134,28 @@ VALUES
 
 INSERT INTO Vehicule (CarModelId,Type,BodyStyle,Year,Transmission,ExteriorColor,InteriorColor,Mileage,VINNUMBER,MSRP,SalePrice,Description,Featured,Available)
 VALUES 
-	(1,"New","Car",2015,"Automatic","Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true),
-	(1,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(2,"New","Car",2015,"Automatic","Black","Black",0,"VIN3",10000,9000,"its a car....",false,false),
-	(2,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(3,"New","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",true,false),
-	(3,"Used","Car",2015,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
-	(2,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,false),
-	(2,"Used","Car",2015,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(3,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
-	(3,"Used","Car",2016,"Automatic","Black","Black",0,"VIN2",10000,9900,"its a car....",false,true),
-	(4,"Used","Car",2015,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",false,false),
-	(1,"Used","Car",2016,"Manual","Black","Black",0,"VIN2",10000,9900,"its a car....",true,true),
-	(1,"New","Car",2015,"Automatic","Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true),
-	(1,"New","Car",2015,"Automatic","Black","Black",0,"4Y1SL65848Z411439",10000,9000,"its a car....",true,true);
+	(1,"New","Car",2020,"Automatic","Black","Black",0,"4Y1SL65848Z411401",15000,14000,"its a car....",true,true),
+	(1,"New","Car",2021,"Automatic","Black","Black",0,"4Y1SL65848Z411402",15000,14000,"its a car....",true,true),
+	(2,"New","Car",2022,"Automatic","Black","Black",0,"4Y1SL65848Z411403",14000,13000,"its a car....",false,false),
+	(2,"New","Car",2021,"Automatic","Black","Black",0,"4Y1SL65848Z411404",15000,14000,"its a car....",true,true),
+	(3,"New","Car",2022,"Automatic","Black","Black",0,"4Y1SL65848Z41143905",13000,12000,"its a car....",true,false),
+	(3,"Used","Car",2015,"Automatic","Black","Black",5000,"4Y1SL65848Z411406",10000,9900,"its a car....",false,true),
+	(2,"Used","Car",2016,"Manual","Black","Black",9584,"4Y1SL65848Z41143907",10000,9000,"its a car....",false,false),
+	(2,"Used","Car",2018,"Manual","Black","Black",12345,"4Y1SL65848Z411408",9000,8000,"its a car....",true,true),
+	(3,"Used","Car",2014,"Manual","Black","Black",20032,"4Y1SL65848Z411409",10000,9000,"its a car....",false,true),
+	(3,"Used","Car",2013,"Automatic","Black","Black",35932,"4Y1SL65848Z411410",11000,1000,"its a car....",false,true),
+	(4,"Used","Car",2012,"Manual","Black","Black",4932,"4Y1SL65848Z411411",10000,9900,"its a car....",false,false),
+	(1,"Used","Car",2015,"Manual","Black","Black",3452,"4Y1SL65848Z411412",10000,9900,"its a car....",true,true),
+	(1,"New","Car",2021,"Automatic","Black","Black",0,"4Y1SL65848Z411413",14000,13000,"its a car....",true,true),
+	(1,"New","Car",2022,"Automatic","Black","Black",0,"4Y1SL65848Z411414",13000,12000,"its a car....",true,true);
 
 
-INSERT INTO Sale (Name,Phone,Email,Street1,Street2,City,State, Zipcode,VehiculeId,PurchasePrice,PurchaseType,UserId)
+INSERT INTO Sale (Name,Phone,Email,Street1,Street2,City,State, Zipcode,VehiculeId,PurchasePrice,PurchaseType,date,UserId)
 VALUES
-	("Bob","1-111-111-1111","bob@gmail.com","123 street","apt 2","Montreal","QC", "12345",3,9000,"Bank Finance",1),
-	("Patrick","1-111-111-1111","patrick@gmail.com","13 street","apt 22","Montreal","QC", "12345",5,9000,"Bank Finance",2),
-	("Ken","1-111-111-1111","ken@gmail.com","163 street","apt 3","Montreal","QC", "12345",7,9000,"Bank Finance",2),
-	("Tara","1-111-111-1111","tara@gmail.com","45 street","apt 1","Montreal","QC", "12345",11,9000,"Bank Finance",2);
+	("Bob","1-111-111-1111","bob@gmail.com","123 street","apt 2","Montreal","QC", "12345",3,9000,"Bank Finance","2022-03-22",1),
+	("Patrick","1-111-111-1111","patrick@gmail.com","13 street","apt 22","Montreal","QC", "12345",5,9000,"Bank Finance","2022-04-22",2),
+	("Ken","1-111-111-1111","ken@gmail.com","163 street","apt 3","Montreal","QC", "12345",7,9000,"Bank Finance","2022-05-22",2),
+	("Tara","1-111-111-1111","tara@gmail.com","45 street","apt 1","Montreal","QC", "12345",11,9000,"Bank Finance","2022-07-22",2);
 
 
 
